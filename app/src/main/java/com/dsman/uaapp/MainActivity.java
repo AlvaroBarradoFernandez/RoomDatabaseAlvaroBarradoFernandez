@@ -54,9 +54,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
-                // TODO Auto-generated method stub
 
-                if (mEmail.getText().toString().isEmpty() && mPassword.getText().toString().isEmpty()) {
+                //Actualización del estado del botón según los datos introducidos en los EditText
+
+                if (mEmail.getText().toString().isEmpty() || mPassword.getText().toString().isEmpty()) {
                     login.setEnabled(false);
 
 
@@ -64,17 +65,23 @@ public class MainActivity extends AppCompatActivity {
 
                     login.setEnabled(true);
                 }
+
+
+
             }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // TODO Auto-generated method stub
+                //No es necesario
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 // TODO Auto-generated method stub
+                //No es necesario
 
             }
         });
@@ -83,25 +90,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
-                // TODO Auto-generated method stub
 
-                if (mPassword.getText().toString().isEmpty() && mEmail.getText().toString().isEmpty()) {
+                //Actualización del estado del botón según los datos introducidos en los EditText
+
+                if (mPassword.getText().toString().isEmpty() || mEmail.getText().toString().isEmpty()) {
                     login.setEnabled(false);
 
                 } else {
                     login.setEnabled(true);
                 }
+
+
             }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // TODO Auto-generated method stub
+                //No es necesario
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 // TODO Auto-generated method stub
+                //No es necesario
 
             }
         });
@@ -117,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             */
 
         if (checkEmail() && checkPass()) {
-
+            mTilEmail.setHelperText(" ");
            // startActivity(navigate);
         }
 
