@@ -1,8 +1,10 @@
 package com.dsman.uaapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.etPass);
         mTilEmail = findViewById(R.id.tilEmail);
         mTilPass = findViewById(R.id.tilPass);
+        login = findViewById(R.id.btnLogin);
         checkButon();
 
     }
@@ -55,7 +58,10 @@ public class MainActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
                 if (mEmail.getText().toString().isEmpty() && mPassword.getText().toString().isEmpty()) {
+                    login.setBackgroundTintList(ContextCompat.getColorStateList(MainActivity.this, R.color.buttondisable));
                     login.setEnabled(false);
+
+
                 } else {
                     login.setEnabled(true);
                 }
@@ -81,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
                 if (mPassword.getText().toString().isEmpty() && mEmail.getText().toString().isEmpty()) {
+                    login.setBackgroundTintList(ContextCompat.getColorStateList(MainActivity.this, R.color.buttondisable));
                     login.setEnabled(false);
+
                 } else {
                     login.setEnabled(true);
                 }
