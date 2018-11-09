@@ -1,3 +1,20 @@
 <resources>
+    <!--Seccion App-->
     <string name="app_name">U-TAD APP</string>
+
+    <!--Content App for Form Data-->
+    <string name="name">Name</string>
+    <string name="surname1">Surname</string>
+    <string name="surname2">Surname2</string>
+    <string name="birthday">Birthday</string>
+    <string name="address">Address</string>
+    <string name="postalCode">PostalCode</string>
+    <string name="city">City</string>
+    <string name="phone">Phone</string>
+    <string-array name="array_phone">
+        <item>Phone</item>
+        <item>Home</item>
+        <item>Office</item>
+    </string-array>
+    <string name="save">Save</string>
 </resources>

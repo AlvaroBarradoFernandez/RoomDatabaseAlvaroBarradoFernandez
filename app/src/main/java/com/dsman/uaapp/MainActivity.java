@@ -19,11 +19,15 @@ public class MainActivity extends AppCompatActivity {
     private EditText mPassword;
     private TextInputLayout mTilEmail, mTilPass;
     private Button login;
+    private User user;
+    public static String USER = "USER";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+        user = new User();
         mEmail = findViewById(R.id.etEmail);
         mPassword = findViewById(R.id.etPass);
         mTilEmail = findViewById(R.id.tilEmail);
@@ -122,23 +126,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkLogin() {
         //login ok
-        /*
-        Intent navigate = new Intent(MainActivity.this, FormDataActivity.class);
-        String sEmail = mEmail.getText().toString();
-        navigate.putExtra("username", sEmail);
-            */
+
+        Intent navigate = new Intent(MainActivity.this, FormDataFrag1.class);
+        user.setEmail(mEmail.getText().toString());
+        navigate.putExtra(MainActivity.USER, user);
+
 
         if (checkEmail() && checkPass()) {
+
             mTilEmail.setHelperText(" ");
-           // startActivity(navigate);
+           startActivity(navigate);
         }
 
         if (checkEmail() && !checkPass()) {
-            //mTilEmail.setHelperText("Email OK");
             mTilEmail.setHelperText(" ");
             mTilPass.setError("Introduzca una contraseña mayor a 6");
         }else{
-            //mTilPass.setHelperText("Password OK");
+
             mTilPass.setHelperText(" ");
         }
 
