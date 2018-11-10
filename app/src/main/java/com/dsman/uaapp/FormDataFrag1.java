@@ -7,15 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -33,7 +30,7 @@ import java.util.Locale;
 
 //TODO Tienes activity, dentro de tu fragmento, cargas el Framgneto 1 por defecto, y cuando le des al botón, cargas fragmento 2
 
-public class FormDataFrag1 extends AppCompatActivity {
+public class FormDataFrag1 extends FragmentActivity {
     @BindView(R.id.etName)
     EditText mName;
     @BindView(R.id.etSurname)
@@ -63,7 +60,7 @@ public class FormDataFrag1 extends AppCompatActivity {
     @BindView(R.id.tilBirthday)
     TextInputLayout layoutBirthday;
     @BindView(R.id.tilAddress)
-    TextInputLayout layoutAdress;
+    TextInputLayout layoutAddress;
     @BindView(R.id.tilPostalCode)
     TextInputLayout layoutPostalCode;
     @BindView(R.id.tilCity)
@@ -101,7 +98,6 @@ public class FormDataFrag1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View mView;
 
         setContentView(R.layout.activity_form_data);
         //Creación ButterKnife
@@ -111,6 +107,8 @@ public class FormDataFrag1 extends AppCompatActivity {
         if (intent_receive != null) {
             user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
         }
+
+
         textListener();
         onClickbirthday();
         clearDate();
@@ -193,7 +191,7 @@ public class FormDataFrag1 extends AppCompatActivity {
                 @Override
                 public void onChanged(@NonNull String sText) {
                     if (!sText.isEmpty()) {
-                        layoutAdress.setHelperText(" ");
+                        layoutAddress.setHelperText(" ");
                     }
                 }
             });
@@ -262,7 +260,7 @@ public class FormDataFrag1 extends AppCompatActivity {
     }
 
     public boolean allDone() {
-        if (!name.isEmpty() && !surname.isEmpty() && !surname2.isEmpty() && !birthday.isEmpty() && !address.isEmpty() ||
+        if (!name.isEmpty() && !surname.isEmpty() && !surname2.isEmpty() && !birthday.isEmpty() && !address.isEmpty() &&
                 !postalCode.isEmpty() && !city.isEmpty() && !phone.isEmpty()) {
 
             return true;
@@ -292,8 +290,8 @@ public class FormDataFrag1 extends AppCompatActivity {
             layoutBirthday.setError("You forgot to write your " + layoutBirthday.getHint());
         }
         if (address.equals("")) {
-            layoutAdress.setHelperTextEnabled(true);
-            layoutAdress.setError("You forgot to write your " + layoutAdress.getHint());
+            layoutAddress.setHelperTextEnabled(true);
+            layoutAddress.setError("You forgot to write your " + layoutAddress.getHint());
         }
         if (postalCode.equals("")) {
             layoutPostalCode.setHelperTextEnabled(true);
@@ -324,13 +322,33 @@ public class FormDataFrag1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (!allDone()) {
+                if (enableButton()) {
                     textListenerError();
 
-                } else if (allDone()) {
+                }
+                if (allDone()) {
                     Toast.makeText(FormDataFrag1.this,"Entra en el Else",Toast.LENGTH_SHORT).show();
 
+                    if (findViewById(R.id.Frag1) != null) {
 
+                        // However, if we're being restored from a previous state,
+                        // then we don't need to do anything and should return or else
+                        // we could end up with overlapping fragments.
+                        if (savedInstanceState != null) {
+                            return;
+                        }
+
+                        // Create a new Fragment to be placed in the activity layout
+                        HeadlinesFragment firstFragment = new HeadlinesFragment();
+
+                        // In case this activity was started with special instructions from an
+                        // Intent, pass the Intent's extras to the fragment as arguments
+                        firstFragment.setArguments(getIntent().getExtras());
+
+                        // Add the fragment to the 'fragment_container' FrameLayout
+                        getSupportFragmentManager().beginTransaction()
+                                .add(R.id.Frag1, firstFragment).commit();
+                    }
 
 
                     user.setName(mName.getText().toString());
@@ -341,11 +359,7 @@ public class FormDataFrag1 extends AppCompatActivity {
                     user.setCity(mCity.getText().toString());
                     user.setPhonetype(mPhoneType.getSelectedItem().toString());
                     user.setPhone(mPhone.getText().toString());
-                    FragmentManager fm = getSupportFragmentManager();
-                    FragmentTransaction ft = fm.beginTransaction();
-                    ProfileDataFrag2 frag2 = new ProfileDataFrag2();
-                    ft.replace(R.id.frag2, frag2);
-                    ft.commit();
+
 
                     //TODO Crear pantalla Personal Data
             // intent_send = new Intent(this, );
