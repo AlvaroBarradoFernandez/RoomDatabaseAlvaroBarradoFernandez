@@ -7,12 +7,16 @@
     tools:context=".FormDataFrag1"
     tools:ignore="ExtraText">
 
-    <!--TODO ajustar diseño para que se muestren los helptext errors en cada campo-->
+    <!--TODO añadir idioma en los campos via Strings (opcional)-->
 
     <ScrollView
         android:id="@+id/scrollview1"
         android:layout_width="match_parent"
-        android:layout_height="560dp">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="80dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,12 +25,12 @@
 
             <LinearLayout
                 android:layout_width="350dp"
-                android:layout_height="70dp"
+                android:layout_height="85dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical"
                 android:singleLine="true">
@@ -34,7 +38,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilName"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp">
+                    android:layout_height="80dp">
 
                     <EditText
                         android:id="@+id/etName"
@@ -53,7 +57,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="130dp"
+                android:layout_marginTop="105dp"
                 android:layout_marginEnd="200dp"
                 android:orientation="vertical"
                 android:singleLine="true">
@@ -81,7 +85,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="200dp"
-                android:layout_marginTop="130dp"
+                android:layout_marginTop="105dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical"
                 android:singleLine="true">
@@ -103,11 +107,11 @@
 
             <LinearLayout
                 android:layout_width="330dp"
-                android:layout_height="50dp"
+                android:layout_height="80dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="205dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical"
                 android:singleLine="true">
@@ -115,33 +119,35 @@
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilBirthday"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="75dp"
                     android:layout_marginTop="0dp">
 
                     <EditText
                         android:id="@+id/etBirthday"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:focusable="false"
                         android:hint="@string/birthday" />
 
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="330dp"
-                android:layout_height="50dp"
+                android:layout_height="80dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="270dp"
+                android:layout_marginTop="295dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical"
                 android:singleLine="true">
+
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilAddress"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp">
+                    android:layout_height="75dp">
 
                     <EditText
                         android:id="@+id/etAddress"
@@ -160,7 +166,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="320dp"
+                android:layout_marginTop="385dp"
                 android:layout_marginEnd="200dp"
                 android:orientation="vertical"
                 android:singleLine="true">
@@ -188,7 +194,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="200dp"
-                android:layout_marginTop="320dp"
+                android:layout_marginTop="385dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical"
                 android:singleLine="true">
@@ -215,7 +221,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="200dp"
-                android:layout_marginTop="370dp"
+                android:layout_marginTop="465dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical"
                 android:singleLine="true">
@@ -244,7 +250,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="370dp"
+                android:layout_marginTop="475dp"
                 android:layout_marginEnd="200dp"
                 android:orientation="vertical">
 
@@ -267,7 +273,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="45dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/circle_button"
         android:backgroundTint="@color/button_text"
         android:text="@string/save"
