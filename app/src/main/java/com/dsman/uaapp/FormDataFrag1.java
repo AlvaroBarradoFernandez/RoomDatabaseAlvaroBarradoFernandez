@@ -61,6 +61,7 @@ public class FormDataFrag1 extends AppCompatActivity {
     TextInputLayout layoutCity;
     @BindView(R.id.tilPhone)
     TextInputLayout layoutPhone;
+    @BindView(R.id.btnclearDate) Button btnClearDate;
 
     private Intent intent_send;
     private Intent intent_receive;
@@ -103,6 +104,7 @@ public class FormDataFrag1 extends AppCompatActivity {
         }
         textListener();
         onClickbirthday();
+        clearDate();
         onClickedSave();
     }
 
@@ -128,6 +130,7 @@ public class FormDataFrag1 extends AppCompatActivity {
         mName.addTextChangedListener(enableButtonSave);
         mSurname.addTextChangedListener(enableButtonSave);
         mSurname2.addTextChangedListener(enableButtonSave);
+        mBirthday.addTextChangedListener(enableButtonSave);
         mAdress.addTextChangedListener(enableButtonSave);
         mPostalCode.addTextChangedListener(enableButtonSave);
         mCity.addTextChangedListener(enableButtonSave);
@@ -285,6 +288,15 @@ public class FormDataFrag1 extends AppCompatActivity {
         }
     }
 
+    //Botón de reseteo de Birthday
+    public void clearDate(){
+        btnClearDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBirthday.setText("");
+            }
+        });
+    }
     public void onClickedSave() {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -302,6 +314,7 @@ public class FormDataFrag1 extends AppCompatActivity {
                     user.setCity(mCity.getText().toString());
                     user.setPhonetype(mPhoneType.getSelectedItem().toString());
                     user.setPhone(mPhone.getText().toString());
+
                     //TODO Crear pantalla Personal Data
 //        intent_send = new Intent(this, PersonalData.class);
 //        intent_send.putExtra(MainActivity.USER, user);
