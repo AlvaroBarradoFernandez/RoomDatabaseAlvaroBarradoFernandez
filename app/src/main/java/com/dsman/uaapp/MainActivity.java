@@ -1,9 +1,11 @@
 package com.dsman.uaapp;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         //login ok
 
         Intent navigate = new Intent(MainActivity.this, FormDataFrag1.class);
+
         user.setEmail(mEmail.getText().toString());
         navigate.putExtra(MainActivity.USER, user);
 

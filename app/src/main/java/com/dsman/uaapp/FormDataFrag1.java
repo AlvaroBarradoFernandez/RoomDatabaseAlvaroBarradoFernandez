@@ -7,12 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -30,7 +33,7 @@ import java.util.Locale;
 
 //TODO Tienes activity, dentro de tu fragmento, cargas el Framgneto 1 por defecto, y cuando le des al botón, cargas fragmento 2
 
-public class FormDataFrag1 extends FragmentActivity {
+public class FormDataFrag1 extends Fragment {
     @BindView(R.id.etName)
     EditText mName;
     @BindView(R.id.etSurname)
@@ -96,14 +99,15 @@ public class FormDataFrag1 extends FragmentActivity {
     private String phone;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        View mView;
+        mView = inflater.inflate(R.layout.activity_form_data, container, false);
 
-        setContentView(R.layout.activity_form_data);
         //Creación ButterKnife
-        ButterKnife.bind(this);
+        ButterKnife.bind(this, mView);
         user = new User();
-        intent_receive = this.getIntent();
+        intent_receive = getActivity().getIntent();
         if (intent_receive != null) {
             user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
         }
@@ -113,6 +117,7 @@ public class FormDataFrag1 extends FragmentActivity {
         onClickbirthday();
         clearDate();
         onClickedSave();
+        return  mView;
 
     }
 
@@ -327,28 +332,13 @@ public class FormDataFrag1 extends FragmentActivity {
 
                 }
                 if (allDone()) {
-                    Toast.makeText(FormDataFrag1.this,"Entra en el Else",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Entra en el segundo IF",Toast.LENGTH_SHORT).show();
 
-                    if (findViewById(R.id.Frag1) != null) {
-
-//                        // However, if we're being restored from a previous state,
-//                        // then we don't need to do anything and should return or else
-//                        // we could end up with overlapping fragments.
-//                        if (savedInstanceState != null) {
-//                            return;
-//                        }
-//
-//                        // Create a new Fragment to be placed in the activity layout
-//                        HeadlinesFragment firstFragment = new HeadlinesFragment();
-//
-//                        // In case this activity was started with special instructions from an
-//                        // Intent, pass the Intent's extras to the fragment as arguments
-//                        firstFragment.setArguments(getIntent().getExtras());
-//
-//                        // Add the fragment to the 'fragment_container' FrameLayout
-//                        getSupportFragmentManager().beginTransaction()
-//                                .add(R.id.Frag1, firstFragment).commit();
-                    }
+                 ProfileDataFrag2 mFrag2 =  new ProfileDataFrag2();
+                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frag2, mFrag2);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
 
 
                     user.setName(mName.getText().toString());
