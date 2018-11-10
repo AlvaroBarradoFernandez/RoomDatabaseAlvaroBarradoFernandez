@@ -8,6 +8,7 @@
     tools:ignore="ExtraText">
 
     <!--TODO añadir idioma en los campos via Strings (opcional)-->
+    <!--TODO Sé que el botoón ha de ser circular y con flecha, cuando tenga el ViewPager lo hago XD-->
 
     <ScrollView
         android:id="@+id/scrollview1"
