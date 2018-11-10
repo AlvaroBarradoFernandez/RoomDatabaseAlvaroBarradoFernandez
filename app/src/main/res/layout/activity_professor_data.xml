@@ -13,6 +13,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/u_logo"
+
         />
 
     <TextView
@@ -42,7 +43,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/drawer_layout_subjects"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="match_parent"
         tools:openDrawer="start"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/imgprofessor"
@@ -52,10 +53,27 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerViewSubject"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/imgprofessor"
             android:layout_marginTop="10dp"/>
 
 
     </android.support.v4.widget.DrawerLayout>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="@string/description"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/description"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/description"
+        android:text="@string/text"
+        android:layout_marginStart="10dp"
+
+        />
 </RelativeLayout>

@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <!-- <activity android:name=".General_Course"> -->
-        <activity android:name=".General_Course">
+        <activity android:name=".Professor_Data">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
