@@ -10,6 +10,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -29,7 +30,10 @@ import java.util.Calendar;
 
 import java.util.Locale;
 
-public class FormDataFrag1 extends Fragment {
+
+//TODO Tienes activity, dentro de tu fragmento, cargas el Framgneto 1 por defecto, y cuando le des al botón, cargas fragmento 2
+
+public class FormDataFrag1 extends AppCompatActivity {
     @BindView(R.id.etName)
     EditText mName;
     @BindView(R.id.etSurname)
@@ -95,15 +99,15 @@ public class FormDataFrag1 extends Fragment {
     private String phone;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         View mView;
-        mView = inflater.inflate(R.layout.activity_form_data, container, false);
 
+        setContentView(R.layout.activity_form_data);
         //Creación ButterKnife
-        ButterKnife.bind(this, mView);
+        ButterKnife.bind(this);
         user = new User();
-        intent_receive = getActivity().getIntent();
+        intent_receive = this.getIntent();
         if (intent_receive != null) {
             user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
         }
@@ -111,7 +115,7 @@ public class FormDataFrag1 extends Fragment {
         onClickbirthday();
         clearDate();
         onClickedSave();
-        return mView;
+
     }
 
 
@@ -121,7 +125,7 @@ public class FormDataFrag1 extends Fragment {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
-            // TODO Auto-generated method stub
+
             myCalendar.set(Calendar.YEAR, year);
             myCalendar.set(Calendar.MONTH, monthOfYear);
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -323,12 +327,8 @@ public class FormDataFrag1 extends Fragment {
                     textListenerError();
 
                 } else if (allDone()) {
-                    Toast.makeText(getActivity(),"Entra en el Else",Toast.LENGTH_SHORT).show();
-                    ProfileDataFrag2 mFrag2 = new ProfileDataFrag2();
-                    FragmentManager fragmentManager = getFragmentManager();
-                    FragmentTransaction ft = fragmentManager.beginTransaction();
-                    ft.replace(R.id.frag2, mFrag2);
-                    ft.commit();
+                    Toast.makeText(FormDataFrag1.this,"Entra en el Else",Toast.LENGTH_SHORT).show();
+
 
 
 
@@ -340,11 +340,16 @@ public class FormDataFrag1 extends Fragment {
                     user.setCity(mCity.getText().toString());
                     user.setPhonetype(mPhoneType.getSelectedItem().toString());
                     user.setPhone(mPhone.getText().toString());
+                    FragmentManager fm = getSupportFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ProfileDataFrag2 frag2 = new ProfileDataFrag2();
+                    ft.replace(R.id.frag2, frag2);
+                    ft.commit();
 
                     //TODO Crear pantalla Personal Data
-//        intent_send = new Intent(this, PersonalData.class);
-//        intent_send.putExtra(MainActivity.USER, user);
-//        startActivity(intent_send);
+            // intent_send = new Intent(this, );
+            //intent_send.putExtra(MainActivity.USER, user);
+            //startActivity(intent_send);
                 }
             }
         });

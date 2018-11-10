@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     public void checkLogin() {
         //login ok
 
-        Intent navigate = new Intent(MainActivity.this, View_Pager.class);
+        Intent navigate = new Intent(MainActivity.this, FormDataFrag1.class);
         user.setEmail(mEmail.getText().toString());
         navigate.putExtra(MainActivity.USER, user);
 
