@@ -25,7 +25,7 @@ public class View_Pager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__pager);
         ButterKnife.bind(this);
-      mPagerAdapter = new ScreenSlideFragment(getSupportFragmentManager());
+      mPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
 
@@ -52,8 +52,8 @@ public class View_Pager extends AppCompatActivity {
         return numOfTabs;
     }
 
-    private class ScreenSlideFragment extends FragmentStatePagerAdapter {
-        public ScreenSlideFragment(FragmentManager fm) {
+    private class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+        public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 

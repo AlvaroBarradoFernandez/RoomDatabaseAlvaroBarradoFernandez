@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,11 +66,11 @@ public class FormDataFrag1 extends Fragment {
     TextInputLayout layoutCity;
     @BindView(R.id.tilPhone)
     TextInputLayout layoutPhone;
-    @BindView(R.id.btnclearDate) Button btnClearDate;
+    @BindView(R.id.btnclearDate)
+    Button btnClearDate;
 
     private Intent intent_send;
     private Intent intent_receive;
-
 
 
     private User user;
@@ -111,6 +114,7 @@ public class FormDataFrag1 extends Fragment {
         return mView;
     }
 
+
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
@@ -125,7 +129,6 @@ public class FormDataFrag1 extends Fragment {
         }
 
     };
-
 
 
     public void textListener() {
@@ -154,7 +157,7 @@ public class FormDataFrag1 extends Fragment {
             nameLD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
                 public void onChanged(@NonNull String sName) {
-                    if(!sName.isEmpty()){
+                    if (!sName.isEmpty()) {
                         layoutName.setHelperText(" ");
                     }
 
@@ -165,7 +168,7 @@ public class FormDataFrag1 extends Fragment {
             surnameLD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
                 public void onChanged(@NonNull String sSurname) {
-                    if(!sSurname.isEmpty()){
+                    if (!sSurname.isEmpty()) {
                         layoutSurname.setHelperText(" ");
                     }
                 }
@@ -175,7 +178,7 @@ public class FormDataFrag1 extends Fragment {
             surname2LD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
                 public void onChanged(@NonNull String sSurname2) {
-                    if(!sSurname2.isEmpty()){
+                    if (!sSurname2.isEmpty()) {
                         layoutSurname2.setHelperText(" ");
                     }
                 }
@@ -185,7 +188,7 @@ public class FormDataFrag1 extends Fragment {
             addressLD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
                 public void onChanged(@NonNull String sText) {
-                    if(!sText.isEmpty()){
+                    if (!sText.isEmpty()) {
                         layoutAdress.setHelperText(" ");
                     }
                 }
@@ -196,7 +199,7 @@ public class FormDataFrag1 extends Fragment {
             birthdayLD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
                 public void onChanged(@NonNull String sText) {
-                    if(!sText.isEmpty()){
+                    if (!sText.isEmpty()) {
                         layoutBirthday.setHelperText(" ");
                     }
                 }
@@ -206,7 +209,7 @@ public class FormDataFrag1 extends Fragment {
             postalCodeLD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
                 public void onChanged(@NonNull String sText) {
-                    if(!sText.isEmpty()){
+                    if (!sText.isEmpty()) {
                         layoutPostalCode.setHelperText(" ");
                     }
                 }
@@ -216,7 +219,7 @@ public class FormDataFrag1 extends Fragment {
             cityLD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
                 public void onChanged(@NonNull String sText) {
-                    if(!sText.isEmpty()){
+                    if (!sText.isEmpty()) {
                         layoutCity.setHelperText(" ");
                     }
                 }
@@ -228,7 +231,7 @@ public class FormDataFrag1 extends Fragment {
             phoneLD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
                 public void onChanged(@NonNull String sText) {
-                    if(!sText.isEmpty()){
+                    if (!sText.isEmpty()) {
                         layoutPhone.setHelperText(" ");
                     }
                 }
@@ -247,15 +250,26 @@ public class FormDataFrag1 extends Fragment {
                 !postalCode.isEmpty() || !city.isEmpty() || !phone.isEmpty()) {
 
             return true;
-        }else{
+        } else {
 
             return false;
         }
 
     }
 
+    public boolean allDone() {
+        if (!name.isEmpty() && !surname.isEmpty() && !surname2.isEmpty() && !birthday.isEmpty() && !address.isEmpty() ||
+                !postalCode.isEmpty() && !city.isEmpty() && !phone.isEmpty()) {
 
-    public void textListenerError(){
+            return true;
+        } else {
+
+            return false;
+        }
+
+    }
+
+    public void textListenerError() {
         if (name.equals("")) {
             layoutName.setHelperTextEnabled(true);
             layoutName.setError("You forgot to write your " + layoutName.getHint());
@@ -292,7 +306,7 @@ public class FormDataFrag1 extends Fragment {
     }
 
     //Botón de reseteo de Birthday
-    public void clearDate(){
+    public void clearDate() {
         btnClearDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -300,14 +314,23 @@ public class FormDataFrag1 extends Fragment {
             }
         });
     }
+
     public void onClickedSave() {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(enableButton()){
+                if (enableButton()) {
                     textListenerError();
 
-                }else {
+                } else if (allDone()) {
+                    Toast.makeText(getActivity(),"Entra en el Else",Toast.LENGTH_SHORT).show();
+                    ProfileDataFrag2 mFrag2 = new ProfileDataFrag2();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    ft.replace(R.id.frag2, mFrag2);
+                    ft.commit();
+
+
 
                     user.setName(mName.getText().toString());
                     user.setSurname(mSurname.getText().toString());
