@@ -18,9 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FormDataFrag1"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Professor_Subjects"></activity>
+        <activity android:name=".FormDataFrag1" />
     </application>
 
 </manifest>
