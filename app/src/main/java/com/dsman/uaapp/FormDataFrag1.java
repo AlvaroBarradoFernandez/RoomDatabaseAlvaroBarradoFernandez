@@ -323,7 +323,8 @@ public class FormDataFrag1 extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (enableButton()) {
+
+                if (!allDone()) {
                     textListenerError();
 
                 } else if (allDone()) {
