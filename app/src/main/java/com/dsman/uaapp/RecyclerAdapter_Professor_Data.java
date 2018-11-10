@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 
 public class RecyclerAdapter_Professor_Data extends RecyclerView.Adapter<RecyclerAdapter_Professor_Data.MyViewHolder> {
-    private CardView_General_Course[] mDataset;
+    private CardView_Professor_Data[] mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -29,7 +29,7 @@ public class RecyclerAdapter_Professor_Data extends RecyclerView.Adapter<Recycle
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public RecyclerAdapter_Professor_Data(CardView_General_Course[] myDataset) {
+    public RecyclerAdapter_Professor_Data(CardView_Professor_Data[] myDataset) {
         mDataset = myDataset;
     }
 
@@ -47,9 +47,9 @@ public class RecyclerAdapter_Professor_Data extends RecyclerView.Adapter<Recycle
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        CardView_General_Course  item = mDataset [position];
-        holder.mTextView.setText(item.getNombres());
-        holder.mImagenView.setImageDrawable(item.getFotos());
+        CardView_Professor_Data  item = mDataset [position];
+        holder.mTextView.setText(item.getNombres_subject());
+        holder.mImagenView.setImageDrawable(item.getFotos_subject());
 
     }
 
