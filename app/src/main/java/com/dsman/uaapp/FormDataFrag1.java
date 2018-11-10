@@ -36,7 +36,7 @@ public class FormDataFrag1 extends Fragment {
     @BindView(R.id.etBirthday)
     EditText mBirthday;
     @BindView(R.id.etAddress)
-    EditText mAdress;
+    EditText mAddress;
     @BindView(R.id.etPostalCode)
     EditText mPostalCode;
     @BindView(R.id.etCity)
@@ -90,11 +90,11 @@ public class FormDataFrag1 extends Fragment {
     private String phoneType;
     MutableLiveData<String> phoneLD = new MutableLiveData<>();
     private String phone;
-    private  View mView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+        View mView;
         mView = inflater.inflate(R.layout.activity_form_data, container, false);
 
         //Creación ButterKnife
@@ -134,7 +134,7 @@ public class FormDataFrag1 extends Fragment {
         mSurname.addTextChangedListener(enableButtonSave);
         mSurname2.addTextChangedListener(enableButtonSave);
         mBirthday.addTextChangedListener(enableButtonSave);
-        mAdress.addTextChangedListener(enableButtonSave);
+        mAddress.addTextChangedListener(enableButtonSave);
         mPostalCode.addTextChangedListener(enableButtonSave);
         mCity.addTextChangedListener(enableButtonSave);
         mPhone.addTextChangedListener(enableButtonSave);
@@ -180,7 +180,7 @@ public class FormDataFrag1 extends Fragment {
                     }
                 }
             });
-            address = mAdress.getText().toString();
+            address = mAddress.getText().toString();
             addressLD.postValue(address);
             addressLD.observe(FormDataFrag1.this, new Observer<String>() {
                 @Override
@@ -312,7 +312,7 @@ public class FormDataFrag1 extends Fragment {
                     user.setName(mName.getText().toString());
                     user.setSurname(mSurname.getText().toString());
                     user.setSurname2(mSurname2.getText().toString());
-                    user.setAddress(mAdress.getText().toString());
+                    user.setAddress(mAddress.getText().toString());
                     user.setPostalcode(mPostalCode.getText().toString());
                     user.setCity(mCity.getText().toString());
                     user.setPhonetype(mPhoneType.getSelectedItem().toString());

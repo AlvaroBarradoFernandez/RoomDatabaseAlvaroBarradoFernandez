@@ -19,6 +19,7 @@
         <activity
             android:name=".View_Pager"
             android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".ProfileData"></activity>
     </application>
 
 </manifest>

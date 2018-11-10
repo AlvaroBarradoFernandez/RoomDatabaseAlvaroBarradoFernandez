@@ -1,7 +1,6 @@
 package com.dsman.uaapp;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
@@ -26,7 +25,7 @@ public class View_Pager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__pager);
         ButterKnife.bind(this);
-        mPagerAdapter = new ScreenSlideFragment(getSupportFragmentManager());
+      mPagerAdapter = new ScreenSlideFragment(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
 
@@ -52,10 +51,7 @@ public class View_Pager extends AppCompatActivity {
     public int getCount() {
         return numOfTabs;
     }
-    /**
-     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
-     * sequence.
-     */
+
     private class ScreenSlideFragment extends FragmentStatePagerAdapter {
         public ScreenSlideFragment(FragmentManager fm) {
             super(fm);
@@ -67,7 +63,7 @@ public class View_Pager extends AppCompatActivity {
                 case 0:
                     return new FormDataFrag1();
                 case 1:
-                    return new FormDataFrag1();
+                    return new ProfileDataFrag2();
                 default:
                     return new FormDataFrag1();
             }
