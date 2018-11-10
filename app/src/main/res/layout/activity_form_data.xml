@@ -45,7 +45,7 @@
                     <EditText
                         android:id="@+id/etName"
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
                         android:hint="@string/name"
                         android:singleLine="true" />
 
@@ -238,7 +238,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="200dp"
-                android:layout_marginTop="465dp"
+                android:layout_marginTop="480dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical"
                 android:singleLine="true">
@@ -267,7 +267,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="475dp"
+                android:layout_marginTop="485dp"
                 android:layout_marginEnd="200dp"
                 android:orientation="vertical">
 

@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -24,7 +26,7 @@ import java.util.Calendar;
 
 import java.util.Locale;
 
-public class FormDataFrag1 extends AppCompatActivity {
+public class FormDataFrag1 extends Fragment {
     @BindView(R.id.etName)
     EditText mName;
     @BindView(R.id.etSurname)
@@ -88,17 +90,17 @@ public class FormDataFrag1 extends AppCompatActivity {
     private String phoneType;
     MutableLiveData<String> phoneLD = new MutableLiveData<>();
     private String phone;
-
+    private  View mView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_data);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        mView = inflater.inflate(R.layout.activity_form_data, container, false);
 
         //Creación ButterKnife
-        ButterKnife.bind(this);
+        ButterKnife.bind(this, mView);
         user = new User();
-        intent_receive = this.getIntent();
+        intent_receive = getActivity().getIntent();
         if (intent_receive != null) {
             user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
         }
@@ -106,6 +108,7 @@ public class FormDataFrag1 extends AppCompatActivity {
         onClickbirthday();
         clearDate();
         onClickedSave();
+        return mView;
     }
 
     Calendar myCalendar = Calendar.getInstance();
@@ -255,36 +258,36 @@ public class FormDataFrag1 extends AppCompatActivity {
     public void textListenerError(){
         if (name.equals("")) {
             layoutName.setHelperTextEnabled(true);
-            layoutName.setError("No has escrito tu name");
+            layoutName.setError("You forgot to write your " + layoutName.getHint());
         }
 
         if (surname.equals("")) {
             layoutSurname.setHelperTextEnabled(true);
-            layoutSurname.setError("No has escrito tu surname");
+            layoutSurname.setError("You forgot to write your " + layoutSurname.getHint());
         }
         if (surname2.equals("")) {
             layoutSurname2.setHelperTextEnabled(true);
-            layoutSurname2.setError("No has escrito tu surname2");
+            layoutSurname2.setError("You forgot to write your " + layoutSurname2.getHint());
         }
         if (birthday.equals("")) {
             layoutBirthday.setHelperTextEnabled(true);
-            layoutBirthday.setError("No has especificado el dia que naciste");
+            layoutBirthday.setError("You forgot to write your " + layoutBirthday.getHint());
         }
         if (address.equals("")) {
             layoutAdress.setHelperTextEnabled(true);
-            layoutAdress.setError("No has escrito tu adress");
+            layoutAdress.setError("You forgot to write your " + layoutAdress.getHint());
         }
         if (postalCode.equals("")) {
             layoutPostalCode.setHelperTextEnabled(true);
-            layoutPostalCode.setError("No has escrito tu postal code");
+            layoutPostalCode.setError("You forgot to write your " + layoutPostalCode.getHint());
         }
         if (city.equals("")) {
             layoutCity.setHelperTextEnabled(true);
-            layoutCity.setError("No has escrito tu city");
+            layoutCity.setError("You forgot to write your " + layoutCity.getHint());
         }
         if (phone.equals("")) {
             layoutPhone.setHelperTextEnabled(true);
-            layoutPhone.setError("No has escrito tu phone");
+            layoutPhone.setError("You forgot to write your " + layoutPhone.getHint());
         }
     }
 
@@ -331,7 +334,7 @@ public class FormDataFrag1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                new DatePickerDialog(FormDataFrag1.this, date, myCalendar
+                new DatePickerDialog(getLayoutInflater().getContext(), date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
 

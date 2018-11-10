@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -127,20 +128,19 @@ public class MainActivity extends AppCompatActivity {
     public void checkLogin() {
         //login ok
 
-        Intent navigate = new Intent(MainActivity.this, FormDataFrag1.class);
+        Intent navigate = new Intent(MainActivity.this, View_Pager.class);
         user.setEmail(mEmail.getText().toString());
         navigate.putExtra(MainActivity.USER, user);
 
 
         if (checkEmail() && checkPass()) {
 
-            mTilEmail.setHelperText(" ");
            startActivity(navigate);
         }
 
         if (checkEmail() && !checkPass()) {
             mTilEmail.setHelperText(" ");
-            mTilPass.setError("Introduzca una contraseña mayor a 6");
+            mTilPass.setError("Enter a password greater than 6 characters");
         }else{
 
             mTilPass.setHelperText(" ");
@@ -153,17 +153,17 @@ public class MainActivity extends AppCompatActivity {
         if (!checkEmail() || !checkPass() || user == 0) {
 
             if (!checkEmail()) {
-                mTilEmail.setError("Email NO Válido");
+                mTilEmail.setError("Email NOT Valid");
             }
 
             if (user == 0) {
-                mTilEmail.setError("Introduzca un Email");
+                mTilEmail.setError("Enter a Email");
             }
 
             if (pass == 0) {
-                mTilPass.setError("Introduzca una contraseña");
+                mTilPass.setError("Enter a password");
             } else if (pass < 6 && pass > 0) {
-                mTilPass.setError("Introduzca una contraseña mayor a 6");
+                mTilPass.setError("Enter a password greater than 6 characters");
 
             }
 

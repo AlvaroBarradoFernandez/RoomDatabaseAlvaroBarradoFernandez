@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FormDataFrag1"
+            android:name=".View_Pager"
             android:windowSoftInputMode="adjustPan" />
     </application>
 
