@@ -28,4 +28,7 @@
     <string name="professors">Professors</string>
     <string name="comunities">Comunities</string>
     <string name="log_out">Log Out</string>
+    <string name="textCourse">Course description</string>
+    <string name="namedata">Name</string>
+    <string name="year">Year</string>
 </resources>
