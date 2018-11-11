@@ -22,4 +22,9 @@
     <string name="description">Description</string>
     <string name="text">Short description</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="classes">Classes</string>
+    <string name="notifications">Notifications</string>
+    <string name="qualificatios">Qualificatios</string>
+    <string name="professors">Professors</string>
+    <string name="comunities">Comunities</string>
 </resources>

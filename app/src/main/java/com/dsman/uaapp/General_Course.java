@@ -36,15 +36,16 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        CardView_General_Course usuario1 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Usuario1");
-        CardView_General_Course usuario2 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Usuario2");
-        CardView_General_Course usuario3 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Usuario3");
-        CardView_General_Course usuario4 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Usuario4");
-        CardView_General_Course usuario5 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Usuario5");
-        CardView_General_Course usuario6 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Usuario6");
-        CardView_General_Course usuario7 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Usuario7");
-        CardView_General_Course usuario8 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Usuario8");
-        CardView_General_Course[] elementos = {usuario1,usuario2,usuario3,usuario4,usuario5,usuario6,usuario7,usuario8};
+        CardView_General_Course usuario1 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.basedatos, null),"Database Access");
+        CardView_General_Course usuario2 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.android, null),"Android");
+        CardView_General_Course usuario3 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.fct, null),"FCT");
+        CardView_General_Course usuario4 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.computing, null),"Computing");
+        CardView_General_Course usuario5 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.english, null),"English");
+        CardView_General_Course usuario6 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.swift, null),"Swift");
+        CardView_General_Course usuario7 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.tfg, null),"TFG");
+        CardView_General_Course usuario8 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.odoo, null),"Management");
+        CardView_General_Course usuario9 = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.company, null),"Company");
+        CardView_General_Course[] elementos = {usuario1,usuario2,usuario3,usuario4,usuario5,usuario6,usuario7,usuario8, usuario9};
         mAdapter = new RecyclerAdapter_General_Course(elementos);
         mRecyclerView.setAdapter(mAdapter);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
