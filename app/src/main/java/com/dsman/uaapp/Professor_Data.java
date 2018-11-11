@@ -1,5 +1,6 @@
 package com.dsman.uaapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
