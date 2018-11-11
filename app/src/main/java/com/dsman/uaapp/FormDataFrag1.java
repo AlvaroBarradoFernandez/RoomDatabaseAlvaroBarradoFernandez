@@ -7,10 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -33,7 +31,7 @@ import java.util.Locale;
 
 //TODO Tienes activity, dentro de tu fragmento, cargas el Framgneto 1 por defecto, y cuando le des al botón, cargas fragmento 2
 
-public class FormDataFrag1 extends Fragment {
+public class FormDataFrag1 extends AppCompatActivity {
     @BindView(R.id.etName)
     EditText mName;
     @BindView(R.id.etSurname)
@@ -99,15 +97,14 @@ public class FormDataFrag1 extends Fragment {
     private String phone;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
-        View mView;
-        mView = inflater.inflate(R.layout.activity_form_data, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_form_data);
 
         //Creación ButterKnife
-        ButterKnife.bind(this, mView);
+        ButterKnife.bind(this);
         user = new User();
-        intent_receive = getActivity().getIntent();
+        intent_receive = this.getIntent();
         if (intent_receive != null) {
             user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
         }
@@ -117,7 +114,6 @@ public class FormDataFrag1 extends Fragment {
         onClickbirthday();
         clearDate();
         onClickedSave();
-        return  mView;
 
     }
 
@@ -332,10 +328,10 @@ public class FormDataFrag1 extends Fragment {
 
                 }
                 if (allDone()) {
-                    Toast.makeText(getActivity(),"Entra en el segundo IF",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormDataFrag1.this,"Entra en el segundo IF",Toast.LENGTH_SHORT).show();
 
                  ProfileDataFrag2 mFrag2 =  new ProfileDataFrag2();
-                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.frag2, mFrag2);
                     transaction.addToBackStack(null);
                     transaction.commit();
