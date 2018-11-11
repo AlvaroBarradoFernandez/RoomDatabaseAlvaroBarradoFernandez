@@ -31,4 +31,8 @@
     <string name="textCourse">Course description</string>
     <string name="namedata">Name</string>
     <string name="year">Year</string>
+    <string name="textComunity">Comunity description</string>
+    <string name="coordinator">Coordinator</string>
+    <string name="topic">Topic</string>
+    <string name="title">Title</string>
 </resources>

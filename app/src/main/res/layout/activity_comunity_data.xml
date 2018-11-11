@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Courses.Course_Data">
+    tools:context=".Comunities.Comunity_Data">
 
     <ImageView
-        android:id="@+id/imgcourse"
+        android:id="@+id/imgcomunity"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="30dp"
@@ -17,12 +17,22 @@
         />
 
     <TextView
-        android:id="@+id/name_course"
+        android:id="@+id/title_Comunity"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="120dp"
-        android:text="@string/namedata"
+        android:text="@string/coordinator"
+
+        />
+
+    <TextView
+        android:id="@+id/name_comunity"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="120dp"
+        android:text="@string/title"
 
         />
 
@@ -31,9 +41,9 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_below="@+id/name_course"
-        android:layout_marginTop="20dp"
-        android:text="@string/year"
+        android:layout_below="@+id/name_comunity"
+        android:layout_marginTop="10dp"
+        android:text="@string/topic"
         />
 
 
@@ -46,7 +56,7 @@
         android:layout_height="match_parent"
         tools:openDrawer="start"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/imgcourse"
+        android:layout_below="@+id/imgcomunity"
         >
 
 
@@ -54,7 +64,7 @@
             android:id="@+id/recyclerViewSubject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgcourse"
+            android:layout_below="@+id/imgcomunity"
             android:layout_marginTop="10dp"/>
 
 
@@ -72,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/description"
-        android:text="@string/textCourse"
+        android:text="@string/textComunity"
         android:layout_marginStart="10dp"
 
         />
