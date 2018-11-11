@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.dsman.uaapp.General_Course.General_Course;
+
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.dsman.uaapp;
+package com.dsman.uaapp.General_Course;
 
 import android.graphics.drawable.Drawable;
 

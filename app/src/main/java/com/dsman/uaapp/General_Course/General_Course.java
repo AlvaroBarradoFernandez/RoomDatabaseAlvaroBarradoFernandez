@@ -1,4 +1,4 @@
-package com.dsman.uaapp;
+package com.dsman.uaapp.General_Course;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.dsman.uaapp.MainActivity;
+import com.dsman.uaapp.R;
 
 public class General_Course extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private RecyclerView mRecyclerView;

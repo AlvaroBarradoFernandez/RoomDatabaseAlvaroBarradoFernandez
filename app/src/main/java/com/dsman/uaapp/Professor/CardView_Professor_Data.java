@@ -1,4 +1,4 @@
-package com.dsman.uaapp;
+package com.dsman.uaapp.Professor;
 
 import android.graphics.drawable.Drawable;
 

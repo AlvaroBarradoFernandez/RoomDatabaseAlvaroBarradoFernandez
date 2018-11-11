@@ -1,4 +1,4 @@
-package com.dsman.uaapp;
+package com.dsman.uaapp.Professor;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.dsman.uaapp.R;
 
 
 public class RecyclerAdapter_Professor_Data extends RecyclerView.Adapter<RecyclerAdapter_Professor_Data.MyViewHolder> {
