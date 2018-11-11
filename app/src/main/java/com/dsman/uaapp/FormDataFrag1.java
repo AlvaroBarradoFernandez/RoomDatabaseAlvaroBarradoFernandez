@@ -3,12 +3,13 @@ package com.dsman.uaapp;
 import android.app.DatePickerDialog;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -31,7 +32,7 @@ import java.util.Locale;
 
 //TODO Tienes activity, dentro de tu fragmento, cargas el Framgneto 1 por defecto, y cuando le des al botón, cargas fragmento 2
 
-public class FormDataFrag1 extends AppCompatActivity {
+public class FormDataFrag1 extends Fragment {
     @BindView(R.id.etName)
     EditText mName;
     @BindView(R.id.etSurname)
@@ -74,7 +75,6 @@ public class FormDataFrag1 extends AppCompatActivity {
     private Intent intent_send;
     private Intent intent_receive;
 
-
     private User user;
 
     MutableLiveData<String> nameLD = new MutableLiveData<>();
@@ -96,25 +96,43 @@ public class FormDataFrag1 extends AppCompatActivity {
     MutableLiveData<String> phoneLD = new MutableLiveData<>();
     private String phone;
 
+    private FormDataFrag1.OnFragmentInteractionListener mListener;
+
+    public FormDataFrag1() {
+        // Required empty public constructor
+    }
+
+//    public static ProfileDataFrag2 newInstance(String param1, String param2) {
+//        ProfileDataFrag2 fragment = new ProfileDataFrag2();
+//        Bundle args = new Bundle();
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_data);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View mView = inflater.inflate(R.layout.activity_form_data, container, false);
+
 
         //Creación ButterKnife
-        ButterKnife.bind(this);
+        ButterKnife.bind(this, mView);
         user = new User();
-        intent_receive = this.getIntent();
+        intent_receive = getActivity().getIntent();
         if (intent_receive != null) {
             user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
         }
-
 
         textListener();
         onClickbirthday();
         clearDate();
         onClickedSave();
-
+        return mView;
     }
 
 
@@ -328,13 +346,12 @@ public class FormDataFrag1 extends AppCompatActivity {
 
                 }
                 if (allDone()) {
-                    Toast.makeText(FormDataFrag1.this,"Entra en el segundo IF",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Entra en el segundo IF", Toast.LENGTH_SHORT).show();
 
-                 ProfileDataFrag2 mFrag2 =  new ProfileDataFrag2();
-                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.frag2, mFrag2);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+
+                    if (mListener != null) {
+                        mListener.comunicationWithButtonClickNext(v);
+                    }
 
 
                     user.setName(mName.getText().toString());
@@ -348,9 +365,9 @@ public class FormDataFrag1 extends AppCompatActivity {
 
 
                     //TODO Crear pantalla Personal Data
-            // intent_send = new Intent(this, );
-            //intent_send.putExtra(MainActivity.USER, user);
-            //startActivity(intent_send);
+                    intent_send = new Intent(getActivity(), FormsActivity.class);
+                    intent_send.putExtra(MainActivity.USER, user);
+                    startActivity(intent_send);
                 }
             }
         });
@@ -376,5 +393,28 @@ public class FormDataFrag1 extends AppCompatActivity {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         mBirthday.setText(sdf.format(myCalendar.getTime()));
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+
+    }
+
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        public void comunicationWithButtonClickNext(View view);
     }
 }

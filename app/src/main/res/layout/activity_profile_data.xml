@@ -1,11 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frag2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProfileDataFrag2">
+    android:layout_height="match_parent">
 
 
-</FrameLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Foto usuario -->
+            <ImageView
+                android:id="@+id/phAvatarAPD"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="185dp"
+                android:layout_marginBottom="25dp"
+                tools:srcCompat="@tools:sample/avatars" />
+            <!--app:srcCompat="@drawable/logo"-->
+
+            <!-- Foto cambio de avatar -->
+
+            <ImageView
+                android:id="@+id/phChangeAPD"
+                android:layout_width="61dp"
+                android:layout_height="74dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="138dp"
+                android:layout_marginTop="96dp"
+                android:layout_marginEnd="185dp"
+                android:layout_marginBottom="-49dp"
+                android:textSize="20sp" />
+                <!--app:srcCompat="@drawable/gallery_picker_icon" />-->
+
+            <LinearLayout
+                android:layout_width="145dp"
+                android:layout_height="65dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="215dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="20dp"
+                android:singleLine="true"
+                android:orientation="vertical">
+
+
+                <!-- Texto nombre y apellido -->
+                <TextView
+                    android:id="@+id/textViewN"
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:textSize="20sp" />
+                    <!--android:hint="@string/txtNameAPD"-->
+
+
+                <TextView
+                    android:id="@+id/textViewS"
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                android:textSize="20sp" />
+                    <!--android:hint="@string/txtSubnameAPD"-->
+
+
+            </LinearLayout>
+
+            <!-- Cuadro descripcion -->
+            <EditText
+                android:id="@+id/ediTextAPD"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="170dp"
+                android:layout_marginEnd="25dp"
+                android:singleLine="false"/>
+                <!--android:hint="@string/txViewAP" -->
+
+
+            <RadioGroup
+                android:id="@+id/rg"
+                android:layout_width="240dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="75dp"
+
+                android:layout_marginTop="236dp"
+                android:layout_marginEnd="70dp"
+                android:orientation="horizontal">
+
+                <!-- Botones eleccion de chico  -->
+                <RadioButton
+                    android:id="@+id/radio_boys"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                    <!--android:text="@string/RDboyAPD" -->
+
+
+                <!-- Botones eleccion de chica  -->
+                <RadioButton
+                    android:id="@+id/radio_girls"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="70dp"  />
+                    <!--android:text="@string/RDgirlAPD"-->
+
+
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="352dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="274dp"
+                android:orientation="vertical">
+
+
+                <!-- Hobbies elecciones  -->
+                <CheckBox
+                    android:id="@+id/checkbox_uno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                    <!--android:text="@string/txtH1" -->
+
+
+                <CheckBox
+                    android:id="@+id/checkbox_dos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                    <!--android:text="@string/txtH2" -->
+
+
+                <CheckBox
+                    android:id="@+id/checkbox_tres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                    <!--android:text="@string/txtH3"-->
+
+
+                <CheckBox
+                    android:id="@+id/checkbox_cuatro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                    <!--android:text="@string/txtH4" -->
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+    <!-- Boton de guardar -->
+
+    <Button
+        android:id="@+id/btnSaveAPD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/circle_button"
+        android:backgroundTint="?attr/colorAccent"
+        android:text="@string/save"/>
+
+    <Button
+        android:id="@+id/btnSkipAPD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/circle_button"
+        android:backgroundTint="?attr/colorAccent"/>
+        <!--android:text="@string/btnSkipPD" />-->
+
+
+</RelativeLayout>

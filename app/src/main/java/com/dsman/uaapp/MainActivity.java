@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     public void checkLogin() {
         //login ok
 
-        Intent navigate = new Intent(MainActivity.this, FormDataFrag1.class);
+        Intent navigate = new Intent(MainActivity.this, FormsActivity.class);
 
         user.setEmail(mEmail.getText().toString());
         navigate.putExtra(MainActivity.USER, user);

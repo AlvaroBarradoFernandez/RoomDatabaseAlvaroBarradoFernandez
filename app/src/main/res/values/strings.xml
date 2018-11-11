@@ -31,4 +31,7 @@
     <string name="textCourse">Course description</string>
     <string name="namedata">Name</string>
     <string name="year">Year</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
