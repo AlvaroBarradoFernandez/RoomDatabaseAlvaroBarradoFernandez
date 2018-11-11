@@ -33,6 +33,8 @@
                 android:layout_marginTop="109dp"
                 android:textSize="30sp"
                 android:layout_below="@+id/person_photo"
+                android:background="#8c000000"
+                android:textColor="#ffffff"
                 />
 
         </RelativeLayout>
