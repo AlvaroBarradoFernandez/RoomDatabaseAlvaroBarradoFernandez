@@ -1,5 +1,7 @@
 @echo off
 color 0f
+adb kill-server
+adb start-server
 adb devices
 echo;
 echo Elige el puerto:
