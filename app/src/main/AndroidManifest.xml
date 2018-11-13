@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".FormsActivity"
             android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".General_Course.General_Course"/>
         <!--TODO Desactivada temporalmente para mis testeos (Guille)-->
         <!--<activity android:name=".MainActivity"/>-->
     </application>

@@ -1,206 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="430dp"
+        android:layout_above="@+id/btnSave"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="10dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
 
-            <!-- Foto usuario -->
-            <ImageView
-                android:id="@+id/phAvatarAPD"
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="185dp"
-                android:layout_marginBottom="25dp"
-                tools:srcCompat="@tools:sample/avatars" />
-            <!--app:srcCompat="@drawable/logo"-->
-
-            <!-- Foto cambio de avatar -->
-
-            <ImageView
-                android:id="@+id/phChangeAPD"
-                android:layout_width="61dp"
-                android:layout_height="74dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="138dp"
-                android:layout_marginTop="96dp"
-                android:layout_marginEnd="185dp"
-                android:layout_marginBottom="-49dp"
-                android:textSize="20sp" />
-                <!--app:srcCompat="@drawable/gallery_picker_icon" />-->
 
             <LinearLayout
-                android:layout_width="145dp"
-                android:layout_height="65dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="215dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="20dp"
-                android:singleLine="true"
-                android:orientation="vertical">
-
-
-                <!-- Texto nombre y apellido -->
-                <TextView
-                    android:id="@+id/textViewN"
-                    android:layout_width="140dp"
-                    android:layout_height="30dp"
-                    android:textSize="20sp" />
-                    <!--android:hint="@string/txtNameAPD"-->
-
-
-                <TextView
-                    android:id="@+id/textViewS"
-                    android:layout_width="140dp"
-                    android:layout_height="30dp"
-                android:textSize="20sp" />
-                    <!--android:hint="@string/txtSubnameAPD"-->
-
-
-            </LinearLayout>
-
-            <!-- Cuadro descripcion -->
-            <EditText
-                android:id="@+id/ediTextAPD"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="170dp"
-                android:layout_marginEnd="25dp"
-                android:singleLine="false"/>
-                <!--android:hint="@string/txViewAP" -->
-
-
-            <RadioGroup
-                android:id="@+id/rg"
-                android:layout_width="240dp"
-                android:layout_height="35dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="75dp"
-
-                android:layout_marginTop="236dp"
-                android:layout_marginEnd="70dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
-                <!-- Botones eleccion de chico  -->
-                <RadioButton
-                    android:id="@+id/radio_boys"
+                <ImageView
+                    android:id="@+id/imageView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                    <!--android:text="@string/RDboyAPD" -->
+                    android:layout_height="76dp"
+                    android:layout_margin="5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/u_logo"/>
 
 
-                <!-- Botones eleccion de chica  -->
-                <RadioButton
-                    android:id="@+id/radio_girls"
-                    android:layout_width="80dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="70dp"  />
-                    <!--android:text="@string/RDgirlAPD"-->
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Name"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/textViewS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Surname"
+                        android:textColor="@android:color/black" />
 
 
-            </RadioGroup>
-
-
-            <LinearLayout
-                android:layout_width="352dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="274dp"
-                android:orientation="vertical">
-
-
-                <!-- Hobbies elecciones  -->
-                <CheckBox
-                    android:id="@+id/checkbox_uno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                    <!--android:text="@string/txtH1" -->
-
-
-                <CheckBox
-                    android:id="@+id/checkbox_dos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                    <!--android:text="@string/txtH2" -->
-
-
-                <CheckBox
-                    android:id="@+id/checkbox_tres"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                    <!--android:text="@string/txtH3"-->
-
-
-                <CheckBox
-                    android:id="@+id/checkbox_cuatro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                    <!--android:text="@string/txtH4" -->
+                </LinearLayout>
 
 
             </LinearLayout>
 
-        </RelativeLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:errorEnabled="false">
+
+                <EditText
+                    android:id="@+id/etDescripccion"
+                    android:layout_width="334dp"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Text Description"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="Gender"
+                android:textColor="@android:color/black" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilGender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:errorEnabled="false">
+
+                <RadioGroup
+                    android:id="@+id/radiogroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_boys"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Male" />
+
+                    <RadioButton
+                        android:id="@+id/radio_girls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Female" />
+                </RadioGroup>
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/hobbies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Hobbies"
+                android:textColor="@android:color/black" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilHobbies"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:helperTextEnabled="false">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+
+                    <CheckBox
+                        android:id="@+id/ch_cinema"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cinema" />
+
+                    <CheckBox
+                        android:id="@+id/ch_walk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Walk" />
+
+                    <CheckBox
+                        android:id="@+id/ch_play_music"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Play Music" />
+                </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
     </ScrollView>
-    <!-- Boton de guardar -->
 
     <Button
-        android:id="@+id/btnSaveAPD"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnSave"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/btnSkip"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="55dp"
-        android:background="@drawable/circle_button"
-        android:backgroundTint="?attr/colorAccent"
-        android:text="@string/save"/>
+        android:layout_marginBottom="47dp"
+        android:text="Save" />
 
     <Button
-        android:id="@+id/btnSkipAPD"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnSkip"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/circle_button"
-        android:backgroundTint="?attr/colorAccent"/>
-        <!--android:text="@string/btnSkipPD" />-->
-
+        android:layout_centerHorizontal="true"
+        android:text="Skip" />
 
 </RelativeLayout>

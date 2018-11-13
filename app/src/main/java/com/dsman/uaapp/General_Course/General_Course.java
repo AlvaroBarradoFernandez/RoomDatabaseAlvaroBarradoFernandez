@@ -1,6 +1,10 @@
 package com.dsman.uaapp.General_Course;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.res.ResourcesCompat;
@@ -13,20 +17,39 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.dsman.uaapp.FormsActivity;
 import com.dsman.uaapp.MainActivity;
+import com.dsman.uaapp.ProfileDataFrag2;
 import com.dsman.uaapp.R;
+import com.dsman.uaapp.User;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class General_Course extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private Toolbar toolbar;
-
+    private  TextView mName;
+    private TextView mSurname;
+    private ImageView mImageView;
+    public static final String USER = "USER";
+    private static User user;
+    private String mUri, sUserName, sSurname, sEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_course);
+         mName = findViewById(R.id.textView1);
+        mSurname = findViewById(R.id.textView2);
+        mImageView = findViewById(R.id.imageViewU);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -40,6 +63,37 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         // use a linear layout manager
         mLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        //TODO Arreglar esto XD;
+        user = new User();
+       Intent intent_receive = this.getIntent();
+        if(intent_receive != null){
+            user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
+             mUri = user.getUrl();
+             sEmail = user.getEmail();
+             sUserName = user.getName();
+             sSurname = user.getSurname();
+
+        }
+
+//        mName.setText(sUserName);
+//        mSurname.setText(sSurname);
+
+        try {
+            Context mContext = FormsActivity.getContextOfApplication();
+            if (mUri != null) {
+
+                Uri mUserImage = Uri.parse(mUri);
+                final InputStream imageStream = mContext.getContentResolver().openInputStream(mUserImage);
+                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                mImageView.setImageBitmap(selectedImage);
+
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         // specify an adapter (see also next example)
         CardView_General_Course database = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.basedatos, null),"Database Access");

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -102,12 +101,6 @@ public class FormDataFrag1 extends Fragment {
         // Required empty public constructor
     }
 
-//    public static ProfileDataFrag2 newInstance(String param1, String param2) {
-//        ProfileDataFrag2 fragment = new ProfileDataFrag2();
-//        Bundle args = new Bundle();
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -349,9 +342,7 @@ public class FormDataFrag1 extends Fragment {
                     Toast.makeText(getActivity(), "Entra en el segundo IF", Toast.LENGTH_SHORT).show();
 
 
-                    if (mListener != null) {
-                        mListener.comunicationWithButtonClickNext(v);
-                    }
+
 
 
                     user.setName(mName.getText().toString());
@@ -363,11 +354,9 @@ public class FormDataFrag1 extends Fragment {
                     user.setPhonetype(mPhoneType.getSelectedItem().toString());
                     user.setPhone(mPhone.getText().toString());
 
-
-                    //TODO Crear pantalla Personal Data
-                    intent_send = new Intent(getActivity(), FormsActivity.class);
-                    intent_send.putExtra(MainActivity.USER, user);
-                    startActivity(intent_send);
+                    if (mListener != null) {
+                        mListener.frag1tofrag2(v);
+                    }
                 }
             }
         });
@@ -415,6 +404,6 @@ public class FormDataFrag1 extends Fragment {
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void comunicationWithButtonClickNext(View view);
+        public void frag1tofrag2(View view);
     }
 }

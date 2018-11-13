@@ -11,7 +11,7 @@ import android.view.View;
 import com.dsman.uaapp.General_Course.General_Course;
 
 
-public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnFragmentInteractionListener {
+public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnFragmentInteractionListener, ProfileDataFrag2.OnFragmentInteractionListener {
 
     private User user;
     public static final String USER = "USER";
@@ -24,7 +24,7 @@ public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnF
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mContext = getApplicationContext();
         setContentView(R.layout.activity_forms);
         if (findViewById(R.id.pager) != null) {
             if (savedInstanceState != null) {
@@ -39,18 +39,15 @@ public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnF
 
 
     @Override
-    public void comunicationWithButtonClickNext(View view) {
+    public void frag1tofrag2(View view) {
 
         ProfileDataFrag2 profileDataFrag2 = new ProfileDataFrag2();
         Bundle args = new Bundle();
         args.putParcelable(USER, user);
         profileDataFrag2.setArguments(args);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-
         transaction.replace(R.id.pager, profileDataFrag2);
         transaction.addToBackStack(null);
-
         transaction.commit();
     }
 
@@ -60,15 +57,20 @@ public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnF
 
 
 
-    public void comunicationWithButtonClickSave(View view) {
-        Intent intent = new Intent(this, General_Course.class);
-        startActivity(intent);
+    @Override
+    public void saveUserData(View view) {
+        //TODO Revisar esto
+        user = new User();
+        Intent saveIntent = new Intent(this, General_Course.class);
+        saveIntent.putExtra(MainActivity.USER, user);
+        startActivity(saveIntent);
     }
 
+    @Override
+    public void skipUserData(View view) {
+        Intent skipIntent = new Intent(this, General_Course.class);
+        startActivity(skipIntent);
 
-    public void comunicationWithButtonClickSkip(View view) {
-        Intent intent = new Intent(this, General_Course.class);
-        startActivity(intent);
     }
 }
 

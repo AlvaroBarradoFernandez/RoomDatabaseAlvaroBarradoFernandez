@@ -11,8 +11,10 @@ import android.widget.TextView;
 import com.dsman.uaapp.R;
 
 
+
 public class RecyclerAdapter_General_Course extends RecyclerView.Adapter<RecyclerAdapter_General_Course.MyViewHolder> {
     private CardView_General_Course[] mDataset;
+
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -26,6 +28,9 @@ public class RecyclerAdapter_General_Course extends RecyclerView.Adapter<Recycle
             super(v);
             mTextView =  v.findViewById(R.id.person_name);
             mImagenView = v.findViewById(R.id.person_photo);
+
+
+
 
         }
     }
