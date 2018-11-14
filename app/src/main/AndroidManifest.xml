@@ -13,7 +13,7 @@
         <!--TODO Classes temporales para el uso de cada uno(Guille)-->
         <!-- <activity android:name=".General_Course"> -->
         <!--<activity android:name=".Courses.Course_Data">-->
-        <activity android:name=".MainActivity">
+        <activity android:name=".Professor.Professor_Data">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

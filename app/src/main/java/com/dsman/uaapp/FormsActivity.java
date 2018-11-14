@@ -65,12 +65,5 @@ public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnF
         saveIntent.putExtra(MainActivity.USER, user);
         startActivity(saveIntent);
     }
-
-    @Override
-    public void skipUserData(View view) {
-        Intent skipIntent = new Intent(this, General_Course.class);
-        startActivity(skipIntent);
-
-    }
 }
 

@@ -60,7 +60,6 @@ public class ProfileDataFrag2 extends Fragment {
         user = new User();
         onClickedImage();
         onClickedSave();
-        onClickedSkip();
 
         Intent a = getActivity().getIntent();
         if(a!=null){
@@ -161,18 +160,7 @@ public class ProfileDataFrag2 extends Fragment {
         });
     }
 
-    public void onClickedSkip(){
-    btnSkip.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (mListener != null) {
 
-            mListener.skipUserData(v);
-            }
-        }
-    });
-
-    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -193,7 +181,6 @@ public class ProfileDataFrag2 extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void saveUserData(View view);
-        public void skipUserData(View view);
     }
 }
 

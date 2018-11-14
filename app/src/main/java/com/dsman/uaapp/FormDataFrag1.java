@@ -343,7 +343,8 @@ public class FormDataFrag1 extends Fragment {
 
 
 
-
+                    //TODO Se guardan datos solo en OK
+                    //TODO Al Clickar Next no se Guarda Nada
 
                     user.setName(mName.getText().toString());
                     user.setSurname(mSurname.getText().toString());

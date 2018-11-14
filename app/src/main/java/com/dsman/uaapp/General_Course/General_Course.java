@@ -31,6 +31,7 @@ import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class General_Course extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private RecyclerView mRecyclerView;
@@ -149,6 +150,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         return true;
     }
 
+    @OnClick()
     public void onclicklogout(MenuItem item) {
         //TODO Intentar arreglar el Warning
         Intent navigate = new Intent(General_Course.this, MainActivity.class);
