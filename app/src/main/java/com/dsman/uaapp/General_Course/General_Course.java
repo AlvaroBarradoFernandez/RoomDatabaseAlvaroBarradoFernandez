@@ -151,6 +151,8 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
     public void onclicklogout(MenuItem item) {
         Intent navigate = new Intent(General_Course.this, MainActivity.class);
+        navigate.setFlags(navigate.FLAG_ACTIVITY_NEW_TASK | navigate.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(navigate);
+        finish();
     }
 }
