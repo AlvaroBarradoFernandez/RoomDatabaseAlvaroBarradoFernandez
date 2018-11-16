@@ -7,6 +7,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -34,9 +36,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class General_Course extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     private Toolbar toolbar;
     private  TextView mName;
     private TextView mSurname;
@@ -48,14 +47,14 @@ public class General_Course extends AppCompatActivity implements NavigationView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_course);
-         mName = findViewById(R.id.textView1);
+        mName = findViewById(R.id.textView1);
         mSurname = findViewById(R.id.textView2);
         mImageView = findViewById(R.id.imageViewU);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        /*mRecyclerView = (RecyclerView) findViewById(R.id.class_recycler_view);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerActivity
@@ -63,7 +62,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         // use a linear layout manager
         mLayoutManager = new GridLayoutManager(this, 2);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(mLayoutManager);*/
 
         //TODO Arreglar esto XD;
         user = new User();
@@ -96,19 +95,6 @@ public class General_Course extends AppCompatActivity implements NavigationView.
             e.printStackTrace();
         }
 
-        // specify an adapter (see also next example)
-        CardView_General_Course database = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.basedatos, null),"Database Access");
-        CardView_General_Course android = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.android, null),"Android");
-        CardView_General_Course fct = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.fct, null),"FCT");
-        CardView_General_Course computing = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.computing, null),"Computing");
-        CardView_General_Course english = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.english, null),"English");
-        CardView_General_Course swift = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.swift, null),"Swift");
-        CardView_General_Course tfg = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.tfg, null),"TFG");
-        CardView_General_Course odoo = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.odoo, null),"Management");
-        CardView_General_Course company = new CardView_General_Course(ResourcesCompat.getDrawable(getResources(), R.drawable.company, null),"Company");
-        CardView_General_Course[] elementos = {database,android,fct,computing,english,swift,tfg,odoo, company};
-        mAdapter = new RecyclerAdapter_General_Course(elementos);
-        mRecyclerView.setAdapter(mAdapter);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -147,7 +133,40 @@ public class General_Course extends AppCompatActivity implements NavigationView.
     public boolean onNavigationItemSelected(MenuItem item) {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        changeFragment(item.getItemId());
         return true;
+    }
+
+    public void changeFragment(int id){
+        Fragment fragment = null;
+
+        //iniciamos los fragments dependiendo del item selecionado
+        switch (id) {
+            case R.id.nav_clases:
+                setTitle("Clases");
+                fragment = new ClassFragment();
+                break;
+            case R.id.nav_notificaciones:
+                setTitle("Notificationes");
+                fragment = new NotificationFragment();
+                break;
+            case R.id.nav_notas:
+                setTitle("Notas");
+                break;
+            case R.id.nav_profesores:
+                setTitle("Profesores");
+                break;
+            case R.id.nav_comunidades:
+                setTitle("Comunidades");
+                break;
+        }
+
+        //Remplazamos el fragment
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_generalcourse, fragment);
+            ft.commit();
+        }
     }
 
     @OnClick()
