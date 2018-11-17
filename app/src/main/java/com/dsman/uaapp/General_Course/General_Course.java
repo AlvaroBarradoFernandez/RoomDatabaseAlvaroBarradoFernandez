@@ -1,5 +1,3 @@
-package com.dsman.uaapp.General_Course;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,13 +7,10 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,17 +18,18 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dsman.uaapp.Classes.ClassFragment;
+
 import com.dsman.uaapp.FormsActivity;
 import com.dsman.uaapp.MainActivity;
-import com.dsman.uaapp.ProfileDataFrag2;
+import com.dsman.uaapp.Notifications.NotificationFragment;
+
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class General_Course extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -58,6 +54,8 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         navigationView.setNavigationItemSelectedListener(this);
         mImageView = navigationView.findViewById(R.id.imageViewU);
+        mName = navigationView.findViewById(R.id.textView1);
+        mSurname = navigationView.findViewById(R.id.textView2);
         /*mRecyclerView = (RecyclerView) findViewById(R.id.class_recycler_view);
 
         // use this setting to improve performance if you know that changes
@@ -70,18 +68,18 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         //TODO Arreglar esto XD;
         user = new User();
-       Intent intent_receive = this.getIntent();
+        Intent intent_receive = this.getIntent();
         if(intent_receive != null){
             user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
-             mUri = user.getUrl();
-             sEmail = user.getEmail();
-             sUserName = user.getName();
-             sSurname = user.getSurname();
+            mUri = user.getUrl();
+            sEmail = user.getEmail();
+            sUserName = user.getName();
+            sSurname = user.getSurname();
 
         }
 
-            mName.setText(sUserName);
-            mSurname.setText(sSurname);
+        mName.setText(sUserName);
+        mSurname.setText(sSurname);
 
         try {
             Context mContext = FormsActivity.getContextOfApplication();
@@ -159,9 +157,11 @@ public class General_Course extends AppCompatActivity implements NavigationView.
                 break;
             case R.id.nav_profesores:
                 setTitle("Profesores");
+               // fragment = new ProfessorFragment();
                 break;
             case R.id.nav_comunidades:
                 setTitle("Comunidades");
+                //fragment = new ComunityFragment();
                 break;
         }
 
