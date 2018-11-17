@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Comunities;
+package com.dsman.uaapp.Deprecated;
 
 import android.graphics.drawable.Drawable;
 

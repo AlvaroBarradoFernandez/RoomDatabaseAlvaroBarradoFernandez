@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Comunities;
+package com.dsman.uaapp.Deprecated;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -14,9 +14,6 @@ import com.dsman.uaapp.R;
 public class RecyclerAdapter_Comunity_Data extends RecyclerView.Adapter<RecyclerAdapter_Comunity_Data.MyViewHolder> {
     private CardView_Comunity_Data[] mDataset;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView mTextView;

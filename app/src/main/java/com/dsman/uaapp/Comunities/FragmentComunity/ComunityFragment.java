@@ -1,7 +1,10 @@
 package com.dsman.uaapp.Comunities.FragmentComunity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
@@ -86,4 +89,11 @@ public class ComunityFragment extends Fragment {
         super.onDetach();
     }
 
+    public void onclick(View view) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setData(Uri.parse("prueba@gmail.com"));
+        intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
+        startActivity(intent.createChooser(intent, "Send email via..."));
+
+    }
 }
