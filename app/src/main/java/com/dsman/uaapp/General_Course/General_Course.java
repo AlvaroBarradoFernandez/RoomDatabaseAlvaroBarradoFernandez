@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -49,11 +50,14 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         setContentView(R.layout.activity_general_course);
         mName = findViewById(R.id.textView1);
         mSurname = findViewById(R.id.textView2);
-        mImageView = findViewById(R.id.imageViewU);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        LayoutInflater.from(getBaseContext()).inflate(R.layout.activity_general_course_navheader, navigationView);
+
         navigationView.setNavigationItemSelectedListener(this);
+        mImageView = navigationView.findViewById(R.id.imageViewU);
         /*mRecyclerView = (RecyclerView) findViewById(R.id.class_recycler_view);
 
         // use this setting to improve performance if you know that changes
