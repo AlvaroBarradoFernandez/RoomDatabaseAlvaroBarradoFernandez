@@ -80,8 +80,8 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         }
 
-//        mName.setText(sUserName);
-//        mSurname.setText(sSurname);
+            mName.setText(sUserName);
+            mSurname.setText(sSurname);
 
         try {
             Context mContext = FormsActivity.getContextOfApplication();
