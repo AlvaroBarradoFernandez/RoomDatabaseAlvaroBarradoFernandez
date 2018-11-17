@@ -155,6 +155,7 @@ public class ProfileDataFrag2 extends Fragment {
                 if (mPlayMusic.isChecked()) {
                     hobbies.add(mPlayMusic.getText().toString());
                 }
+                
                 if (!mCinema.isChecked() && !mWalk.isChecked() && !mPlayMusic.isChecked()) {
                     layoutHobbies.setHelperTextEnabled(true);
                     layoutHobbies.setError("You don't selected any Hobby");
