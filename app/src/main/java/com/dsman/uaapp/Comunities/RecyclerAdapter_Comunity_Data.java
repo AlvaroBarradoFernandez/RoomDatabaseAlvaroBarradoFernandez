@@ -24,8 +24,8 @@ public class RecyclerAdapter_Comunity_Data extends RecyclerView.Adapter<Recycler
 
         public MyViewHolder(View v) {
             super(v);
-            mTextView =  v.findViewById(R.id.subject_Name);
-            mImagenView = v.findViewById(R.id.subject_Photo);
+            mTextView =  v.findViewById(R.id.comunity_Name);
+            mImagenView = v.findViewById(R.id.comunity_Photo);
 
         }
     }
@@ -50,8 +50,8 @@ public class RecyclerAdapter_Comunity_Data extends RecyclerView.Adapter<Recycler
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         CardView_Comunity_Data item = mDataset [position];
-        holder.mTextView.setText(item.getNombres_subject());
-        holder.mImagenView.setImageDrawable(item.getFotos_subject());
+        holder.mTextView.setText(item.getNombres_comunity());
+        holder.mImagenView.setImageDrawable(item.getFotos_comunity());
 
     }
 

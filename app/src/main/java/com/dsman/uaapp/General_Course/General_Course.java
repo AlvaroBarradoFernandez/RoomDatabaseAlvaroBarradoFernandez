@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dsman.uaapp.Comunities.Comunity_FragmentDialog;
 import com.dsman.uaapp.FormsActivity;
 import com.dsman.uaapp.MainActivity;
 import com.dsman.uaapp.ProfileDataFrag2;
@@ -58,6 +59,8 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         navigationView.setNavigationItemSelectedListener(this);
         mImageView = navigationView.findViewById(R.id.imageViewU);
+        mName = navigationView.findViewById(R.id.textView1);
+        mSurname = navigationView.findViewById(R.id.textView2);
         /*mRecyclerView = (RecyclerView) findViewById(R.id.class_recycler_view);
 
         // use this setting to improve performance if you know that changes
@@ -162,6 +165,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
                 break;
             case R.id.nav_comunidades:
                 setTitle("Comunidades");
+                fragment = new Comunity_FragmentDialog();
                 break;
         }
 

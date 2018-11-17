@@ -11,19 +11,19 @@ public class CardView_Comunity_Data {
         this.nombres_comunity = nombres;
     }
 
-    public void setFotos_subject(Drawable fotos) {
+    public void setFotos_comunity(Drawable fotos) {
         this.fotos_comunity = fotos;
     }
 
-    public void setNombres_subject(String nombres) {
+    public void setNombres_comunity(String nombres) {
         this.nombres_comunity = nombres;
     }
 
-    public Drawable getFotos_subject() {
+    public Drawable getFotos_comunity() {
         return fotos_comunity;
     }
 
-    public String getNombres_subject() {
+    public String getNombres_comunity() {
         return nombres_comunity;
     }
 }
