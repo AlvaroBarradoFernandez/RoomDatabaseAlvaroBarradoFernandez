@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -65,7 +66,7 @@ public class Professor_FragmentDialog extends AppCompatDialogFragment {
         recycle = view.findViewById(R.id.recyclerViewProfessor);
         professorDescription = view.findViewById(R.id.description);
         professorDescriptionTwo = view.findViewById(R.id.text_desc);
-        mLayoutManagerProfessor = new GridLayoutManager(view.getContext(), 1);
+        mLayoutManagerProfessor = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recycle.setLayoutManager(mLayoutManagerProfessor);
         mAdapterProfessor = new RecyclerAdapter_Comunity_Data(elementos);
         recycle.setAdapter(mAdapterProfessor);

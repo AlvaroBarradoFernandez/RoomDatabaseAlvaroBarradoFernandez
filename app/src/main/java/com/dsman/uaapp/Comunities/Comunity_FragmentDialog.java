@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -65,7 +66,7 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
         recycle = view.findViewById(R.id.recyclerViewComunity);
         description = view.findViewById(R.id.description);
         text_description = view.findViewById(R.id.text_desc);
-        mLayoutManagerComunity = new GridLayoutManager(view.getContext(), 1);
+        mLayoutManagerComunity = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recycle.setLayoutManager(mLayoutManagerComunity);
         mAdapterComunity = new RecyclerAdapter_Comunity_Data(elementos);
         recycle.setAdapter(mAdapterComunity);
