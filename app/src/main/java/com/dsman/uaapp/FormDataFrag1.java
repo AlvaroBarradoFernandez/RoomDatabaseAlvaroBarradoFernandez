@@ -200,6 +200,7 @@ public class FormDataFrag1 extends Fragment {
             if (!phone.isEmpty()) {
                 layoutPhone.setHelperText(" ");
             }
+            
             btnSave.setEnabled(enableButton());
 
         }
