@@ -38,4 +38,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textClass">Class Description</string>
+    <string name="textprofessor">Professor Description</string>
+    <string name="saveButton">Save</string>
 </resources>

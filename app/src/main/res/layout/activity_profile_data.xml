@@ -177,7 +177,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="47dp"
-        android:text="OK" />
+        android:text="@string/saveButton"
+        android:layout_centerHorizontal="true"
+        />
 
 
 
