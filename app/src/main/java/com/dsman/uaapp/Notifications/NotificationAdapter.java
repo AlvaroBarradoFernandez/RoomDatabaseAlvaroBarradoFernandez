@@ -1,4 +1,4 @@
-package com.dsman.uaapp.General_Course;
+package com.dsman.uaapp.Notifications;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

@@ -22,15 +22,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 import static android.app.Activity.RESULT_OK;
+
 public class ProfileDataFrag2 extends Fragment {
-    @BindView(R.id.imageView) ImageView mImage;
+    @BindView(R.id.imageView) CircularImageView mImage;
     @BindView(R.id.textViewN) TextView mName;
     @BindView(R.id.textViewS) TextView mSurname;
     @BindView(R.id.etDescripccion) EditText mDescription;
@@ -43,46 +47,49 @@ public class ProfileDataFrag2 extends Fragment {
     @BindView(R.id.tilGender) TextInputLayout layoutGender;
     @BindView(R.id.tilHobbies) TextInputLayout layoutHobbies;
     @BindView(R.id.btnSave) Button btnSave;
-    @BindView(R.id.btnSkip) Button btnSkip;
 
     private ArrayList<String> hobbies = new ArrayList<String>();
     private User user;
     public static final String USER = "USER";
     private Uri imageUri;
     private String sImageRef;
+    private Context mContext;
     private ProfileDataFrag2.OnFragmentInteractionListener mListener;
+
     public ProfileDataFrag2() {
         // Required empty public constructor
     }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
 
-        View mView = inflater.inflate(R.layout.activity_profile_data, container, false);
-        ButterKnife.bind(this,mView);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
+
+        View mView =  inflater.inflate(R.layout.activity_profile_data, null);
+
+        ButterKnife.bind(this, mView);
         user = new User();
         onClickedImage();
         onClickedSave();
 
         Intent a = getActivity().getIntent();
-        if(a!=null){
+        if (a != null) {
             user = (User) a.getParcelableExtra(MainActivity.USER);
             mName.setText(user.getName());
             mSurname.setText(user.getSurname());
         }
-         mImage = mView.findViewById(R.id.imageView);
+        mImage = mView.findViewById(R.id.imageView);
 
 
         return mView;
     }
-    public void onClickedImage(){
+
+    public void onClickedImage() {
         mImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("image/*");
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"),1);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
             }
         });
     }
@@ -97,10 +104,8 @@ public class ProfileDataFrag2 extends Fragment {
                 final InputStream imageStream = mContext.getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 mImage.setImageBitmap(selectedImage);
-                mImage.setBackground();
-                //Todo NO TOCAR PLIS (IN PROGRESS) Guille
 
-                if(imageUri!=null){
+                if (imageUri != null) {
                     sImageRef = imageUri.toString();
                 }
 
@@ -110,55 +115,60 @@ public class ProfileDataFrag2 extends Fragment {
             }
 
 
-        }else {
-            Toast.makeText(FormsActivity.getContextOfApplication(), "You haven't picked any Image",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(FormsActivity.getContextOfApplication(), "You haven't picked any Image", Toast.LENGTH_LONG).show();
         }
     }
-    public  void onClickedSave(){
+
+    public void onClickedSave() {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Se igualan los campos de texto a sus variables correspondientes
                 String descripcion = mDescription.getText().toString();
                 String gender = "";
-                if (descripcion.equals("")){
+                if (descripcion.equals("")) {
                     layoutDescription.setHelperTextEnabled(true);
                     layoutDescription.setError("You don´t have wrote any description");
-                }else{
+                } else {
                     layoutDescription.setHelperTextEnabled(false);
+                    layoutDescription.setHelperText("");
                 }
-                if(mRadioMale.isChecked()){
+                if (mRadioMale.isChecked()) {
                     gender = mRadioMale.getText().toString();
                     layoutGender.setHelperTextEnabled(false);
-                }else if (mRadioFemale.isChecked()){
+                    layoutGender.setHelperText("");
+                } else if (mRadioFemale.isChecked()) {
                     gender = mRadioFemale.getText().toString();
                     layoutGender.setHelperTextEnabled(false);
-                }else{
+                    layoutGender.setHelperText("");
+                } else {
                     layoutGender.setHelperTextEnabled(true);
                     layoutGender.setError("You have to selected a Gender");
                 }
-                if (mCinema.isChecked()){
+                if (mCinema.isChecked()) {
                     hobbies.add(mCinema.getText().toString());
                 }
-                if (mWalk.isChecked()){
+                if (mWalk.isChecked()) {
                     hobbies.add(mWalk.getText().toString());
                 }
-                if (mPlayMusic.isChecked()){
+                if (mPlayMusic.isChecked()) {
                     hobbies.add(mPlayMusic.getText().toString());
                 }
-                if (!mCinema.isChecked() && !mWalk.isChecked() && !mPlayMusic.isChecked()){
+                if (!mCinema.isChecked() && !mWalk.isChecked() && !mPlayMusic.isChecked()) {
                     layoutHobbies.setHelperTextEnabled(true);
                     layoutHobbies.setError("You don't selected any Hobby");
+                }else {
+                    layoutGender.setHelperText("");
                 }
-                if (!descripcion.equals("") && !gender.equals("") && !hobbies.equals("")){
+                if (!descripcion.equals("") && !gender.equals("") && !hobbies.equals("")) {
 
                     if (mListener != null) {
-                        //TODO Revisar esto
                         user.setUrl(sImageRef);
                         user.setDescription(descripcion);
                         user.setGender(gender);
                         user.setHobbies(hobbies);
-                        mListener.saveUserData(v,user);
+                        mListener.saveUserData(v, user);
 
                     }
 

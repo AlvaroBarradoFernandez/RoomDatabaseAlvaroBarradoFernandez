@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -25,7 +26,7 @@ public class Professor_Data extends AppCompatActivity {
         FloatingActionButton my_fab = (FloatingActionButton) findViewById(R.id.my_fab);
         setContentView(R.layout.activity_professor_data);
         mRecyclerViewSubjects = (RecyclerView) findViewById(R.id.recyclerViewSubject);
-        mLayoutManagerSubjects = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mLayoutManagerSubjects = new GridLayoutManager(this, 2);
         mRecyclerViewSubjects.setLayoutManager(mLayoutManagerSubjects);
 
         // specify an adapter (see also next example)
