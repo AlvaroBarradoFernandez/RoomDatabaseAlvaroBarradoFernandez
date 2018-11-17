@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Classes;
+package com.dsman.uaapp.Professor.CoursesFragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,12 +16,12 @@ import com.dsman.uaapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassFragment extends Fragment {
+public class ProfessorFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    public ClassFragment() {
+    public ProfessorFragment() {
         // Required empty public constructor
     }
     @Override
@@ -45,9 +45,9 @@ public class ClassFragment extends Fragment {
     }
 
     public void configAdaparterClass(){
-        mAdapter = new ClassAdapter(createData(), new ClassAdapter.OnItemClickListener() {
+        mAdapter = new ProfessorAdapter(createData(), new ProfessorAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(ClassObject item) {
+            public void onItemClick(ProfessorObject item) {
                 Log.d("Celda","Informacion: "+item.toString());
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -64,26 +64,16 @@ public class ClassFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    public List<ClassObject> createData() {
-        ClassObject database = new ClassObject("Database Access",R.drawable.basedatos);
-        ClassObject android = new ClassObject("Android", R.drawable.android);
-        ClassObject fct = new ClassObject("FCT", R.drawable.fct);
-        ClassObject computing = new ClassObject("Computing", R.drawable.computing);
-        ClassObject english = new ClassObject("English", R.drawable.english);
-        ClassObject swift = new ClassObject("Swift", R.drawable.swift);
-        ClassObject tfg = new ClassObject("TFG", R.drawable.tfg);
-        ClassObject odoo = new ClassObject("Management", R.drawable.odoo);
-        ClassObject company = new ClassObject("Company", R.drawable.company);
-        List<ClassObject> data = new ArrayList<>();
-        data.add(database);
-        data.add(android);
-        data.add(fct);
-        data.add(computing);
-        data.add(english);
-        data.add(swift);
-        data.add(tfg);
-        data.add(odoo);
-        data.add(company);
+    public List<ProfessorObject> createData() {
+        ProfessorObject cibersegurity = new ProfessorObject("Pedro",R.drawable.basedatos);
+        ProfessorObject development = new ProfessorObject("Jaime", R.drawable.android);
+        ProfessorObject big_data = new ProfessorObject("Laura", R.drawable.fct);
+        ProfessorObject videogames = new ProfessorObject("David", R.drawable.computing);
+        List<ProfessorObject> data = new ArrayList<>();
+        data.add(cibersegurity);
+        data.add(development);
+        data.add(big_data);
+        data.add(videogames);
         return data;
     }
     @Override

@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Classes;
+package com.dsman.uaapp.Courses.Classes;
 
 import android.os.Parcel;
 import android.os.Parcelable;

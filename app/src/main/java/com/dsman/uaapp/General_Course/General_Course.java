@@ -20,11 +20,12 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dsman.uaapp.Classes.ClassFragment;
-import com.dsman.uaapp.Comunities.Comunity_FragmentDialog;
+import com.dsman.uaapp.Courses.Classes.ClassFragment;
+import com.dsman.uaapp.Comunities.FragmentComunity.ComunityFragment;
 import com.dsman.uaapp.FormsActivity;
 import com.dsman.uaapp.MainActivity;
 import com.dsman.uaapp.Notifications.NotificationFragment;
+import com.dsman.uaapp.Professor.CoursesFragment.ProfessorFragment;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 
@@ -158,10 +159,11 @@ public class General_Course extends AppCompatActivity implements NavigationView.
                 break;
             case R.id.nav_profesores:
                 setTitle("Profesores");
+                fragment = new ProfessorFragment();
                 break;
             case R.id.nav_comunidades:
                 setTitle("Comunidades");
-                fragment = new Comunity_FragmentDialog();
+                fragment = new ComunityFragment();
                 break;
         }
 
