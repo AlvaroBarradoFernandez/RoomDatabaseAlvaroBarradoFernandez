@@ -58,11 +58,12 @@ public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnF
 
 
     @Override
-    public void saveUserData(View view) {
+    public void saveUserData(View view, User user) {
         //TODO Revisar esto
-        user = new User();
+        User mUser;
+        mUser = user;
         Intent saveIntent = new Intent(this, General_Course.class);
-        saveIntent.putExtra(MainActivity.USER, user);
+        saveIntent.putExtra(MainActivity.USER, mUser);
         startActivity(saveIntent);
     }
 }

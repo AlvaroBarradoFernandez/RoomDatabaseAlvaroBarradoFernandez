@@ -151,7 +151,7 @@ public class ProfileDataFrag2 extends Fragment {
                         user.setDescription(descripcion);
                         user.setGender(gender);
                         user.setHobbies(hobbies);
-                        mListener.saveUserData(v);
+                        mListener.saveUserData(v,user);
 
                     }
 
@@ -180,7 +180,7 @@ public class ProfileDataFrag2 extends Fragment {
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void saveUserData(View view);
+        public void saveUserData(View view, User user);
     }
 }
 
