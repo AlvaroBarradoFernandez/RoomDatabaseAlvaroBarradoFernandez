@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -28,6 +29,7 @@ import com.dsman.uaapp.MainActivity;
 import com.dsman.uaapp.ProfileDataFrag2;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -40,7 +42,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
     private Toolbar toolbar;
     private  TextView mName;
     private TextView mSurname;
-    private ImageView mImageView;
+    private CircularImageView mImageView;
     public static final String USER = "USER";
     private static User user;
     private String mUri, sUserName, sSurname, sEmail;
@@ -48,8 +50,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_course);
-        mName = findViewById(R.id.textView1);
-        mSurname = findViewById(R.id.textView2);
+
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -58,6 +59,9 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         navigationView.setNavigationItemSelectedListener(this);
         mImageView = navigationView.findViewById(R.id.imageViewU);
+        mName = navigationView.findViewById(R.id.textView1);
+        mSurname = navigationView.findViewById(R.id.textView2);
+
         /*mRecyclerView = (RecyclerView) findViewById(R.id.class_recycler_view);
 
         // use this setting to improve performance if you know that changes
@@ -80,8 +84,8 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         }
 
-            mName.setText(sUserName);
-            mSurname.setText(sSurname);
+        mName.setText(sUserName);
+        mSurname.setText(sSurname);
 
         try {
             Context mContext = FormsActivity.getContextOfApplication();

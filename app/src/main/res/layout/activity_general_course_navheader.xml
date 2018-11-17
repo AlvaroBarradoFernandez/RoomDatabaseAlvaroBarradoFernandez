@@ -12,17 +12,18 @@
     android:paddingBottom="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/imageViewU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Navigation header"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:paddingTop="8dp"
-        android:background="@mipmap/ic_launcher_round" />
+        android:src="@drawable/u_logo"
+        app:civ_border_color="@android:color/transparent"
+        app:civ_shadow="false" />
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
         android:text="Dato1 Usuario"

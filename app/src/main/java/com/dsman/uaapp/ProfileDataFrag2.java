@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,7 +29,6 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import static android.app.Activity.RESULT_OK;
-
 public class ProfileDataFrag2 extends Fragment {
     @BindView(R.id.imageView) ImageView mImage;
     @BindView(R.id.textViewN) TextView mName;
@@ -97,8 +97,8 @@ public class ProfileDataFrag2 extends Fragment {
                 final InputStream imageStream = mContext.getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 mImage.setImageBitmap(selectedImage);
+                mImage.setBackground();
                 //Todo NO TOCAR PLIS (IN PROGRESS) Guille
-                //mImage.setBackground(Drawable.createFromPath(imageStream.toString()));
 
                 if(imageUri!=null){
                     sImageRef = imageUri.toString();
