@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Deprecated;
+package com.dsman.uaapp.Professor.Professor;
 
 import android.graphics.drawable.Drawable;
 

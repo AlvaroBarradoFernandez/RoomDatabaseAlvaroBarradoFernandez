@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Comunities;
+package com.dsman.uaapp.Professor.Professor;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -17,31 +17,33 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dsman.uaapp.Comunities.CardView_Comunity_Data;
+import com.dsman.uaapp.Comunities.RecyclerAdapter_Comunity_Data;
 import com.dsman.uaapp.R;
+
 import java.util.Objects;
 
-public class Comunity_FragmentDialog extends AppCompatDialogFragment {
+public class Professor_FragmentDialog extends AppCompatDialogFragment {
 
-    private ImageView logo;
-    private TextView description;
-    private TextView title_comunity;
-    private TextView name_comunity;
-    private TextView text_description;
-    private TextView topic_name;
+    private ImageView professorImg;
+    private TextView professorDescription;
+    private TextView professorName;
+    private TextView professorSurname;
+    private TextView professorDescriptionTwo;
     private DrawerLayout drawer;
     private RecyclerView recycle;
-    private RecyclerView.Adapter mAdapterComunity;
-    private RecyclerView.LayoutManager mLayoutManagerComunity;
+    private RecyclerView.Adapter mAdapterProfessor;
+    private RecyclerView.LayoutManager mLayoutManagerProfessor;
     private FloatingActionButton my_fab;
 
     public Dialog onCreateDialog(Bundle savedInstaceState){
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
-        View view = inflater.inflate(R.layout.fragment_comunity__fragment_dialog, null);
-        CardView_Comunity_Data asignatura1 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Computing 1");
-        CardView_Comunity_Data asignatura2 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Computing 2");
-        CardView_Comunity_Data asignatura3 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Computing 3");
-        CardView_Comunity_Data asignatura4 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Computing 4");
+        View view = inflater.inflate(R.layout.fragment_professor__fragment_dialog, null);
+        CardView_Comunity_Data asignatura1 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test");
+        CardView_Comunity_Data asignatura2 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 2");
+        CardView_Comunity_Data asignatura3 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 3");
+        CardView_Comunity_Data asignatura4 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 4");
         CardView_Comunity_Data[] elementos = {asignatura1,asignatura2,asignatura3,asignatura4};
         builder.setView(view)
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -56,18 +58,17 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
 
                     }
                 });
-        title_comunity = view.findViewById(R.id.title_Comunity);
-        name_comunity = view.findViewById(R.id.name_comunity);
-        logo = view.findViewById(R.id.imgcomunity);
-        topic_name = view.findViewById(R.id.title_topic);
-        drawer = view.findViewById(R.id.drawer_layout_comunity);
-        recycle = view.findViewById(R.id.recyclerViewComunity);
-        description = view.findViewById(R.id.description);
-        text_description = view.findViewById(R.id.text_desc);
-        mLayoutManagerComunity = new GridLayoutManager(view.getContext(), 1);
-        recycle.setLayoutManager(mLayoutManagerComunity);
-        mAdapterComunity = new RecyclerAdapter_Comunity_Data(elementos);
-        recycle.setAdapter(mAdapterComunity);
+        professorName = view.findViewById(R.id.name_professor);
+        professorSurname = view.findViewById(R.id.surname_professor);
+        professorImg = view.findViewById(R.id.img_professor);
+        drawer = view.findViewById(R.id.drawer_layout_professor);
+        recycle = view.findViewById(R.id.recyclerViewProfessor);
+        professorDescription = view.findViewById(R.id.description);
+        professorDescriptionTwo = view.findViewById(R.id.text_desc);
+        mLayoutManagerProfessor = new GridLayoutManager(view.getContext(), 1);
+        recycle.setLayoutManager(mLayoutManagerProfessor);
+        mAdapterProfessor = new RecyclerAdapter_Comunity_Data(elementos);
+        recycle.setAdapter(mAdapterProfessor);
         my_fab = view.findViewById(R.id.my_fab);
 
     return builder.create();

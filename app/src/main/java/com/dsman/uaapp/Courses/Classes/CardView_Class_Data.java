@@ -1,12 +1,12 @@
-package com.dsman.uaapp.Deprecated;
+package com.dsman.uaapp.Courses.Classes;
 
 import android.graphics.drawable.Drawable;
 
-public class CardView_Course_Data {
+public class CardView_Class_Data {
     private Drawable fotos_course ;
     private String nombres_course;
 
-    public CardView_Course_Data(Drawable fotos, String nombres) {
+    public CardView_Class_Data(Drawable fotos, String nombres) {
         this.fotos_course = fotos;
         this.nombres_course = nombres;
     }

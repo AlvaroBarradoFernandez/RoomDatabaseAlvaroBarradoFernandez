@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Professor.CoursesFragment;
+package com.dsman.uaapp.Professor.Professor;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -25,7 +25,7 @@ import com.dsman.uaapp.Comunities.FragmentComunity.ComunityFragment;
 import com.dsman.uaapp.FormsActivity;
 import com.dsman.uaapp.MainActivity;
 import com.dsman.uaapp.Notifications.NotificationFragment;
-import com.dsman.uaapp.Professor.CoursesFragment.ProfessorFragment;
+import com.dsman.uaapp.Professor.Professor.ProfessorFragment;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 

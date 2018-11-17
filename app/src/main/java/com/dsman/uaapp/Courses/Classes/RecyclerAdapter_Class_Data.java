@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Deprecated;
+package com.dsman.uaapp.Courses.Classes;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.dsman.uaapp.R;
 
 
-public class RecyclerAdapter_Course_Data extends RecyclerView.Adapter<RecyclerAdapter_Course_Data.MyViewHolder> {
-    private CardView_Course_Data[] mDataset;
+public class RecyclerAdapter_Class_Data extends RecyclerView.Adapter<RecyclerAdapter_Class_Data.MyViewHolder> {
+    private CardView_Class_Data[] mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -31,14 +31,14 @@ public class RecyclerAdapter_Course_Data extends RecyclerView.Adapter<RecyclerAd
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public RecyclerAdapter_Course_Data(CardView_Course_Data[] myDataset) {
+    public RecyclerAdapter_Class_Data(CardView_Class_Data[] myDataset) {
         mDataset = myDataset;
     }
 
     // Create new views (invoked by the layout manager)
     @NonNull
     @Override
-    public RecyclerAdapter_Course_Data.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerAdapter_Class_Data.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
         View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_recycler_course_data, parent, false);
         return new MyViewHolder(rootView);
@@ -49,7 +49,7 @@ public class RecyclerAdapter_Course_Data extends RecyclerView.Adapter<RecyclerAd
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        CardView_Course_Data item = mDataset [position];
+        CardView_Class_Data item = mDataset [position];
         holder.mTextView.setText(item.getNombres_subject());
         holder.mImagenView.setImageDrawable(item.getFotos_subject());
 

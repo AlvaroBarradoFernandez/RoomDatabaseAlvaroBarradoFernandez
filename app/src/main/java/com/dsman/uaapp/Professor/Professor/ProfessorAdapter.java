@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Professor.CoursesFragment;
+package com.dsman.uaapp.Professor.Professor;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

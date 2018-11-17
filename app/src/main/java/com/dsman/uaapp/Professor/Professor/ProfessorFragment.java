@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Professor.CoursesFragment;
+package com.dsman.uaapp.Professor.Professor;
 
 import android.content.Context;
 import android.os.Bundle;
