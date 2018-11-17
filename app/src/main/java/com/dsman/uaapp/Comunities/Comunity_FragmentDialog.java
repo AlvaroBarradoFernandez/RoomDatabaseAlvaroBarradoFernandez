@@ -38,11 +38,12 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_comunity__fragment_dialog, null);
-        CardView_Comunity_Data asignatura1 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Computing 1");
-        CardView_Comunity_Data asignatura2 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Computing 2");
-        CardView_Comunity_Data asignatura3 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Computing 3");
-        CardView_Comunity_Data asignatura4 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Computing 4");
-        CardView_Comunity_Data[] elementos = {asignatura1,asignatura2,asignatura3,asignatura4};
+        CardView_Comunity_Data num_alumComunity = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Nº Students");
+        CardView_Comunity_Data classroom = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Classroom");
+        CardView_Comunity_Data events = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Events");
+        CardView_Comunity_Data projects = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Projects");
+        CardView_Comunity_Data valuation = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null), "Valuation");
+        CardView_Comunity_Data[] elementos = {num_alumComunity,classroom,events,projects,valuation};
         builder.setView(view)
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override

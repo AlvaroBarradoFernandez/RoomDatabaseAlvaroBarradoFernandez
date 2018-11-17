@@ -40,11 +40,12 @@ public class Class_FragmentDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_class__fragment_dialog, null);
-        CardView_Comunity_Data asignatura1 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test");
-        CardView_Comunity_Data asignatura2 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 2");
-        CardView_Comunity_Data asignatura3 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 3");
-        CardView_Comunity_Data asignatura4 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 4");
-        CardView_Comunity_Data[] elementos = {asignatura1,asignatura2,asignatura3,asignatura4};
+        CardView_Comunity_Data num_alum = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Nº Students");
+        CardView_Comunity_Data professor = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Professor");
+        CardView_Comunity_Data average = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Average");
+        CardView_Comunity_Data my_average = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"My Average");
+        CardView_Comunity_Data ranking = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Ranking");
+        CardView_Comunity_Data[] elementos = {num_alum,professor,average,my_average, ranking};
         builder.setView(view)
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -81,4 +82,5 @@ public class Class_FragmentDialog extends AppCompatDialogFragment {
         startActivity(intent.createChooser(intent, "Send email via..."));
 
     }
+
 }

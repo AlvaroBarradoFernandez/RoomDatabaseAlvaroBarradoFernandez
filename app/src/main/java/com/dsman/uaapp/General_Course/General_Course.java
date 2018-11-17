@@ -26,6 +26,7 @@ import com.dsman.uaapp.FormsActivity;
 import com.dsman.uaapp.MainActivity;
 import com.dsman.uaapp.Notifications.NotificationFragment;
 import com.dsman.uaapp.Professor.Professor.ProfessorFragment;
+import com.dsman.uaapp.Qualifications.QualificationsFragment;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 
@@ -156,6 +157,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
                 break;
             case R.id.nav_notas:
                 setTitle("Notas");
+                fragment = new QualificationsFragment();
                 break;
             case R.id.nav_profesores:
                 setTitle("Profesores");

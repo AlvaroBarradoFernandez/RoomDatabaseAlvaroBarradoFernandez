@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dsman.uaapp.Courses.Classes.Class_FragmentDialog;
 import com.dsman.uaapp.R;
 
 import java.util.ArrayList;
@@ -57,23 +58,25 @@ public class ProfessorFragment extends Fragment {
                 }
                 transaction.addToBackStack(null);
 
-                /*ClassDialogFragment newFragment = ClassDialogFragment.newInstance(item);
-                newFragment.show(transaction, "dialog");*/
+                Professor_FragmentDialog cfd = new Professor_FragmentDialog();
+                cfd.show(transaction, "dialog");
             }
         });
         mRecyclerView.setAdapter(mAdapter);
     }
 
     public List<ProfessorObject> createData() {
-        ProfessorObject cibersegurity = new ProfessorObject("Pedro",R.drawable.basedatos);
-        ProfessorObject development = new ProfessorObject("Jaime", R.drawable.android);
-        ProfessorObject big_data = new ProfessorObject("Laura", R.drawable.fct);
-        ProfessorObject videogames = new ProfessorObject("David", R.drawable.computing);
+        ProfessorObject pedro = new ProfessorObject("Pedro",R.drawable.pedro);
+        ProfessorObject jaime = new ProfessorObject("Jaime", R.drawable.jaime);
+        ProfessorObject laura = new ProfessorObject("Laura", R.drawable.fct);
+        ProfessorObject meritxell = new ProfessorObject("Meritxell", R.drawable.meritxel);
+        ProfessorObject david = new ProfessorObject("David", R.drawable.david);
         List<ProfessorObject> data = new ArrayList<>();
-        data.add(cibersegurity);
-        data.add(development);
-        data.add(big_data);
-        data.add(videogames);
+        data.add(pedro);
+        data.add(jaime);
+        data.add(meritxell);
+        data.add(david);
+        data.add(laura);
         return data;
     }
     @Override

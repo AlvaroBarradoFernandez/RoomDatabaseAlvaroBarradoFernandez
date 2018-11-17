@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dsman.uaapp.Comunities.Comunity_FragmentDialog;
+import com.dsman.uaapp.Courses.Classes.Class_FragmentDialog;
 import com.dsman.uaapp.R;
 
 import java.util.ArrayList;
@@ -60,8 +62,8 @@ public class ComunityFragment extends Fragment {
                 }
                 transaction.addToBackStack(null);
 
-                /*ClassDialogFragment newFragment = ClassDialogFragment.newInstance(item);
-                newFragment.show(transaction, "dialog");*/
+                Comunity_FragmentDialog cfd = new Comunity_FragmentDialog();
+                cfd.show(transaction, "dialog");
             }
         });
         mRecyclerView.setAdapter(mAdapter);

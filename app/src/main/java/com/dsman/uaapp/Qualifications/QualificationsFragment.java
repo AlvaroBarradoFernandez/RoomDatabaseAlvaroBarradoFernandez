@@ -1,10 +1,11 @@
-package com.dsman.uaapp.Courses.Classes;
+package com.dsman.uaapp.Qualifications;
+
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,14 +17,15 @@ import com.dsman.uaapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassFragment extends Fragment {
+public class QualificationsFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    public ClassFragment() {
+    public QualificationsFragment() {
         // Required empty public constructor
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,22 +34,21 @@ public class ClassFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recycleview, container, false);
-        configRecyclerViewClass(view);
-        configAdaparterClass();
+        configRecyclerViewNotification(view);
+        configAdaparterNotification();
         return view;
     }
 
-    public void configRecyclerViewClass(View view){
+    public void configRecyclerViewNotification(View view){
         mRecyclerView = view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new GridLayoutManager(view.getContext(), 2);
+        mLayoutManager = new LinearLayoutManager(view.getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
-
-    public void configAdaparterClass(){
-        mAdapter = new ClassAdapter(createData(), new ClassAdapter.OnItemClickListener() {
+    public void configAdaparterNotification(){
+        mAdapter = new QualificationsAdapter(createData(), new QualificationsAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(ClassObject item) {
+            public void onItemClick(QualificationsObject item) {
                 Log.d("Celda","Informacion: "+item.toString());
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -57,24 +58,23 @@ public class ClassFragment extends Fragment {
                 }
                 transaction.addToBackStack(null);
 
-                Class_FragmentDialog cfd = new Class_FragmentDialog();
-                cfd.show(transaction, "dialog");
+                /*ClassDialogFragment newFragment = ClassDialogFragment.newInstance(item);
+                newFragment.show(transaction, "dialog");*/
             }
         });
         mRecyclerView.setAdapter(mAdapter);
     }
-
-    public List<ClassObject> createData() {
-        ClassObject database = new ClassObject("Database Access",R.drawable.basedatos);
-        ClassObject android = new ClassObject("Android", R.drawable.android);
-        ClassObject fct = new ClassObject("FCT", R.drawable.fct);
-        ClassObject computing = new ClassObject("Computing", R.drawable.computing);
-        ClassObject english = new ClassObject("English", R.drawable.english);
-        ClassObject swift = new ClassObject("Swift", R.drawable.swift);
-        ClassObject tfg = new ClassObject("TFG", R.drawable.tfg);
-        ClassObject odoo = new ClassObject("Management", R.drawable.odoo);
-        ClassObject company = new ClassObject("Company", R.drawable.company);
-        List<ClassObject> data = new ArrayList<>();
+    public List<QualificationsObject> createData() {
+        QualificationsObject database = new QualificationsObject("Database Access");
+        QualificationsObject android = new QualificationsObject("Android");
+        QualificationsObject fct = new QualificationsObject("FCT");
+        QualificationsObject computing = new QualificationsObject("Computing");
+        QualificationsObject english = new QualificationsObject("English");
+        QualificationsObject swift = new QualificationsObject("Swift");
+        QualificationsObject tfg = new QualificationsObject("TFG");
+        QualificationsObject odoo = new QualificationsObject("Management");
+        QualificationsObject company = new QualificationsObject("Company");
+        List<QualificationsObject> data = new ArrayList<>();
         data.add(database);
         data.add(android);
         data.add(fct);
