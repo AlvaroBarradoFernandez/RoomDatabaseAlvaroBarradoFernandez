@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 
 import java.io.FileNotFoundException;
@@ -55,6 +57,7 @@ public class ProfileDataFrag2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View mView = inflater.inflate(R.layout.activity_profile_data, container, false);
         ButterKnife.bind(this,mView);
         user = new User();
@@ -67,6 +70,7 @@ public class ProfileDataFrag2 extends Fragment {
             mName.setText(user.getName());
             mSurname.setText(user.getSurname());
         }
+         mImage = mView.findViewById(R.id.imageView);
 
 
         return mView;
@@ -93,6 +97,9 @@ public class ProfileDataFrag2 extends Fragment {
                 final InputStream imageStream = mContext.getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 mImage.setImageBitmap(selectedImage);
+                //Todo NO TOCAR PLIS (IN PROGRESS) Guille
+                //mImage.setBackground(Drawable.createFromPath(imageStream.toString()));
+
                 if(imageUri!=null){
                     sImageRef = imageUri.toString();
                 }
