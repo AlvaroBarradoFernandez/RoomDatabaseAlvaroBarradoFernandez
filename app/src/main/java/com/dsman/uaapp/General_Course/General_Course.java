@@ -1,3 +1,5 @@
+package com.dsman.uaapp.General_Course;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,12 +20,12 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dsman.uaapp.Classes.ClassFragment;
-
+import com.dsman.uaapp.Courses.Classes.ClassFragment;
+import com.dsman.uaapp.Comunities.FragmentComunity.ComunityFragment;
 import com.dsman.uaapp.FormsActivity;
 import com.dsman.uaapp.MainActivity;
 import com.dsman.uaapp.Notifications.NotificationFragment;
-
+import com.dsman.uaapp.Professor.CoursesFragment.ProfessorFragment;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 
@@ -68,18 +70,18 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         //TODO Arreglar esto XD;
         user = new User();
-        Intent intent_receive = this.getIntent();
+       Intent intent_receive = this.getIntent();
         if(intent_receive != null){
             user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
-            mUri = user.getUrl();
-            sEmail = user.getEmail();
-            sUserName = user.getName();
-            sSurname = user.getSurname();
+             mUri = user.getUrl();
+             sEmail = user.getEmail();
+             sUserName = user.getName();
+             sSurname = user.getSurname();
 
         }
 
-        mName.setText(sUserName);
-        mSurname.setText(sSurname);
+            mName.setText(sUserName);
+            mSurname.setText(sSurname);
 
         try {
             Context mContext = FormsActivity.getContextOfApplication();
@@ -157,11 +159,11 @@ public class General_Course extends AppCompatActivity implements NavigationView.
                 break;
             case R.id.nav_profesores:
                 setTitle("Profesores");
-               // fragment = new ProfessorFragment();
+                fragment = new ProfessorFragment();
                 break;
             case R.id.nav_comunidades:
                 setTitle("Comunidades");
-                //fragment = new ComunityFragment();
+                fragment = new ComunityFragment();
                 break;
         }
 

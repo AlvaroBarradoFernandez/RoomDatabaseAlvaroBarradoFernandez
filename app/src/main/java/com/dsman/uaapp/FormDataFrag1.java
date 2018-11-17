@@ -76,19 +76,19 @@ public class FormDataFrag1 extends Fragment {
 
     private User user;
 
-    MutableLiveData<String> nameLD = new MutableLiveData<>();
+
     private String name;
-    MutableLiveData<String> surnameLD = new MutableLiveData<>();
+
     private String surname;
-    MutableLiveData<String> surname2LD = new MutableLiveData<>();
+
     private String surname2;
-    MutableLiveData<String> birthdayLD = new MutableLiveData<>();
+
     private String birthday;
-    MutableLiveData<String> addressLD = new MutableLiveData<>();
+
     private String address;
-    MutableLiveData<String> postalCodeLD = new MutableLiveData<>();
+
     private String postalCode;
-    MutableLiveData<String> cityLD = new MutableLiveData<>();
+
     private String city;
 
     private String phoneType;
@@ -167,89 +167,39 @@ public class FormDataFrag1 extends Fragment {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             name = mName.getText().toString();
-            nameLD.postValue(name);
-            nameLD.observe(FormDataFrag1.this, new Observer<String>() {
-                @Override
-                public void onChanged(@NonNull String sName) {
-                    if (!sName.isEmpty()) {
-                        layoutName.setHelperText(" ");
-                    }
-
-                }
-            });
             surname = mSurname.getText().toString();
-            surnameLD.postValue(surname);
-            surnameLD.observe(FormDataFrag1.this, new Observer<String>() {
-                @Override
-                public void onChanged(@NonNull String sSurname) {
-                    if (!sSurname.isEmpty()) {
-                        layoutSurname.setHelperText(" ");
-                    }
-                }
-            });
-            surname2 = mSurname2.getText().toString().trim();
-            surname2LD.postValue(surname2);
-            surname2LD.observe(FormDataFrag1.this, new Observer<String>() {
-                @Override
-                public void onChanged(@NonNull String sSurname2) {
-                    if (!sSurname2.isEmpty()) {
-                        layoutSurname2.setHelperText(" ");
-                    }
-                }
-            });
+            surname2 = mSurname2.getText().toString();
             address = mAddress.getText().toString();
-            addressLD.postValue(address);
-            addressLD.observe(FormDataFrag1.this, new Observer<String>() {
-                @Override
-                public void onChanged(@NonNull String sText) {
-                    if (!sText.isEmpty()) {
-                        layoutAddress.setHelperText(" ");
-                    }
-                }
-            });
-
             birthday = mBirthday.getText().toString();
-            birthdayLD.postValue(birthday);
-            birthdayLD.observe(FormDataFrag1.this, new Observer<String>() {
-                @Override
-                public void onChanged(@NonNull String sText) {
-                    if (!sText.isEmpty()) {
-                        layoutBirthday.setHelperText(" ");
-                    }
-                }
-            });
             postalCode = mPostalCode.getText().toString();
-            postalCodeLD.postValue(postalCode);
-            postalCodeLD.observe(FormDataFrag1.this, new Observer<String>() {
-                @Override
-                public void onChanged(@NonNull String sText) {
-                    if (!sText.isEmpty()) {
-                        layoutPostalCode.setHelperText(" ");
-                    }
-                }
-            });
             city = mCity.getText().toString();
-            cityLD.postValue(city);
-            cityLD.observe(FormDataFrag1.this, new Observer<String>() {
-                @Override
-                public void onChanged(@NonNull String sText) {
-                    if (!sText.isEmpty()) {
-                        layoutCity.setHelperText(" ");
-                    }
-                }
-            });
             phoneType = mPhoneType.getSelectedItem().toString();
-
             phone = mPhone.getText().toString();
-            phoneLD.postValue(phone);
-            phoneLD.observe(FormDataFrag1.this, new Observer<String>() {
-                @Override
-                public void onChanged(@NonNull String sText) {
-                    if (!sText.isEmpty()) {
-                        layoutPhone.setHelperText(" ");
-                    }
-                }
-            });
+
+            if (!name.isEmpty()) {
+                layoutName.setHelperText(" ");
+            }
+            if (!surname.isEmpty()) {
+                layoutSurname.setHelperText(" ");
+            }
+            if (!surname2.isEmpty()) {
+                layoutSurname2.setHelperText(" ");
+            }
+            if (!address.isEmpty()) {
+                layoutAddress.setHelperText(" ");
+            }
+            if (!birthday.isEmpty()) {
+                layoutBirthday.setHelperText(" ");
+            }
+            if (!postalCode.isEmpty()) {
+                layoutPostalCode.setHelperText(" ");
+            }
+            if (!city.isEmpty()) {
+                layoutCity.setHelperText(" ");
+            }
+            if (!phone.isEmpty()) {
+                layoutPhone.setHelperText(" ");
+            }
             btnSave.setEnabled(enableButton());
 
         }
@@ -338,22 +288,17 @@ public class FormDataFrag1 extends Fragment {
                     textListenerError();
 
                 }
+                user.setName(mName.getText().toString());
+                user.setSurname(mSurname.getText().toString());
+                user.setSurname2(mSurname2.getText().toString());
+                user.setAddress(mAddress.getText().toString());
+                user.setPostalcode(mPostalCode.getText().toString());
+                user.setCity(mCity.getText().toString());
+                user.setPhonetype(mPhoneType.getSelectedItem().toString());
+                user.setPhone(mPhone.getText().toString());
                 if (allDone()) {
                     Toast.makeText(getActivity(), "Entra en el segundo IF", Toast.LENGTH_SHORT).show();
 
-
-
-                    //TODO Se guardan datos solo en OK
-                    //TODO Al Clickar Next no se Guarda Nada
-
-                    user.setName(mName.getText().toString());
-                    user.setSurname(mSurname.getText().toString());
-                    user.setSurname2(mSurname2.getText().toString());
-                    user.setAddress(mAddress.getText().toString());
-                    user.setPostalcode(mPostalCode.getText().toString());
-                    user.setCity(mCity.getText().toString());
-                    user.setPhonetype(mPhoneType.getSelectedItem().toString());
-                    user.setPhone(mPhone.getText().toString());
 
                     if (mListener != null) {
                         mListener.frag1tofrag2(v);

@@ -1,4 +1,4 @@
-package com.dsman.uaapp.Classes;
+package com.dsman.uaapp.Professor.CoursesFragment;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,33 +11,33 @@ import com.dsman.uaapp.R;
 
 import java.util.List;
 
-public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHolder> {
+public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.ClassViewHolder> {
 
-    private List<ClassObject> mDataset;
+    private List<ProfessorObject> mDataset;
     private final OnItemClickListener listener;
 
     public interface OnItemClickListener {
-        void onItemClick(ClassObject item);
+        void onItemClick(ProfessorObject item);
     }
 
 
-    public ClassAdapter(List<ClassObject> myDataset, ClassAdapter.OnItemClickListener listener) {
+    public ProfessorAdapter(List<ProfessorObject> myDataset, ProfessorAdapter.OnItemClickListener listener) {
         this.mDataset = myDataset;
         this.listener = listener;
 
     }
 
     @Override
-    public ClassAdapter.ClassViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ProfessorAdapter.ClassViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View rootView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_recyclerview, viewGroup, false);
         return new ClassViewHolder(rootView);
     }
 
     @Override
     public void onBindViewHolder(ClassViewHolder classViewHolder, int i) {
-        final ClassObject item = mDataset.get(i);
-        classViewHolder.textView.setText(item.getNameclass());
-        classViewHolder.imageView.setImageResource(item.getImgclass());
+        final ProfessorObject item = mDataset.get(i);
+        classViewHolder.textView.setText(item.getNameprofessor());
+        classViewHolder.imageView.setImageResource(item.getImgprofessor());
         classViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +66,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
             imageView = v.findViewById(R.id.imageViewitem);
         }
 
-        public void bind(final ClassObject item, final OnItemClickListener listener) {
+        public void bind(final ProfessorObject item, final OnItemClickListener listener) {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                     listener.onItemClick(item);
