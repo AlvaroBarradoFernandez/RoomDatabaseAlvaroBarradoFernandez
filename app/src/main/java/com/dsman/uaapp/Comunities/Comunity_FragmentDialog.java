@@ -52,10 +52,13 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
 
                     }
                 })
-                .setPositiveButton("acept", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Email", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
-
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setData(Uri.parse("prueba@gmail.com"));
+                        intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
+                        startActivity(Intent.createChooser(intent, "Send email via..."));
                     }
                 });
         title_comunity = view.findViewById(R.id.title_Comunity);
