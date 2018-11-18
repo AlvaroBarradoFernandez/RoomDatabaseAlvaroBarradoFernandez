@@ -56,6 +56,8 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("message/rfc822");
+                        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"prueba2@gmail.com"});
                         intent.setData(Uri.parse("prueba@gmail.com"));
                         intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
                         startActivity(Intent.createChooser(intent, "Send email via..."));

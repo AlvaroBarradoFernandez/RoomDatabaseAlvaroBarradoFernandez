@@ -52,7 +52,7 @@ public class ComunityAdapter extends RecyclerView.Adapter<ComunityAdapter.ClassV
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return 4;
     }
 
     static class ClassViewHolder extends RecyclerView.ViewHolder {
