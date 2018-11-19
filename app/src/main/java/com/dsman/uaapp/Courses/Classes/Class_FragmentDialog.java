@@ -37,7 +37,7 @@ public class Class_FragmentDialog extends AppCompatDialogFragment {
     private RecyclerView.LayoutManager mLayoutManagerClass;
     private FloatingActionButton my_fab;
 
-    public Dialog onCreateDialog(Bundle savedInstaceState){
+    public Dialog onCreateDialog(Bundle savedInstanceState){
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_class__fragment_dialog, null);

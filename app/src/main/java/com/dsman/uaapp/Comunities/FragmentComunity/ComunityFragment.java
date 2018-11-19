@@ -37,19 +37,19 @@ public class ComunityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recycleview, container, false);
-        configRecyclerViewClass(view);
-        configAdaparterClass();
+        configRecyclerViewComunity(view);
+        configAdaparterComunity();
         return view;
     }
 
-    public void configRecyclerViewClass(View view){
+    public void configRecyclerViewComunity(View view){
         mRecyclerView = view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
 
-    public void configAdaparterClass(){
+    public void configAdaparterComunity(){
         mAdapter = new ComunityAdapter(createData(), new ComunityAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ComunityObject item) {
@@ -87,7 +87,7 @@ public class ComunityFragment extends Fragment {
     }
 
     @Override
-    public void onDetach() {
+    public void onDetach()   {
         super.onDetach();
     }
 
