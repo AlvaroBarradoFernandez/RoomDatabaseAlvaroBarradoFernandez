@@ -5,19 +5,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.dsman.uaapp.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class QualificationsFragment extends Fragment {
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -34,58 +32,37 @@ public class QualificationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recycleview, container, false);
-        configRecyclerViewNotification(view);
-        configAdaparterNotification();
+        configRecyclerViewNotes(view);
+        configAdaparterNotes();
+
         return view;
     }
 
-    public void configRecyclerViewNotification(View view){
+    public void configRecyclerViewNotes(View view){
         mRecyclerView = view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(view.getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
-    public void configAdaparterNotification(){
-        mAdapter = new QualificationsAdapter(createData(), new QualificationsAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(QualificationsObject item) {
-                Log.d("Celda","Informacion: "+item.toString());
 
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                Fragment prev = getFragmentManager().findFragmentByTag("dialog");
-                if (prev != null) {
-                    transaction.remove(prev);
-                }
-                transaction.addToBackStack(null);
-
-                /*ClassDialogFragment newFragment = ClassDialogFragment.newInstance(item);
-                newFragment.show(transaction, "dialog");*/
-            }
-        });
+    public void configAdaparterNotes(){
+        mAdapter = new QualificationsAdapter(createData());
         mRecyclerView.setAdapter(mAdapter);
     }
-    public List<QualificationsObject> createData() {
-        QualificationsObject database = new QualificationsObject("Database Access");
-        QualificationsObject android = new QualificationsObject("Android");
-        QualificationsObject fct = new QualificationsObject("FCT");
-        QualificationsObject computing = new QualificationsObject("Computing");
-        QualificationsObject english = new QualificationsObject("English");
-        QualificationsObject swift = new QualificationsObject("Swift");
-        QualificationsObject tfg = new QualificationsObject("TFG");
-        QualificationsObject odoo = new QualificationsObject("Management");
-        QualificationsObject company = new QualificationsObject("Company");
-        List<QualificationsObject> data = new ArrayList<>();
-        data.add(database);
-        data.add(android);
-        data.add(fct);
-        data.add(computing);
-        data.add(english);
-        data.add(swift);
-        data.add(tfg);
-        data.add(odoo);
-        data.add(company);
+
+    public QualificationsObject[] createData() {
+        QualificationsObject notes1 = new QualificationsObject("2018/11/19", "Enpresa", "5.00");
+        QualificationsObject notes2 = new QualificationsObject("2018/07/21", "IOS", "10.00");
+        QualificationsObject notes3 = new QualificationsObject("2018/08/14", "GG Empresarial", "7.00");
+        QualificationsObject notes4 = new QualificationsObject("2018/12/30", "Ingles","8.50");
+        QualificationsObject notes5 = new QualificationsObject("2018/09/15", "Acceso a datos","7.00");
+        QualificationsObject notes6 = new QualificationsObject("2018/10/21", "Android","9.00");
+        QualificationsObject notes7 = new QualificationsObject("2018/09/16", "Procesos","4.90");
+
+        QualificationsObject[] data = {notes1,notes2,notes3,notes4,notes5,notes6,notes7};
         return data;
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -95,5 +72,4 @@ public class QualificationsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
-
 }

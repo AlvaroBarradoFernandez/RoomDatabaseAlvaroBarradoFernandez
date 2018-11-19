@@ -13,47 +13,42 @@ import java.util.List;
 
 public class QualificationsAdapter extends RecyclerView.Adapter<QualificationsAdapter.NotificationViewHolder> {
 
-    private List<QualificationsObject> mDataset;
-    private final OnItemClickListener listener;
+    private QualificationsObject[] mDataset;
 
-    public interface OnItemClickListener {
-        void onItemClick(QualificationsObject item);
-    }
-
-
-    public QualificationsAdapter(List<QualificationsObject> myDataset, QualificationsAdapter.OnItemClickListener listener) {
+    public QualificationsAdapter(QualificationsObject[] myDataset) {
         this.mDataset = myDataset;
-        this.listener = listener;
-
     }
 
     @Override
-    public QualificationsAdapter.NotificationViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public NotificationViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View rootView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_recyclerview, viewGroup, false);
         return new NotificationViewHolder(rootView);
     }
 
     @Override
-    public void onBindViewHolder(NotificationViewHolder notificationViewHolder, int i) {
-        final QualificationsObject item = mDataset.get(i);
-        notificationViewHolder.textView.setText(item.getNameclass());
+    public void onBindViewHolder(NotificationViewHolder notesViewHolder, final int i) {
+        final QualificationsObject item = mDataset[i];
+        notesViewHolder.date.setText(item.getDate());
+        notesViewHolder.classes.setText(item.getClasses());
+        notesViewHolder.note.setText(item.getNotes());
     }
-
-
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return mDataset.length;
     }
 
-    static class NotificationViewHolder extends RecyclerView.ViewHolder {
+    public class NotificationViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textView;
-        public ImageView imageView;
+        public TextView date;
+        public TextView classes;
+        public TextView note;
 
         public NotificationViewHolder(View v) {
             super(v);
-            textView = v.findViewById(R.id.tvnameitem);
+            note = v.findViewById(R.id.item1);
+            classes = v.findViewById(R.id.item2);
+            date = v.findViewById(R.id.item3);
         }
     }
 }

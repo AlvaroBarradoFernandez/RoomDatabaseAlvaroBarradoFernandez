@@ -4,24 +4,20 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class QualificationsObject implements Parcelable {
-    private String nameclass;
+    private String date;
+    private String classes;
+    private String notes;
 
-    public QualificationsObject(String nameclass) {
-        this.nameclass = nameclass;
+    public QualificationsObject(String date, String classes, String notes) {
+        this.date = date;
+        this.classes = classes;
+        this.notes = notes;
     }
 
-    public QualificationsObject(Parcel in) {
-        nameclass = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nameclass);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+    protected QualificationsObject(Parcel in) {
+        date = in.readString();
+        classes = in.readString();
+        notes = in.readString();
     }
 
     public static final Creator<QualificationsObject> CREATOR = new Creator<QualificationsObject>() {
@@ -36,11 +32,39 @@ public class QualificationsObject implements Parcelable {
         }
     };
 
-    public String getNameclass() {
-        return nameclass;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setNameclass(String nameclass) {
-        this.nameclass = nameclass;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(date);
+        dest.writeString(classes);
+        dest.writeString(notes);
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getClasses() {
+        return classes;
+    }
+
+    public void setClasses(String classes) {
+        this.classes = classes;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

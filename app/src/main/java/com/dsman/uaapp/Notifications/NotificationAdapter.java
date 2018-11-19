@@ -13,47 +13,42 @@ import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
 
-    private List<NotificationObject> mDataset;
-    private final OnItemClickListener listener;
+    private NotificationObject[] mDataset;
 
-    public interface OnItemClickListener {
-        void onItemClick(NotificationObject item);
-    }
-
-
-    public NotificationAdapter(List<NotificationObject> myDataset, NotificationAdapter.OnItemClickListener listener) {
+    public NotificationAdapter(NotificationObject[] myDataset) {
         this.mDataset = myDataset;
-        this.listener = listener;
-
     }
 
     @Override
-    public NotificationAdapter.NotificationViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public NotificationViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View rootView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_recyclerview, viewGroup, false);
         return new NotificationViewHolder(rootView);
     }
 
     @Override
-    public void onBindViewHolder(NotificationViewHolder notificationViewHolder, int i) {
-        final NotificationObject item = mDataset.get(i);
-        notificationViewHolder.textView.setText(item.getNameclass());
+    public void onBindViewHolder(NotificationViewHolder notesViewHolder, final int i) {
+        final NotificationObject item = mDataset[i];
+        notesViewHolder.date.setText(item.getDate());
+        notesViewHolder.name.setText(item.getName());
+        notesViewHolder.title.setText(item.getTitle());
     }
-
-
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return mDataset.length;
     }
 
-    static class NotificationViewHolder extends RecyclerView.ViewHolder {
+    public class NotificationViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textView;
-        public ImageView imageView;
+        public TextView date;
+        public TextView name;
+        public TextView title;
 
         public NotificationViewHolder(View v) {
             super(v);
-            textView = v.findViewById(R.id.tvnameitem);
+            title = v.findViewById(R.id.item1);
+            name = v.findViewById(R.id.item2);
+            date = v.findViewById(R.id.item3);
         }
     }
 }

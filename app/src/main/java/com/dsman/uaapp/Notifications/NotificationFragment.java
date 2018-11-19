@@ -34,58 +34,40 @@ public class NotificationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recycleview, container, false);
-        configRecyclerViewNotification(view);
-        configAdaparterNotification();
+        configRecyclerViewNotes(view);
+        configAdaparterNotes();
+
         return view;
     }
 
-    public void configRecyclerViewNotification(View view){
+    public void configRecyclerViewNotes(View view){
         mRecyclerView = view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(view.getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
-    public void configAdaparterNotification(){
-        mAdapter = new NotificationAdapter(createData(), new NotificationAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(NotificationObject item) {
-                Log.d("Celda","Informacion: "+item.toString());
 
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                Fragment prev = getFragmentManager().findFragmentByTag("dialog");
-                if (prev != null) {
-                    transaction.remove(prev);
-                }
-                transaction.addToBackStack(null);
-
-                /*ClassDialogFragment newFragment = ClassDialogFragment.newInstance(item);
-                newFragment.show(transaction, "dialog");*/
-            }
-        });
+    public void configAdaparterNotes(){
+        mAdapter = new NotificationAdapter(createData());
         mRecyclerView.setAdapter(mAdapter);
     }
-    public List<NotificationObject> createData() {
-        NotificationObject database = new NotificationObject("Database Access");
-        NotificationObject android = new NotificationObject("Android");
-        NotificationObject fct = new NotificationObject("FCT");
-        NotificationObject computing = new NotificationObject("Computing");
-        NotificationObject english = new NotificationObject("English");
-        NotificationObject swift = new NotificationObject("Swift");
-        NotificationObject tfg = new NotificationObject("TFG");
-        NotificationObject odoo = new NotificationObject("Management");
-        NotificationObject company = new NotificationObject("Company");
-        List<NotificationObject> data = new ArrayList<>();
-        data.add(database);
-        data.add(android);
-        data.add(fct);
-        data.add(computing);
-        data.add(english);
-        data.add(swift);
-        data.add(tfg);
-        data.add(odoo);
-        data.add(company);
+
+    public NotificationObject[] createData() {
+        NotificationObject notificaciones1 = new NotificationObject("2018/11/19", "Laura", "Has conseguido un logro");
+        NotificationObject notificaciones2 = new NotificationObject("2018/07/21", "Carlos", "Tienes una nota nueva");
+        NotificationObject notificaciones3 = new NotificationObject("2018/08/14", "Meritxel", "Has conseguido un logro");
+        NotificationObject notificaciones4 = new NotificationObject("2018/12/30", "David","Has mandado una tarea");
+        NotificationObject notificaciones5 = new NotificationObject("2018/09/15", "Cristina","Has conseguido un logro");
+        NotificationObject notificaciones6 = new NotificationObject("2018/10/21", "Laura","No has enviado la tarea");
+        NotificationObject notificaciones7 = new NotificationObject("2018/09/16", "Jaime","No hay clase");
+        NotificationObject notificaciones8 = new NotificationObject("2018/10/21", "Pedro","Te has copiado en este ejercicio");
+        NotificationObject notificaciones9 = new NotificationObject("2018/09/16", "Yony","No sirves para nada");
+        NotificationObject notificaciones10 = new NotificationObject("2018/10/21", "Joaquin","Aprobaste");
+
+        NotificationObject[] data = {notificaciones1,notificaciones2,notificaciones3,notificaciones4,notificaciones5,notificaciones6,notificaciones7,notificaciones8,notificaciones9,notificaciones10};
         return data;
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
