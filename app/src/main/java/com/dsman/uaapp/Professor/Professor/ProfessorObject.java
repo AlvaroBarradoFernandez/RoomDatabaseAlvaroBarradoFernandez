@@ -7,6 +7,9 @@ public class ProfessorObject implements Parcelable {
     private String nameprofessor;
     private int imgprofessor;
 
+    public ProfessorObject() {
+    }
+
     public ProfessorObject(String nameprofessor, int imgprofessor) {
         this.nameprofessor = nameprofessor;
         this.imgprofessor = imgprofessor;

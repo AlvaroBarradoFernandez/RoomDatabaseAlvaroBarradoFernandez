@@ -65,13 +65,5 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Clas
             textView = v.findViewById(R.id.tvnameitem);
             imageView = v.findViewById(R.id.imageViewitem);
         }
-
-        public void bind(final ProfessorObject item, final OnItemClickListener listener) {
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    listener.onItemClick(item);
-                }
-            });
-        }
     }
 }

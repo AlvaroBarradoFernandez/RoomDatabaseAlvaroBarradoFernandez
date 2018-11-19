@@ -49,7 +49,6 @@ public class ProfessorFragment extends Fragment {
         mAdapter = new ProfessorAdapter(createData(), new ProfessorAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ProfessorObject item) {
-                Log.d("Celda","Informacion: "+item.toString());
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");

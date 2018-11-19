@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Comunities.Comunity_FragmentDialog"
-
-    >
+    tools:context=".Comunities.Comunity_FragmentDialog">
 
 
     <ImageView
