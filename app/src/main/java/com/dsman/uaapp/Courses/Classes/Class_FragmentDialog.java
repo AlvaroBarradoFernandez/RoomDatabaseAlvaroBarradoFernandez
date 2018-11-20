@@ -62,7 +62,19 @@ public class Class_FragmentDialog extends DialogFragment {
         CardView_Class_Data my_average = new CardView_Class_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"My Average");
         CardView_Class_Data ranking = new CardView_Class_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Ranking");
         CardView_Class_Data[] elementos = {num_alum,professor,average,my_average, ranking};
-        builder.setView(view);
+        builder.setView(view).setPositiveButton("Email", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+
+            }
+        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+
+
+                    }
+                });
         AlertDialog dialog = builder.create();
         className = view.findViewById(R.id.name_class);
         classyear = view.findViewById(R.id.year_class);

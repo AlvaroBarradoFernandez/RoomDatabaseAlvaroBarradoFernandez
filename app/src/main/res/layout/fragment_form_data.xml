@@ -44,6 +44,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/name"
+                        android:inputType="textCapWords"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -71,6 +72,7 @@
                         android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:hint="@string/surname1"
+                        android:inputType="textCapWords"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -99,6 +101,7 @@
                         android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:hint="@string/surname2"
+                        android:inputType="textCapWords"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -127,6 +130,7 @@
                         android:layout_width="275dp"
                         android:layout_height="45dp"
                         android:focusable="false"
+                        android:inputType="textCapWords"
                         android:hint="@string/birthday" />
 
 
@@ -167,6 +171,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:hint="@string/address"
+                        android:inputType="textCapSentences|textMultiLine|textCapWords"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -194,6 +199,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/postalCode"
+                        android:inputType="textCapWords"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -222,6 +228,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/city"
+                        android:inputType="textCapWords"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>

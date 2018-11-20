@@ -88,8 +88,8 @@
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/text_descriptionPersonaldata"
-                    android:inputType="textPersonName" />
+                    android:inputType="textCapSentences|textMultiLine|textCapWords|textPersonName"
+                    android:hint="@string/text_descriptionPersonaldata" />
             </android.support.design.widget.TextInputLayout>
 
             <TextView
