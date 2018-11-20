@@ -17,7 +17,6 @@
         <item>Office</item>
     </string-array>
 
-    <string name="save">Save</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="description">Description</string>
