@@ -16,7 +16,7 @@ import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private EditText mEmail;
     private EditText mPassword;
@@ -130,10 +130,10 @@ public class MainActivity extends AppCompatActivity {
     public void checkLogin() {
         //login ok
 
-        Intent navigate = new Intent(MainActivity.this, FormsActivity.class);
+        Intent navigate = new Intent(Login.this, FormsActivity.class);
 
         user.setEmail(mEmail.getText().toString());
-        navigate.putExtra(MainActivity.USER, user);
+        navigate.putExtra(Login.USER, user);
 
 
         if (checkEmail() && checkPass()) {

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:screenOrientation="portrait"
     android:theme="@style/AppTheme"
-    tools:context=".Login.MainActivity">
+    tools:context=".Login.Login">
 
     <LinearLayout
         android:layout_width="247dp"
