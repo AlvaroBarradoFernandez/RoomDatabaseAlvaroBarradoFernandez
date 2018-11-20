@@ -1,11 +1,11 @@
 package com.dsman.uaapp.General_Course;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -22,8 +22,7 @@ import android.widget.TextView;
 
 import com.dsman.uaapp.Courses.Classes.ClassFragment;
 import com.dsman.uaapp.Comunities.FragmentComunity.ComunityFragment;
-import com.dsman.uaapp.FormsActivity;
-import com.dsman.uaapp.MainActivity;
+import com.dsman.uaapp.Login.MainActivity;
 import com.dsman.uaapp.Notifications.NotificationFragment;
 import com.dsman.uaapp.Professor.Professor.ProfessorFragment;
 import com.dsman.uaapp.Qualifications.QualificationsFragment;
@@ -36,29 +35,24 @@ import java.io.InputStream;
 import butterknife.OnClick;
 
 public class General_Course extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private Toolbar toolbar;
-    private  TextView mName;
-    private TextView mSurname;
-    private ImageView mImageView;
     public static final String USER = "USER";
     private static User user;
-    private String mUri, sUserName, sSurname, sEmail;
+    private String mUri, sUserName, sSurname, sEmail; //TODO Mostrar Email en el Fragemt CardView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_course);
-        mName = findViewById(R.id.textView1);
-        mSurname = findViewById(R.id.textView2);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView =  findViewById(R.id.nav_view);
         LayoutInflater.from(getBaseContext()).inflate(R.layout.activity_general_course_navheader, navigationView);
 
         navigationView.setNavigationItemSelectedListener(this);
-        mImageView = navigationView.findViewById(R.id.imageViewU);
-        mName = navigationView.findViewById(R.id.textView1);
-        mSurname = navigationView.findViewById(R.id.textView2);
+        ImageView mImageView = navigationView.findViewById(R.id.imageViewU);
+        TextView mName = navigationView.findViewById(R.id.textView1);
+        TextView mSurname = navigationView.findViewById(R.id.textView2);
         setTitle("Clases");
         Fragment fragment = new ClassFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -78,7 +72,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         user = new User();
        Intent intent_receive = this.getIntent();
         if(intent_receive != null){
-            user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
+            user = intent_receive.getParcelableExtra(MainActivity.USER);
              mUri = user.getUrl();
              sEmail = user.getEmail();
              sUserName = user.getName();
@@ -105,7 +99,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
             e.printStackTrace();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -114,14 +108,16 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
 
         }
-        Intent navigate = new Intent(General_Course.this, General_Course.class);
+
+        //TODO Salir al clicar atrás sin usar Intent
+        Intent navigate = new Intent(Intent.ACTION_MAIN);
         navigate.setFlags(navigate.FLAG_ACTIVITY_NEW_TASK | navigate.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(navigate);
         finish();
@@ -145,8 +141,8 @@ public class General_Course extends AppCompatActivity implements NavigationView.
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         changeFragment(item.getItemId());
         return true;
@@ -189,7 +185,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
     @OnClick()
     public void onclicklogout(MenuItem item) {
-        //TODO Intentar arreglar el Warning
+
         Intent navigate = new Intent(General_Course.this, MainActivity.class);
         navigate.setFlags(navigate.FLAG_ACTIVITY_NEW_TASK | navigate.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(navigate);

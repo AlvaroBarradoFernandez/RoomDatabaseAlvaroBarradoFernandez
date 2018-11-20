@@ -1,4 +1,4 @@
-package com.dsman.uaapp;
+package com.dsman.uaapp.Login;
 
 
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.dsman.uaapp.FormData.FormsActivity;
+import com.dsman.uaapp.R;
+import com.dsman.uaapp.User;
 
 
 public class MainActivity extends AppCompatActivity {

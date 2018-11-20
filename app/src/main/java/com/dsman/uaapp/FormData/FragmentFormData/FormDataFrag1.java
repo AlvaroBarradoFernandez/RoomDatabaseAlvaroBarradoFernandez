@@ -1,12 +1,11 @@
-package com.dsman.uaapp;
+package com.dsman.uaapp.FormData.FragmentFormData;
 
 import android.app.DatePickerDialog;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -18,61 +17,41 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
+
+import com.dsman.uaapp.Login.MainActivity;
+import com.dsman.uaapp.R;
+import com.dsman.uaapp.User;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-import java.util.Locale;
-
-
-//TODO Tienes activity, dentro de tu fragmento, cargas el Framgneto 1 por defecto, y cuando le des al botón, cargas fragmento 2
 
 public class FormDataFrag1 extends Fragment {
-    @BindView(R.id.etName)
-    EditText mName;
-    @BindView(R.id.etSurname)
-    EditText mSurname;
-    @BindView(R.id.etSurname2)
-    EditText mSurname2;
-    @BindView(R.id.etBirthday)
-    EditText mBirthday;
-    @BindView(R.id.etAddress)
-    EditText mAddress;
-    @BindView(R.id.etPostalCode)
-    EditText mPostalCode;
-    @BindView(R.id.etCity)
-    EditText mCity;
-    @BindView(R.id.spPhoneType)
-    Spinner mPhoneType;
-    @BindView(R.id.etPhone)
-    EditText mPhone;
-    @BindView(R.id.btnSave)
-    Button btnSave;
-    @BindView(R.id.tilName)
-    TextInputLayout layoutName;
-    @BindView(R.id.tilSurname)
-    TextInputLayout layoutSurname;
-    @BindView(R.id.tilSurname2)
-    TextInputLayout layoutSurname2;
-    @BindView(R.id.tilBirthday)
-    TextInputLayout layoutBirthday;
-    @BindView(R.id.tilAddress)
-    TextInputLayout layoutAddress;
-    @BindView(R.id.tilPostalCode)
-    TextInputLayout layoutPostalCode;
-    @BindView(R.id.tilCity)
-    TextInputLayout layoutCity;
-    @BindView(R.id.tilPhone)
-    TextInputLayout layoutPhone;
-    @BindView(R.id.btnclearDate)
-    Button btnClearDate;
+    @BindView(R.id.etName) EditText mName;
+    @BindView(R.id.etSurname) EditText mSurname;
+    @BindView(R.id.etSurname2) EditText mSurname2;
+    @BindView(R.id.etBirthday) EditText mBirthday;
+    @BindView(R.id.etAddress) EditText mAddress;
+    @BindView(R.id.etPostalCode) EditText mPostalCode;
+    @BindView(R.id.etCity) EditText mCity;
+    @BindView(R.id.spPhoneType) Spinner mPhoneType;
+    @BindView(R.id.etPhone) EditText mPhone;
+    @BindView(R.id.fABtnNext) FloatingActionButton btnSave;
+    @BindView(R.id.tilName) TextInputLayout layoutName;
+    @BindView(R.id.tilSurname) TextInputLayout layoutSurname;
+    @BindView(R.id.tilSurname2) TextInputLayout layoutSurname2;
+    @BindView(R.id.tilBirthday) TextInputLayout layoutBirthday;
+    @BindView(R.id.tilAddress) TextInputLayout layoutAddress;
+    @BindView(R.id.tilPostalCode) TextInputLayout layoutPostalCode;
+    @BindView(R.id.tilCity) TextInputLayout layoutCity;
+    @BindView(R.id.tilPhone) TextInputLayout layoutPhone;
+    @BindView(R.id.btnclearDate) Button btnClearDate;
 
-    private Intent intent_send;
-    private Intent intent_receive;
+
 
     private User user;
 
@@ -91,8 +70,6 @@ public class FormDataFrag1 extends Fragment {
 
     private String city;
 
-    private String phoneType;
-    MutableLiveData<String> phoneLD = new MutableLiveData<>();
     private String phone;
 
     private FormDataFrag1.OnFragmentInteractionListener mListener;
@@ -108,17 +85,17 @@ public class FormDataFrag1 extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View mView = inflater.inflate(R.layout.activity_form_data, container, false);
+        View mView = inflater.inflate(R.layout.fragment_form_data, container, false);
 
 
         //Creación ButterKnife
         ButterKnife.bind(this, mView);
         user = new User();
-        intent_receive = getActivity().getIntent();
+        Intent intent_receive = getActivity().getIntent();
         if (intent_receive != null) {
-            user = (User) intent_receive.getParcelableExtra(MainActivity.USER);
+            user =  intent_receive.getParcelableExtra(MainActivity.USER);
         }
 
         textListener();
@@ -173,7 +150,7 @@ public class FormDataFrag1 extends Fragment {
             birthday = mBirthday.getText().toString();
             postalCode = mPostalCode.getText().toString();
             city = mCity.getText().toString();
-            phoneType = mPhoneType.getSelectedItem().toString();
+            mPhoneType.getSelectedItem();
             phone = mPhone.getText().toString();
 
             if (!name.isEmpty()) {
@@ -211,6 +188,7 @@ public class FormDataFrag1 extends Fragment {
     };
 
     public boolean enableButton() {
+        //Todo ignorar el Warning (no es aplicable a este caso)
         if (!name.isEmpty() || !surname.isEmpty() || !surname2.isEmpty() || !birthday.isEmpty() || !address.isEmpty() ||
                 !postalCode.isEmpty() || !city.isEmpty() || !phone.isEmpty()) {
 
@@ -223,6 +201,7 @@ public class FormDataFrag1 extends Fragment {
     }
 
     public boolean allDone() {
+        //Todo ignorar el Warning (no es aplicable a este caso)
         if (!name.isEmpty() && !surname.isEmpty() && !surname2.isEmpty() && !birthday.isEmpty() && !address.isEmpty() &&
                 !postalCode.isEmpty() && !city.isEmpty() && !phone.isEmpty()) {
 
@@ -289,17 +268,16 @@ public class FormDataFrag1 extends Fragment {
                     textListenerError();
 
                 }
-                user.setName(mName.getText().toString());
-                user.setSurname(mSurname.getText().toString());
-                user.setSurname2(mSurname2.getText().toString());
-                user.setAddress(mAddress.getText().toString());
-                user.setPostalcode(mPostalCode.getText().toString());
-                user.setCity(mCity.getText().toString());
-                user.setPhonetype(mPhoneType.getSelectedItem().toString());
-                user.setPhone(mPhone.getText().toString());
-                if (allDone()) {
-                    Toast.makeText(getActivity(), "Entra en el segundo IF", Toast.LENGTH_SHORT).show();
 
+                if (allDone()) {
+                    user.setName(mName.getText().toString());
+                    user.setSurname(mSurname.getText().toString());
+                    user.setSurname2(mSurname2.getText().toString());
+                    user.setAddress(mAddress.getText().toString());
+                    user.setPostalcode(mPostalCode.getText().toString());
+                    user.setCity(mCity.getText().toString());
+                    user.setPhonetype(mPhoneType.getSelectedItem().toString());
+                    user.setPhone(mPhone.getText().toString());
 
                     if (mListener != null) {
                         mListener.frag1tofrag2(v);
@@ -307,10 +285,11 @@ public class FormDataFrag1 extends Fragment {
                 }
             }
         });
-
+                 
     }
 
 
+    //Llamada al Dialog de Fecha
     public void onClickbirthday() {
         mBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -325,11 +304,13 @@ public class FormDataFrag1 extends Fragment {
 
     }
 
+    //Setea la Fecha escogida con el Formato escogido en el EditText Birthday
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         mBirthday.setText(sdf.format(myCalendar.getTime()));
     }
+
 
     @Override
     public void onAttach(Context context) {
@@ -342,6 +323,7 @@ public class FormDataFrag1 extends Fragment {
         }
     }
 
+    //
     @Override
     public void onDetach() {
         super.onDetach();
@@ -350,7 +332,7 @@ public class FormDataFrag1 extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void frag1tofrag2(View view);
+        
+         void frag1tofrag2(View view);
     }
 }

@@ -1,13 +1,12 @@
-package com.dsman.uaapp;
+package com.dsman.uaapp.FormData.FragmentFormData;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,12 +15,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+import com.dsman.uaapp.FormData.FormsActivity;
+import com.dsman.uaapp.Login.MainActivity;
+import com.dsman.uaapp.R;
+import com.dsman.uaapp.User;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.io.FileNotFoundException;
@@ -33,7 +34,7 @@ import butterknife.ButterKnife;
 
 import static android.app.Activity.RESULT_OK;
 
-public class ProfileDataFrag2 extends Fragment {
+public class PersonalDataFrag2 extends Fragment {
     @BindView(R.id.imageView) CircularImageView mImage;
     @BindView(R.id.textViewN) TextView mName;
     @BindView(R.id.textViewS) TextView mSurname;
@@ -51,24 +52,23 @@ public class ProfileDataFrag2 extends Fragment {
     private ArrayList<String> hobbies = new ArrayList<String>();
     private User user;
     public static final String USER = "USER";
-    private Uri imageUri;
     private String sImageRef;
-    private Context mContext;
-    private ProfileDataFrag2.OnFragmentInteractionListener mListener;
+    private PersonalDataFrag2.OnFragmentInteractionListener mListener;
 
-    public ProfileDataFrag2() {
+    public PersonalDataFrag2() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
 
-        View mView =  inflater.inflate(R.layout.activity_profile_data, null);
+        View mView =  inflater.inflate(R.layout.fragment_personal_data, container, false);
 
         ButterKnife.bind(this, mView);
         user = new User();
         onClickedImage();
         onClickedSave();
+
 
         Intent a = getActivity().getIntent();
         if (a != null) {
@@ -100,7 +100,8 @@ public class ProfileDataFrag2 extends Fragment {
         Context mContext = FormsActivity.getContextOfApplication();
         if (resultCode == RESULT_OK) {
             try {
-                imageUri = data.getData();
+
+                Uri imageUri = data.getData();
                 final InputStream imageStream = mContext.getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 mImage.setImageBitmap(selectedImage);
@@ -125,9 +126,9 @@ public class ProfileDataFrag2 extends Fragment {
             @Override
             public void onClick(View v) {
                 //Se igualan los campos de texto a sus variables correspondientes
-                String descripcion = mDescription.getText().toString();
+                String description = mDescription.getText().toString();
                 String gender = "";
-                if (descripcion.equals("")) {
+                if (description.equals("")) {
                     layoutDescription.setHelperTextEnabled(true);
                     layoutDescription.setError("You don´t have wrote any description");
                 } else {
@@ -162,11 +163,11 @@ public class ProfileDataFrag2 extends Fragment {
                 }else {
                     layoutGender.setHelperText("");
                 }
-                if (!descripcion.equals("") && !gender.equals("") && !hobbies.equals("")) {
+                if (!description.equals("") && !gender.equals("") && !hobbies.isEmpty()) {
 
                     if (mListener != null) {
                         user.setUrl(sImageRef);
-                        user.setDescription(descripcion);
+                        user.setDescription(description);
                         user.setGender(gender);
                         user.setHobbies(hobbies);
                         mListener.saveUserData(v, user);
@@ -182,8 +183,8 @@ public class ProfileDataFrag2 extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof ProfileDataFrag2.OnFragmentInteractionListener) {
-            mListener = (ProfileDataFrag2.OnFragmentInteractionListener) context;
+        if (context instanceof PersonalDataFrag2.OnFragmentInteractionListener) {
+            mListener = (PersonalDataFrag2.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -197,7 +198,6 @@ public class ProfileDataFrag2 extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void saveUserData(View view, User user);
+         void saveUserData(View view, User user);
     }
 }
