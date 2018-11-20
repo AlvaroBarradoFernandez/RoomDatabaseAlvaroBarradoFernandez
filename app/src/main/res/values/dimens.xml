@@ -33,6 +33,7 @@
     <dimen name="w_btnLogin">250dp</dimen>
     <dimen name="ms_btnLogin">50dp</dimen>
     <dimen name="me_btnLogin">50dp</dimen>
+    <dimen name="mb_btnLogin">30dp</dimen>
     <!--Button Login Section End-->
     
 </resources>
