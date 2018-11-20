@@ -56,15 +56,13 @@ public class ClassFragment extends Fragment {
 
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                ClassObject data = new ClassObject(item);
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
                     transaction.remove(prev);
                 }
                 transaction.addToBackStack(null);
 
-                Class_FragmentDialog cfd = new Class_FragmentDialog();
-                cfd.newInstance(data);
+                Class_FragmentDialog cfd = Class_FragmentDialog.newInstance(item);
                 cfd.show(transaction, "dialog");
             }
         });
@@ -72,7 +70,7 @@ public class ClassFragment extends Fragment {
     }
 
     public List<ClassObject> createData() {
-        ClassObject database = new ClassObject("Database Access",R.drawable.pedro);
+        ClassObject database = new ClassObject("Database Access",R.drawable.basedatos);
         ClassObject android = new ClassObject("Android", R.drawable.android);
         ClassObject fct = new ClassObject("FCT", R.drawable.fct);
         ClassObject computing = new ClassObject("Computing", R.drawable.computing);
