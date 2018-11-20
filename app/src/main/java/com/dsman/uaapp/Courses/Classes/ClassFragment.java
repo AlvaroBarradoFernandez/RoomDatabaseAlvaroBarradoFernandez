@@ -56,15 +56,13 @@ public class ClassFragment extends Fragment {
 
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                ClassObject data = new ClassObject(item);
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
                     transaction.remove(prev);
                 }
                 transaction.addToBackStack(null);
 
-                Class_FragmentDialog cfd = new Class_FragmentDialog();
-                cfd.newInstance(data);
+                Class_FragmentDialog cfd = Class_FragmentDialog.newInstance(item);
                 cfd.show(transaction, "dialog");
             }
         });
@@ -72,15 +70,15 @@ public class ClassFragment extends Fragment {
     }
 
     public List<ClassObject> createData() {
-        ClassObject database = new ClassObject("Database Access",R.drawable.pedro);
-        ClassObject android = new ClassObject("Android", R.drawable.android);
-        ClassObject fct = new ClassObject("FCT", R.drawable.fct);
-        ClassObject computing = new ClassObject("Computing", R.drawable.computing);
-        ClassObject english = new ClassObject("English", R.drawable.english);
-        ClassObject swift = new ClassObject("Swift", R.drawable.swift);
-        ClassObject tfg = new ClassObject("TFG", R.drawable.tfg);
-        ClassObject odoo = new ClassObject("Management", R.drawable.odoo);
-        ClassObject company = new ClassObject("Company", R.drawable.company);
+        ClassObject database = new ClassObject("Database Access",R.drawable.basedatos,"2ª Curso");
+        ClassObject android = new ClassObject("Android", R.drawable.android,"2ª Curso");
+        ClassObject fct = new ClassObject("FCT", R.drawable.fct,"2ª Curso");
+        ClassObject computing = new ClassObject("Computing", R.drawable.computing,"2ª Curso");
+        ClassObject english = new ClassObject("English", R.drawable.english,"2ª Curso");
+        ClassObject swift = new ClassObject("Swift", R.drawable.swift,"2ª Curso");
+        ClassObject tfg = new ClassObject("TFG", R.drawable.tfg,"2ª Curso");
+        ClassObject odoo = new ClassObject("Management", R.drawable.odoo,"2ª Curso");
+        ClassObject company = new ClassObject("Company", R.drawable.company,"2ª Curso");
         List<ClassObject> data = new ArrayList<>();
         data.add(database);
         data.add(android);

@@ -6,26 +6,25 @@ import android.os.Parcelable;
 public class ClassObject implements Parcelable {
     private String nameclass;
     private int imgclass;
-    private static ClassObject data;
+    private String course;
 
-    public ClassObject(String nameclass, int imgclass) {
+    public ClassObject(String nameclass, int imgclass, String course) {
         this.nameclass = nameclass;
         this.imgclass = imgclass;
+        this.course = course;
     }
 
     public ClassObject(Parcel in) {
         nameclass = in.readString();
         imgclass = in.readInt();
-    }
-
-    public ClassObject(ClassObject data) {
-        this.data = data;
+        course = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(nameclass);
         dest.writeInt(imgclass);
+        dest.writeString(course);
     }
 
     @Override
@@ -59,5 +58,13 @@ public class ClassObject implements Parcelable {
 
     public void setImgclass(int imgclass) {
         this.imgclass = imgclass;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }

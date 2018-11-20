@@ -95,6 +95,7 @@ public class Class_FragmentDialog extends DialogFragment {
         if (item!=null) {
             className.setText(item.getNameclass());
             classImg.setImageResource(item.getImgclass());
+            classyear.setText(item.getCourse());
         }
     }
 
