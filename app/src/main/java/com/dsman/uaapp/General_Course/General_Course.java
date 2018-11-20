@@ -59,6 +59,11 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         mImageView = navigationView.findViewById(R.id.imageViewU);
         mName = navigationView.findViewById(R.id.textView1);
         mSurname = navigationView.findViewById(R.id.textView2);
+        setTitle("Clases");
+        Fragment fragment = new ClassFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_generalcourse, fragment);
+        ft.commit();
         /*mRecyclerView = (RecyclerView) findViewById(R.id.class_recycler_view);
 
         // use this setting to improve performance if you know that changes
