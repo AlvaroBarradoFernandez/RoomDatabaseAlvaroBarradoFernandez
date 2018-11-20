@@ -69,7 +69,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         mLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(mLayoutManager);*/
 
-        //TODO Arreglar esto XD;
+
         user = new User();
        Intent intent_receive = this.getIntent();
         if(intent_receive != null){
