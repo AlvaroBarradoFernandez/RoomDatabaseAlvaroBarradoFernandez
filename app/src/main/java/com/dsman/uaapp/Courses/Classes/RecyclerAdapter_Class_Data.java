@@ -40,7 +40,7 @@ public class RecyclerAdapter_Class_Data extends RecyclerView.Adapter<RecyclerAda
     @Override
     public RecyclerAdapter_Class_Data.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
-        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_recycler_professor_data, parent, false);
+        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_recycler_course_data, parent, false);
         return new MyViewHolder(rootView);
     }
 

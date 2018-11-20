@@ -70,12 +70,18 @@ public class ProfessorFragment extends Fragment {
         ProfessorObject laura = new ProfessorObject("Laura", R.drawable.fct);
         ProfessorObject meritxell = new ProfessorObject("Meritxell", R.drawable.meritxel);
         ProfessorObject david = new ProfessorObject("David", R.drawable.david);
+        ProfessorObject cristina = new ProfessorObject("Pedro",R.drawable.pedro);
+        ProfessorObject dani = new ProfessorObject("Jaime", R.drawable.jaime);
+        ProfessorObject carlos = new ProfessorObject("Laura", R.drawable.fct);
         List<ProfessorObject> data = new ArrayList<>();
         data.add(pedro);
         data.add(jaime);
         data.add(meritxell);
         data.add(david);
         data.add(laura);
+        data.add(cristina);
+        data.add(dani);
+        data.add(carlos);
         return data;
     }
     @Override
