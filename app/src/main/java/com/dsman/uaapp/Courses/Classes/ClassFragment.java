@@ -72,7 +72,7 @@ public class ClassFragment extends Fragment {
     }
 
     public List<ClassObject> createData() {
-        ClassObject database = new ClassObject("Database Access",R.drawable.basedatos);
+        ClassObject database = new ClassObject("Database Access",R.drawable.pedro);
         ClassObject android = new ClassObject("Android", R.drawable.android);
         ClassObject fct = new ClassObject("FCT", R.drawable.fct);
         ClassObject computing = new ClassObject("Computing", R.drawable.computing);
