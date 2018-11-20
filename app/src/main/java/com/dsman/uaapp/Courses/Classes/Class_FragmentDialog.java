@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -36,17 +37,34 @@ public class Class_FragmentDialog extends AppCompatDialogFragment {
     private RecyclerView.Adapter mAdapterClass;
     private RecyclerView.LayoutManager mLayoutManagerClass;
     private FloatingActionButton my_fab;
+    private CardView_Class_Data item;
+    public static final String CLASS = "CLASS";
+
+    public static Class_FragmentDialog newInstance(CardView_Class_Data cardView_class_data) {
+        Class_FragmentDialog dialog = new Class_FragmentDialog();
+        Bundle data = new Bundle();
+        data.putParcelable(CLASS,cardView_class_data);
+        dialog.setArguments(data);
+        return dialog;
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+             item = getArguments().getParcelable(CLASS);
+        }
+    }
 
     public Dialog onCreateDialog(Bundle savedInstanceState){
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_class__fragment_dialog, null);
-        CardView_Comunity_Data num_alum = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Nº Students");
-        CardView_Comunity_Data professor = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Professor");
-        CardView_Comunity_Data average = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Average");
-        CardView_Comunity_Data my_average = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"My Average");
-        CardView_Comunity_Data ranking = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Ranking");
-        CardView_Comunity_Data[] elementos = {num_alum,professor,average,my_average, ranking};
+        CardView_Class_Data num_alum = new CardView_Class_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Nº Students");
+        CardView_Class_Data professor = new CardView_Class_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Professor");
+        CardView_Class_Data average = new CardView_Class_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Average");
+        CardView_Class_Data my_average = new CardView_Class_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"My Average");
+        CardView_Class_Data ranking = new CardView_Class_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Ranking");
+        CardView_Class_Data[] elementos = {num_alum,professor,average,my_average, ranking};
         builder.setView(view)
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -69,11 +87,18 @@ public class Class_FragmentDialog extends AppCompatDialogFragment {
         classDescriptionTwo = view.findViewById(R.id.text_desc);
         mLayoutManagerClass = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recycle.setLayoutManager(mLayoutManagerClass);
-        mAdapterClass = new RecyclerAdapter_Comunity_Data(elementos);
+        mAdapterClass = new RecyclerAdapter_Class_Data(elementos);
         recycle.setAdapter(mAdapterClass);
         my_fab = view.findViewById(R.id.my_fab);
-
+        updateDialog(item);
     return builder.create();
+    }
+
+    public void updateDialog(CardView_Class_Data item){
+        if (item!=null) {
+            className.setText(item.getData().getNameclass());
+            classImg.setImageResource(item.getData().getImgclass());
+        }
     }
 
     public void onclick(View view) {
