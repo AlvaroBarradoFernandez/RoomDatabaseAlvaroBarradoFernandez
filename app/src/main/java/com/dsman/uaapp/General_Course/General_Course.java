@@ -90,11 +90,11 @@ public class General_Course extends AppCompatActivity implements NavigationView.
             mSurname.setText(sSurname);
 
         try {
-            Context mContext = FormsActivity.getContextOfApplication();
+
             if (mUri != null) {
 
                 Uri mUserImage = Uri.parse(mUri);
-                final InputStream imageStream = mContext.getContentResolver().openInputStream(mUserImage);
+                final InputStream imageStream = getContentResolver().openInputStream(mUserImage);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 mImageView.setImageBitmap(selectedImage);
 
@@ -119,7 +119,12 @@ public class General_Course extends AppCompatActivity implements NavigationView.
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
         }
+        Intent navigate = new Intent(General_Course.this, General_Course.class);
+        navigate.setFlags(navigate.FLAG_ACTIVITY_NEW_TASK | navigate.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(navigate);
+        finish();
     }
 
     @Override

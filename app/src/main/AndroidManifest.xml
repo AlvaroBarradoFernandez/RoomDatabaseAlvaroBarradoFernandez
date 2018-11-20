@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--TODO Classes temporales para el uso de cada uno(Guille)-->
-        <!-- <activity android:name=".General_Course"> -->
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,11 @@
         </activity>
         <activity android:name=".FormsActivity"
             android:windowSoftInputMode="adjustPan" />
-        <!--TODO Desactivada temporalmente para mis testeos (Guille)-->
-        <!--<activity android:name=".MainActivity"/>-->
+        <activity android:name=".Comunities.Comunity_Data"/>
+        <activity android:name=".Courses.Classes.Class_Data"/>
+        <activity android:name=".Professor.Professor.Professor_Data"/>
+        <activity android:name=".General_Course.General_Course"/>
+
     </application>
 
 </manifest>
