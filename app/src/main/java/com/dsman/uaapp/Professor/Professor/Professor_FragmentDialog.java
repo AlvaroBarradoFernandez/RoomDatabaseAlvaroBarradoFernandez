@@ -41,11 +41,11 @@ public class Professor_FragmentDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_professor__fragment_dialog, null);
-        CardView_Comunity_Data asignatura1 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test");
-        CardView_Comunity_Data asignatura2 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 2");
-        CardView_Comunity_Data asignatura3 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 3");
-        CardView_Comunity_Data asignatura4 = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 4");
-        CardView_Comunity_Data[] elementos = {asignatura1,asignatura2,asignatura3,asignatura4};
+        CardView_Professor_Data asignatura1 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test");
+        CardView_Professor_Data asignatura2 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 2");
+        CardView_Professor_Data asignatura3 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 3");
+        CardView_Professor_Data asignatura4 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 4");
+        CardView_Professor_Data[] elementos = {asignatura1,asignatura2,asignatura3,asignatura4};
         builder.setView(view)
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -68,7 +68,7 @@ public class Professor_FragmentDialog extends AppCompatDialogFragment {
         professorDescriptionTwo = view.findViewById(R.id.text_desc);
         mLayoutManagerProfessor = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recycle.setLayoutManager(mLayoutManagerProfessor);
-        mAdapterProfessor = new RecyclerAdapter_Comunity_Data(elementos);
+        mAdapterProfessor = new RecyclerAdapter_Professor_Data(elementos);
         recycle.setAdapter(mAdapterProfessor);
         my_fab = view.findViewById(R.id.my_fab);
 

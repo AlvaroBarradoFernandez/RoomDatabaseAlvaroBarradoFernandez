@@ -23,7 +23,5 @@ public class CardView_Professor_Data {
         return fotos_subject;
     }
 
-    public String getNombres_subject() {
-        return nombres_subject;
-    }
+    public String getNombres_subject() { return nombres_subject; }
 }

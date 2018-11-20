@@ -24,8 +24,8 @@ public class RecyclerAdapter_Class_Data extends RecyclerView.Adapter<RecyclerAda
 
         public MyViewHolder(View v) {
             super(v);
-            mTextView =  v.findViewById(R.id.name_professor);
-            mImagenView = v.findViewById(R.id.profesor_Photo);
+            mTextView =  v.findViewById(R.id.course_Name);
+            mImagenView = v.findViewById(R.id.course_Photo);
 
         }
     }
@@ -52,7 +52,6 @@ public class RecyclerAdapter_Class_Data extends RecyclerView.Adapter<RecyclerAda
         CardView_Class_Data item = mDataset [position];
         holder.mTextView.setText(item.getNombres_subject());
         holder.mImagenView.setImageDrawable(item.getFotos_subject());
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)
