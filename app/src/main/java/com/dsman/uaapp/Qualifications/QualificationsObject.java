@@ -7,17 +7,20 @@ public class QualificationsObject implements Parcelable {
     private String date;
     private String classes;
     private String notes;
+    private String exercise;
 
-    public QualificationsObject(String date, String classes, String notes) {
+    public QualificationsObject(String date, String classes, String notes, String exercise) {
         this.date = date;
         this.classes = classes;
         this.notes = notes;
+        this.exercise = exercise;
     }
 
     protected QualificationsObject(Parcel in) {
         date = in.readString();
         classes = in.readString();
         notes = in.readString();
+        exercise = in.readString();
     }
 
     public static final Creator<QualificationsObject> CREATOR = new Creator<QualificationsObject>() {
@@ -42,6 +45,7 @@ public class QualificationsObject implements Parcelable {
         dest.writeString(date);
         dest.writeString(classes);
         dest.writeString(notes);
+        dest.writeString(exercise);
     }
 
     public String getDate() {
@@ -66,5 +70,13 @@ public class QualificationsObject implements Parcelable {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getExercise() {
+        return exercise;
+    }
+
+    public void setExercise(String exercise) {
+        this.exercise = exercise;
     }
 }

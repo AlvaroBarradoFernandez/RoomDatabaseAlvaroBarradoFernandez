@@ -51,13 +51,13 @@ public class QualificationsFragment extends Fragment {
     }
 
     public QualificationsObject[] createData() {
-        QualificationsObject notes1 = new QualificationsObject("2018/11/19", "Enpresa", "5.00");
-        QualificationsObject notes2 = new QualificationsObject("2018/07/21", "IOS", "10.00");
-        QualificationsObject notes3 = new QualificationsObject("2018/08/14", "GG Empresarial", "7.00");
-        QualificationsObject notes4 = new QualificationsObject("2018/12/30", "Ingles","8.50");
-        QualificationsObject notes5 = new QualificationsObject("2018/09/15", "Acceso a datos","7.00");
-        QualificationsObject notes6 = new QualificationsObject("2018/10/21", "Android","9.00");
-        QualificationsObject notes7 = new QualificationsObject("2018/09/16", "Procesos","4.90");
+        QualificationsObject notes1 = new QualificationsObject("2018/11/19", "Enpresa", "5.00", "Curriculum");
+        QualificationsObject notes2 = new QualificationsObject("2018/07/21", "IOS", "10.00","Post");
+        QualificationsObject notes3 = new QualificationsObject("2018/08/14", "GG Empresarial", "7.00","Tabajo Final");
+        QualificationsObject notes4 = new QualificationsObject("2018/12/30", "Ingles","8.50","Writing");
+        QualificationsObject notes5 = new QualificationsObject("2018/09/15", "Acceso a datos","7.00","Hibernate");
+        QualificationsObject notes6 = new QualificationsObject("2018/10/21", "Android","9.00","Singleton");
+        QualificationsObject notes7 = new QualificationsObject("2018/09/16", "Procesos","4.90","Hilos");
 
         QualificationsObject[] data = {notes1,notes2,notes3,notes4,notes5,notes6,notes7};
         return data;

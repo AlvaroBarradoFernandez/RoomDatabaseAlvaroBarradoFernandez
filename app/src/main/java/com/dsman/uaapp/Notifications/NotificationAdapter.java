@@ -46,7 +46,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         public NotificationViewHolder(View v) {
             super(v);
-            title = v.findViewById(R.id.item1);
+            title = v.findViewById(R.id.item4);
             name = v.findViewById(R.id.item2);
             date = v.findViewById(R.id.item3);
         }

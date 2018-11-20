@@ -30,7 +30,11 @@ public class QualificationsAdapter extends RecyclerView.Adapter<QualificationsAd
         final QualificationsObject item = mDataset[i];
         notesViewHolder.date.setText(item.getDate());
         notesViewHolder.classes.setText(item.getClasses());
-        notesViewHolder.note.setText(item.getNotes());
+        notesViewHolder.exercise.setText(item.getExercise());
+        if (notesViewHolder.note.getText()!=null){
+            notesViewHolder.note.setVisibility(View.VISIBLE);
+            notesViewHolder.note.setText(item.getNotes());
+        }
     }
 
     @Override
@@ -43,12 +47,14 @@ public class QualificationsAdapter extends RecyclerView.Adapter<QualificationsAd
         public TextView date;
         public TextView classes;
         public TextView note;
+        public TextView exercise;
 
         public NotificationViewHolder(View v) {
             super(v);
             note = v.findViewById(R.id.item1);
             classes = v.findViewById(R.id.item2);
             date = v.findViewById(R.id.item3);
+            exercise = v.findViewById(R.id.item4);
         }
     }
 }
