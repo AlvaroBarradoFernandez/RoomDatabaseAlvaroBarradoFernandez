@@ -53,7 +53,7 @@ public class ComunityFragment extends Fragment {
         mAdapter = new ComunityAdapter(createData(), new ComunityAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ComunityObject item) {
-                Log.d("Celda","Informacion: "+item.toString());
+
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
@@ -62,7 +62,7 @@ public class ComunityFragment extends Fragment {
                 }
                 transaction.addToBackStack(null);
 
-                Comunity_FragmentDialog cfd = new Comunity_FragmentDialog();
+                Comunity_FragmentDialog cfd = Comunity_FragmentDialog.newInstance(item);
                 cfd.show(transaction, "dialog");
             }
         });

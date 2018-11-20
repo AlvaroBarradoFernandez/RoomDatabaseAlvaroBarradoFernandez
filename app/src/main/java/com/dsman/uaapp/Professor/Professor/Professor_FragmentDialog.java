@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatDialogFragment;
@@ -24,7 +25,7 @@ import com.dsman.uaapp.R;
 
 import java.util.Objects;
 
-public class Professor_FragmentDialog extends AppCompatDialogFragment {
+public class Professor_FragmentDialog extends DialogFragment {
 
     private ImageView professorImg;
     private TextView professorDescription;
@@ -36,6 +37,23 @@ public class Professor_FragmentDialog extends AppCompatDialogFragment {
     private RecyclerView.Adapter mAdapterProfessor;
     private RecyclerView.LayoutManager mLayoutManagerProfessor;
     private FloatingActionButton my_fab;
+    private ProfessorObject item;
+    public static final String TEACHER = "TEACHER";
+
+    public static Professor_FragmentDialog newInstance(ProfessorObject teacherObject) {
+        Professor_FragmentDialog dialog = new Professor_FragmentDialog();
+        Bundle data = new Bundle();
+        data.putParcelable(TEACHER,teacherObject);
+        dialog.setArguments(data);
+        return dialog;
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            item = getArguments().getParcelable(TEACHER);
+        }
+    }
 
     public Dialog onCreateDialog(Bundle savedInstaceState){
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
@@ -68,11 +86,18 @@ public class Professor_FragmentDialog extends AppCompatDialogFragment {
         professorDescriptionTwo = view.findViewById(R.id.text_desc);
         mLayoutManagerProfessor = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recycle.setLayoutManager(mLayoutManagerProfessor);
+        updateDialog(item);
         mAdapterProfessor = new RecyclerAdapter_Professor_Data(elementos);
         recycle.setAdapter(mAdapterProfessor);
         my_fab = view.findViewById(R.id.my_fab);
-
     return builder.create();
+    }
+
+    public void updateDialog(ProfessorObject item){
+        if (item!=null) {
+            professorName.setText(item.getNameprofessor());
+            professorImg.setImageResource(item.getImgprofessor());
+        }
     }
 
     public void onclick(View view) {

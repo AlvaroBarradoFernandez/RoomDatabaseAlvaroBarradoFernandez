@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatDialogFragment;
@@ -18,10 +19,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dsman.uaapp.Comunities.FragmentComunity.ComunityObject;
 import com.dsman.uaapp.R;
 import java.util.Objects;
 
-public class Comunity_FragmentDialog extends AppCompatDialogFragment {
+public class Comunity_FragmentDialog extends DialogFragment {
 
     private ImageView logo;
     private TextView description;
@@ -34,6 +36,23 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
     private RecyclerView.Adapter mAdapterComunity;
     private RecyclerView.LayoutManager mLayoutManagerComunity;
     private FloatingActionButton my_fab;
+    private ComunityObject item;
+    public static final String COMUNITY = "COMUNITY";
+
+    public static Comunity_FragmentDialog newInstance(ComunityObject comunityObject) {
+        Comunity_FragmentDialog dialog = new Comunity_FragmentDialog();
+        Bundle data = new Bundle();
+        data.putParcelable(COMUNITY,comunityObject);
+        dialog.setArguments(data);
+        return dialog;
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            item = getArguments().getParcelable(COMUNITY);
+        }
+    }
 
     public Dialog onCreateDialog(Bundle savedInstaceState){
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
@@ -56,11 +75,19 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
         text_description = view.findViewById(R.id.text_desc);
         mLayoutManagerComunity = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recycle.setLayoutManager(mLayoutManagerComunity);
+        updateDialog(item);
         mAdapterComunity = new RecyclerAdapter_Comunity_Data(elementos);
         recycle.setAdapter(mAdapterComunity);
         my_fab = view.findViewById(R.id.my_fab);
 
         return builder.create();
+    }
+
+    public void updateDialog(ComunityObject item){
+        if (item!=null) {
+            name_comunity.setText(item.getNamecomunity());
+            logo.setImageResource(item.getImgcomunity());
+        }
     }
 
     public void onclick(View view) {

@@ -57,7 +57,7 @@ public class ProfessorFragment extends Fragment {
                 }
                 transaction.addToBackStack(null);
 
-                Professor_FragmentDialog cfd = new Professor_FragmentDialog();
+                Professor_FragmentDialog cfd = Professor_FragmentDialog.newInstance(item);
                 cfd.show(transaction, "dialog");
             }
         });
