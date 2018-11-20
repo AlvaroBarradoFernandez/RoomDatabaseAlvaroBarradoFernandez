@@ -40,7 +40,11 @@
     <string name="coordinator">Coordinator</string>
     <string name="topic">Topic</string>
     <string name="title">Title</string>
-
+    <!--General Course NavHeader Start-->
+    <string name="gc_tvt_hint_User">StudentName</string>
+    <string name="gc_tvt_hint_Surname">StudentSurname</string>
+    <string name="gc_tvt_hint_Email">StudentSurname</string>
+    <!--General Course NavHeader End-->
 
     <string name="textClass">Class Description</string>
     <string name="textprofessor">Professor Description</string>

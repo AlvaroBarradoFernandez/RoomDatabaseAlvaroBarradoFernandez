@@ -8,7 +8,7 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
+<!--TODO Hacer Dimens, Strings hechos-->
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/imageViewU"
         android:layout_width="77dp"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:layout_marginStart="100dp"
-        android:text="Dato1 Usuario"
+        android:text="@string/gc_tvt_hint_User"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
@@ -34,7 +34,7 @@
         android:layout_below="@+id/tvtUserName"
         android:layout_marginStart="100dp"
         android:layout_marginTop="9dp"
-        android:text="Dato2 Usuario" />
+        android:text="@string/gc_tvt_hint_Surname" />
 
     <TextView
         android:id="@+id/tvtEmail"
@@ -42,6 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="125dp"
-        android:text="Email" />
+        android:text="@string/gc_tvt_hint_Email" />
 
 </RelativeLayout>

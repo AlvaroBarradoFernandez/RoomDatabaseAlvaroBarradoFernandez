@@ -66,7 +66,7 @@
         android:layout_marginBottom="@dimen/mb_ImageView"
         android:background="@drawable/u_logo"
         android:src="@drawable/radius_logo" />
-    <!--TODO Continuar por aquí-->
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="@dimen/w_btnLogin"
@@ -76,7 +76,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/ms_btnLogin"
         android:layout_marginEnd="@dimen/me_btnLogin"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="@dimen/mb_btnLogin"
         android:background="@drawable/circle_button"
         android:backgroundTint="@color/button_text"
         android:enabled="false"
