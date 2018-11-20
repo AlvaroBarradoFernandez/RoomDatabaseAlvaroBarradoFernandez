@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.dsman.uaapp.Courses.Classes.ClassFragment;
 import com.dsman.uaapp.Comunities.FragmentComunity.ComunityFragment;
-import com.dsman.uaapp.Login.MainActivity;
+import com.dsman.uaapp.Login.Login;
 import com.dsman.uaapp.Notifications.NotificationFragment;
 import com.dsman.uaapp.Professor.Professor.ProfessorFragment;
 import com.dsman.uaapp.Qualifications.QualificationsFragment;
@@ -72,7 +72,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         user = new User();
        Intent intent_receive = this.getIntent();
         if(intent_receive != null){
-            user = intent_receive.getParcelableExtra(MainActivity.USER);
+            user = intent_receive.getParcelableExtra(Login.USER);
              mUri = user.getUrl();
              sEmail = user.getEmail();
              sUserName = user.getName();
@@ -186,7 +186,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
     @OnClick()
     public void onclicklogout(MenuItem item) {
 
-        Intent navigate = new Intent(General_Course.this, MainActivity.class);
+        Intent navigate = new Intent(General_Course.this, Login.class);
         navigate.setFlags(navigate.FLAG_ACTIVITY_NEW_TASK | navigate.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(navigate);
         finish();

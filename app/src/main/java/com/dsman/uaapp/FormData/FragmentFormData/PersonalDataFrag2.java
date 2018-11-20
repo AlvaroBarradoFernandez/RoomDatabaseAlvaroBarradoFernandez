@@ -13,7 +13,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -21,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dsman.uaapp.FormData.FormsActivity;
-import com.dsman.uaapp.Login.MainActivity;
+import com.dsman.uaapp.Login.Login;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -74,7 +73,7 @@ public class PersonalDataFrag2 extends Fragment {
 
         Intent a = getActivity().getIntent();
         if (a != null) {
-            user = (User) a.getParcelableExtra(MainActivity.USER);
+            user = (User) a.getParcelableExtra(Login.USER);
             mName.setText(user.getName());
             mSurname.setText(user.getSurname());
         }
@@ -132,7 +131,7 @@ public class PersonalDataFrag2 extends Fragment {
                 String gender = "";
                 if (description.equals("")) {
                     layoutDescription.setHelperTextEnabled(true);
-                    layoutDescription.setError("You don´t have wrote any description");
+
                 } else {
                     layoutDescription.setHelperTextEnabled(false);
                     layoutDescription.setHelperText("");
@@ -161,7 +160,6 @@ public class PersonalDataFrag2 extends Fragment {
 
                 if (!mCinema.isChecked() && !mWalk.isChecked() && !mPlayMusic.isChecked()) {
                     layoutHobbies.setHelperTextEnabled(true);
-                    layoutHobbies.setError("You don't selected any Hobby");
                 }else {
                     layoutGender.setHelperText("");
                 }

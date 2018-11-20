@@ -18,7 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.dsman.uaapp.Login.MainActivity;
+import com.dsman.uaapp.Login.Login;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 
@@ -97,7 +97,7 @@ public class FormDataFrag1 extends Fragment {
         user = new User();
         Intent intent_receive = getActivity().getIntent();
         if (intent_receive != null) {
-            user =  intent_receive.getParcelableExtra(MainActivity.USER);
+            user =  intent_receive.getParcelableExtra(Login.USER);
         }
 
         textListener();

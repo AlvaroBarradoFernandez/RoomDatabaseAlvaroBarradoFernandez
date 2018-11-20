@@ -12,7 +12,7 @@ import android.view.View;
 import com.dsman.uaapp.FormData.FragmentFormData.FormDataFrag1;
 import com.dsman.uaapp.FormData.FragmentFormData.PersonalDataFrag2;
 import com.dsman.uaapp.General_Course.General_Course;
-import com.dsman.uaapp.Login.MainActivity;
+import com.dsman.uaapp.Login.Login;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
 
@@ -65,7 +65,7 @@ public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnF
         User mUser;
         mUser = user;
         Intent saveIntent = new Intent(this, General_Course.class);
-        saveIntent.putExtra(MainActivity.USER, mUser);
+        saveIntent.putExtra(Login.USER, mUser);
         startActivity(saveIntent);
     }
 }
