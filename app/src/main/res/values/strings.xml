@@ -17,6 +17,7 @@
         <item>Office</item>
     </string-array>
 
+    <!--Navigation Drawer Strings-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="description">Description</string>
@@ -36,9 +37,7 @@
     <string name="topic">Topic</string>
     <string name="title">Title</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="textClass">Class Description</string>
     <string name="textprofessor">Professor Description</string>
-    <string name="saveButton">Save</string>
 </resources>
