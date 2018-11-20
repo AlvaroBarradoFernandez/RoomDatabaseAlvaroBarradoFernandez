@@ -1,5 +1,5 @@
 <resources>
-    <!--Seccion App-->
+    <!--App Name-->
     <string name="app_name">U-TAD APP</string>
 
     <!--Content App for Form Data-->
@@ -16,6 +16,7 @@
         <item>Home</item>
         <item>Office</item>
     </string-array>
+
     <string name="save">Save</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
