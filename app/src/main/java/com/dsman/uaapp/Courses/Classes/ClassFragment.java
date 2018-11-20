@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +71,7 @@ public class ClassFragment extends Fragment {
         ClassObject computing = new ClassObject("Computing", R.drawable.computing,"2ª Curso");
         ClassObject english = new ClassObject("English", R.drawable.english,"2ª Curso");
         ClassObject swift = new ClassObject("Swift", R.drawable.swift,"2ª Curso");
-        ClassObject tfg = new ClassObject("TFG", R.drawable.tfg,"2ª Curso");
+        ClassObject tfg = new ClassObject("TFG", R.drawable.daniel_lopez,"2ª Curso");
         ClassObject odoo = new ClassObject("Management", R.drawable.odoo,"2ª Curso");
         ClassObject company = new ClassObject("Company", R.drawable.company,"2ª Curso");
         List<ClassObject> data = new ArrayList<>();
