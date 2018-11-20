@@ -66,7 +66,7 @@
         />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
         android:layout_below="@+id/description"
         android:text="@string/textprofessor"
         android:id="@+id/text_desc"
@@ -77,15 +77,9 @@
         android:id="@+id/my_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@+id/text_desc"
+        android:layout_alignEnd="@+id/surname_professor"
         android:layout_gravity="bottom|end"
-        android:layout_marginStart="323dp"
-        android:layout_marginTop="486dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="41dp"
         android:onClick="onclick"
-        android:src="@drawable/email_name" />
+        android:src="@drawable/email_name"  />
 </RelativeLayout>
