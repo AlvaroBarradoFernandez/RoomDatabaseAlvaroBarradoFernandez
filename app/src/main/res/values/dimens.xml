@@ -27,9 +27,12 @@
     <dimen name="ms_ImageView">125dp</dimen>
     <dimen name="mt_ImageView">30dp</dimen>
     <dimen name="me_ImageView">142dp</dimen>
-    <dimen name="mb_ImageView">27</dimen>
+    <dimen name="mb_ImageView">27dp</dimen>
     <!--ImageView Section End-->
     <!--Button Login Section Start-->
-
+    <dimen name="w_btnLogin">250dp</dimen>
+    <dimen name="ms_btnLogin">50dp</dimen>
+    <dimen name="me_btnLogin">50dp</dimen>
     <!--Button Login Section End-->
+    
 </resources>

@@ -69,13 +69,13 @@
     <!--TODO Continuar por aquí-->
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="250dp"
+        android:layout_width="@dimen/w_btnLogin"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="@dimen/ms_btnLogin"
+        android:layout_marginEnd="@dimen/me_btnLogin"
         android:layout_marginBottom="30dp"
         android:background="@drawable/circle_button"
         android:backgroundTint="@color/button_text"
