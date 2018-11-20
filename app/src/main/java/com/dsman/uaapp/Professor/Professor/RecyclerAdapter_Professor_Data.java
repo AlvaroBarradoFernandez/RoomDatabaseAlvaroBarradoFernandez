@@ -24,8 +24,8 @@ public class RecyclerAdapter_Professor_Data extends RecyclerView.Adapter<Recycle
 
         public MyViewHolder(View v) {
             super(v);
-            mTextView =  v.findViewById(R.id.subject_Name);
-            mImagenView = v.findViewById(R.id.subject_Photo);
+            mTextView =  v.findViewById(R.id.professor_Name);
+            mImagenView = v.findViewById(R.id.profesor_Photo);
 
         }
     }
