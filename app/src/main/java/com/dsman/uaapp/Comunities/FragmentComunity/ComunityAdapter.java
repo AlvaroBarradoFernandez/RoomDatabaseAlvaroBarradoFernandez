@@ -11,7 +11,7 @@ import com.dsman.uaapp.R;
 
 import java.util.List;
 
-public class ComunityAdapter extends RecyclerView.Adapter<ComunityAdapter.ClassViewHolder> {
+public class ComunityAdapter extends RecyclerView.Adapter<ComunityAdapter.ComunityViewHolder> {
 
     private List<ComunityObject> mDataset;
     private final OnItemClickListener listener;
@@ -28,17 +28,17 @@ public class ComunityAdapter extends RecyclerView.Adapter<ComunityAdapter.ClassV
     }
 
     @Override
-    public ComunityAdapter.ClassViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ComunityAdapter.ComunityViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View rootView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_recyclerview, viewGroup, false);
-        return new ClassViewHolder(rootView);
+        return new ComunityViewHolder(rootView);
     }
 
     @Override
-    public void onBindViewHolder(ClassViewHolder classViewHolder, int i) {
+    public void onBindViewHolder(ComunityViewHolder comunityViewHolder, int i) {
         final ComunityObject item = mDataset.get(i);
-        classViewHolder.textView.setText(item.getNamecomunity());
-        classViewHolder.imageView.setImageResource(item.getImgcomunity());
-        classViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+        comunityViewHolder.textView.setText(item.getNamecomunity());
+        comunityViewHolder.imageView.setImageResource(item.getImgcomunity());
+        comunityViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(listener!=null){
@@ -51,16 +51,16 @@ public class ComunityAdapter extends RecyclerView.Adapter<ComunityAdapter.ClassV
 
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()    {
         return 4;
     }
 
-    static class ClassViewHolder extends RecyclerView.ViewHolder {
+    static class ComunityViewHolder extends RecyclerView.ViewHolder {
 
         public TextView textView;
         public ImageView imageView;
 
-        public ClassViewHolder(View v) {
+        public ComunityViewHolder(View v) {
             super(v);
             textView = v.findViewById(R.id.tvnameitem);
             imageView = v.findViewById(R.id.imageViewitem);

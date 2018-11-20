@@ -11,7 +11,7 @@ import com.dsman.uaapp.R;
 
 import java.util.List;
 
-public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.ClassViewHolder> {
+public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.professorViewHolder> {
 
     private List<ProfessorObject> mDataset;
     private final OnItemClickListener listener;
@@ -28,17 +28,17 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Clas
     }
 
     @Override
-    public ProfessorAdapter.ClassViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ProfessorAdapter.professorViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View rootView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_recyclerview, viewGroup, false);
-        return new ClassViewHolder(rootView);
+        return new professorViewHolder(rootView);
     }
 
     @Override
-    public void onBindViewHolder(ClassViewHolder classViewHolder, int i) {
+    public void onBindViewHolder(professorViewHolder professorViewHolder, int i) {
         final ProfessorObject item = mDataset.get(i);
-        classViewHolder.textView.setText(item.getNameprofessor());
-        classViewHolder.imageView.setImageResource(item.getImgprofessor());
-        classViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+        professorViewHolder.textView.setText(item.getNameprofessor());
+        professorViewHolder.imageView.setImageResource(item.getImgprofessor());
+        professorViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(listener!=null){
@@ -55,12 +55,12 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Clas
         return mDataset.size();
     }
 
-    static class ClassViewHolder extends RecyclerView.ViewHolder {
+    static class professorViewHolder extends RecyclerView.ViewHolder {
 
         public TextView textView;
         public ImageView imageView;
 
-        public ClassViewHolder(View v) {
+        public professorViewHolder(View v) {
             super(v);
             textView = v.findViewById(R.id.tvnameitem);
             imageView = v.findViewById(R.id.imageViewitem);
