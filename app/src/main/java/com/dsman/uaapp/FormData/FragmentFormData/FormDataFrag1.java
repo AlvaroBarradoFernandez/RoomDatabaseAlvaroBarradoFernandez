@@ -103,7 +103,7 @@ public class FormDataFrag1 extends Fragment {
         textListener();
         onClickbirthday();
         clearDate();
-        onClickedSave();
+        onClickedNext();
         return mView;
     }
 
@@ -261,7 +261,7 @@ public class FormDataFrag1 extends Fragment {
         });
     }
 
-    public void onClickedSave() {
+    public void onClickedNext() {
         fabtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
