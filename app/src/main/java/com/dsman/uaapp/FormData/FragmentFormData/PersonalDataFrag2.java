@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -47,7 +48,8 @@ public class PersonalDataFrag2 extends Fragment {
     @BindView(R.id.tilDescription) TextInputLayout layoutDescription;
     @BindView(R.id.tilGender) TextInputLayout layoutGender;
     @BindView(R.id.tilHobbies) TextInputLayout layoutHobbies;
-    @BindView(R.id.btnSave) Button btnSave;
+    @BindView(R.id.fabtnOK) FloatingActionButton fabtnOK;
+
 
     private ArrayList<String> hobbies = new ArrayList<String>();
     private User user;
@@ -122,7 +124,7 @@ public class PersonalDataFrag2 extends Fragment {
     }
 
     public void onClickedSave() {
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        fabtnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Se igualan los campos de texto a sus variables correspondientes

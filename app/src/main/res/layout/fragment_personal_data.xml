@@ -172,7 +172,7 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnSave"
+        android:id="@+id/fabtnOK"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
