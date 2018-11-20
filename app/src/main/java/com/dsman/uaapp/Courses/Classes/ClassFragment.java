@@ -56,7 +56,7 @@ public class ClassFragment extends Fragment {
 
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                CardView_Class_Data data = new CardView_Class_Data(item);
+                ClassObject data = new ClassObject(item);
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
                     transaction.remove(prev);

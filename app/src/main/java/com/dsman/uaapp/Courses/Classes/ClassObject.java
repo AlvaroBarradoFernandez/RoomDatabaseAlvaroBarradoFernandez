@@ -6,6 +6,7 @@ import android.os.Parcelable;
 public class ClassObject implements Parcelable {
     private String nameclass;
     private int imgclass;
+    private static ClassObject data;
 
     public ClassObject(String nameclass, int imgclass) {
         this.nameclass = nameclass;
@@ -15,6 +16,10 @@ public class ClassObject implements Parcelable {
     public ClassObject(Parcel in) {
         nameclass = in.readString();
         imgclass = in.readInt();
+    }
+
+    public ClassObject(ClassObject data) {
+        this.data = data;
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dsman.uaapp.Comunities.CardView_Comunity_Data;
 import com.dsman.uaapp.R;
 
 
@@ -31,9 +32,7 @@ public class RecyclerAdapter_Professor_Data extends RecyclerView.Adapter<Recycle
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public RecyclerAdapter_Professor_Data(CardView_Professor_Data[] myDataset) {
-        mDataset = myDataset;
-    }
+    public RecyclerAdapter_Professor_Data(CardView_Professor_Data[] myDataset) { mDataset = myDataset; }
 
     // Create new views (invoked by the layout manager)
     @NonNull
