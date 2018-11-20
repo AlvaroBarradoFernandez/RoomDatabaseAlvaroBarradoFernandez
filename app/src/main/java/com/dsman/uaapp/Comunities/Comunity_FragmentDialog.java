@@ -65,7 +65,24 @@ public class Comunity_FragmentDialog extends DialogFragment {
         CardView_Comunity_Data projects = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Projects");
         CardView_Comunity_Data valuation = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null), "Valuation");
         CardView_Comunity_Data[] elementos = {num_alumComunity,classroom,events,projects,valuation};
-        builder.setView(view);
+        builder.setView(view).setPositiveButton("Email", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("message/rfc822");
+                String mail = "prueba@gmail.com";
+                intent.putExtra(Intent.EXTRA_EMAIL, mail);
+                intent.putExtra(Intent.EXTRA_TEXT,"Greatings");
+                startActivity(Intent.createChooser(intent,"Send Email via..."));
+            }
+        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+
+
+                    }
+                });
         title_comunity = view.findViewById(R.id.title_Comunity);
         name_comunity = view.findViewById(R.id.name_comunity);
         logo = view.findViewById(R.id.imgcomunity);
@@ -91,13 +108,6 @@ public class Comunity_FragmentDialog extends DialogFragment {
         }
     }
 
-    public void onclick(View view) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("message/rfc822");
-        intent.putExtra(Intent.EXTRA_EMAIL, "prueba@gmail.com");
-        intent.putExtra(Intent.EXTRA_SUBJECT,"subject");
-        intent.putExtra(Intent.EXTRA_TEXT,"text");
-        startActivity(Intent.createChooser(intent,"Send Email via..."));
 
-    }
+
 }

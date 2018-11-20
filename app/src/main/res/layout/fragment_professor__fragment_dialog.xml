@@ -72,13 +72,4 @@
         android:layout_marginStart="10dp"
 
         />
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/my_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/text_desc"
-        android:layout_alignEnd="@+id/surname_professor"
-        android:layout_gravity="bottom|end"
-        android:onClick="onclick"
-        android:src="@drawable/email_name"  />
 </RelativeLayout>

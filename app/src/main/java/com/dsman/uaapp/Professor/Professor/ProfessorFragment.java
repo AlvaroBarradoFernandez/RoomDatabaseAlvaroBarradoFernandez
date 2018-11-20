@@ -68,12 +68,12 @@ public class ProfessorFragment extends Fragment {
     public List<ProfessorObject> createData() {
         ProfessorObject pedro = new ProfessorObject("Pedro",R.drawable.pedro);
         ProfessorObject jaime = new ProfessorObject("Jaime", R.drawable.jaime);
-        ProfessorObject laura = new ProfessorObject("Laura", R.drawable.fct);
+        ProfessorObject laura = new ProfessorObject("Laura", R.drawable.laura);
         ProfessorObject meritxell = new ProfessorObject("Meritxell", R.drawable.meritxel);
         ProfessorObject david = new ProfessorObject("David", R.drawable.david);
-        ProfessorObject cristina = new ProfessorObject("Pedro",R.drawable.pedro);
-        ProfessorObject dani = new ProfessorObject("Jaime", R.drawable.jaime);
-        ProfessorObject carlos = new ProfessorObject("Laura", R.drawable.fct);
+        ProfessorObject cristina = new ProfessorObject("Pedro",R.drawable.cristina);
+        ProfessorObject dani = new ProfessorObject("Jaime", R.drawable.daniel_lopez);
+        ProfessorObject carlos = new ProfessorObject("Laura", R.drawable.carlos);
         List<ProfessorObject> data = new ArrayList<>();
         data.add(pedro);
         data.add(jaime);

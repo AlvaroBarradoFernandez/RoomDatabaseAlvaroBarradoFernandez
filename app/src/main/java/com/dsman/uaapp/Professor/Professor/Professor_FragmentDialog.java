@@ -60,21 +60,26 @@ public class Professor_FragmentDialog extends DialogFragment {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_professor__fragment_dialog, null);
-        CardView_Professor_Data asignatura1 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test");
-        CardView_Professor_Data asignatura2 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 2");
-        CardView_Professor_Data asignatura3 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 3");
-        CardView_Professor_Data asignatura4 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Test 4");
+        CardView_Professor_Data asignatura1 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Subject 1");
+        CardView_Professor_Data asignatura2 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Subject 2");
+        CardView_Professor_Data asignatura3 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Subject 3");
+        CardView_Professor_Data asignatura4 = new CardView_Professor_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Subject 4");
         CardView_Professor_Data[] elementos = {asignatura1,asignatura2,asignatura3,asignatura4};
-        builder.setView(view)
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+        builder.setView(view).setPositiveButton("Email", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("message/rfc822");
+                String mail = "prueba@gmail.com";
+                intent.putExtra(Intent.EXTRA_EMAIL, mail);
+                intent.putExtra(Intent.EXTRA_TEXT,"Greatings");
+                startActivity(Intent.createChooser(intent,"Send Email via..."));
+            }
+        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
 
-                    }
-                })
-                .setPositiveButton("acept", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
 
                     }
                 });
@@ -98,14 +103,7 @@ public class Professor_FragmentDialog extends DialogFragment {
         if (item!=null) {
             professorName.setText(item.getNameprofessor());
             professorImg.setImageResource(item.getImgprofessor());
-        }
+}
     }
 
-    public void onclick(View view) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setData(Uri.parse("prueba@gmail.com"));
-        intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-        startActivity(intent.createChooser(intent, "Send email via..."));
-
-    }
 }
