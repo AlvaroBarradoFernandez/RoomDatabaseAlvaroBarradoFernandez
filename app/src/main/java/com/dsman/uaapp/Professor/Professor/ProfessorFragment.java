@@ -37,14 +37,15 @@ public class ProfessorFragment extends Fragment {
         configAdaparterClass();
         return view;
     }
-
+    // Método que configura el recycler view del fragment
     public void configRecyclerViewClass(View view){
         mRecyclerView = view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
-
+    //Método que configura el adapter del fragment,
+    //en este metodo se hace la transicion del fragment al dialog fragmet pasando item como parametro
     public void configAdaparterClass(){
         mAdapter = new ProfessorAdapter(createData(), new ProfessorAdapter.OnItemClickListener() {
             @Override
@@ -63,7 +64,7 @@ public class ProfessorFragment extends Fragment {
         });
         mRecyclerView.setAdapter(mAdapter);
     }
-
+    //Lista de datos del fragment
     public List<ProfessorObject> createData() {
         ProfessorObject pedro = new ProfessorObject("Pedro",R.drawable.pedro);
         ProfessorObject jaime = new ProfessorObject("Jaime", R.drawable.jaime);

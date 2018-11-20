@@ -21,9 +21,6 @@ public class ClassFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private String image;
-    private String name;
-    private String surname;
 
     public ClassFragment() {
         // Required empty public constructor
@@ -40,21 +37,20 @@ public class ClassFragment extends Fragment {
         configAdaparterClass();
         return view;
     }
-
+    // Método que configura el recycler view del fragment
     public void configRecyclerViewClass(View view){
         mRecyclerView = view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
-
+    //Método que configura el adapter del fragment,
+    //en este metodo se hace la transicion del fragment al dialog fragmet pasando item como parametro
     public void configAdaparterClass(){
         mAdapter = new ClassAdapter(createData(), new ClassAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ClassObject item) {
                 Toast.makeText(getActivity(),"Class " + item.getNameclass(),Toast.LENGTH_LONG).show();
-
-
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
@@ -68,7 +64,7 @@ public class ClassFragment extends Fragment {
         });
         mRecyclerView.setAdapter(mAdapter);
     }
-
+    //Lista de datos del fragment
     public List<ClassObject> createData() {
         ClassObject database = new ClassObject("Database Access",R.drawable.basedatos,"2ª Curso");
         ClassObject android = new ClassObject("Android", R.drawable.android,"2ª Curso");

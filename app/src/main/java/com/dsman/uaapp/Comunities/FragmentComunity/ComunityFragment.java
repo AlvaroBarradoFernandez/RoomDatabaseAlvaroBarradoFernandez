@@ -41,20 +41,19 @@ public class ComunityFragment extends Fragment {
         configAdaparterComunity();
         return view;
     }
-
+    // Método que configura el recycler view del fragment
     public void configRecyclerViewComunity(View view){
         mRecyclerView = view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
-
+    //Método que configura el adapter del fragment,
+    //en este metodo se hace la transicion del fragment al dialog fragmet pasando item como parametro
     public void configAdaparterComunity(){
         mAdapter = new ComunityAdapter(createData(), new ComunityAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ComunityObject item) {
-
-
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
@@ -68,7 +67,7 @@ public class ComunityFragment extends Fragment {
         });
         mRecyclerView.setAdapter(mAdapter);
     }
-
+    //Lista de datos del fragment
     public List<ComunityObject> createData() {
         ComunityObject cibersegurity = new ComunityObject("Cibersegurity",R.drawable.basedatos);
         ComunityObject development = new ComunityObject("Development", R.drawable.android);

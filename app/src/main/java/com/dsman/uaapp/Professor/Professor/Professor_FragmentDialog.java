@@ -39,7 +39,8 @@ public class Professor_FragmentDialog extends DialogFragment {
     private FloatingActionButton my_fab;
     private ProfessorObject item;
     public static final String TEACHER = "TEACHER";
-
+    //Método para recoger el objeto que lo pasas como parametro en el fragment
+    //Creo un nuevo dialogo para poner los argumentos del objeton en el dialogo creado
     public static Professor_FragmentDialog newInstance(ProfessorObject teacherObject) {
         Professor_FragmentDialog dialog = new Professor_FragmentDialog();
         Bundle data = new Bundle();
@@ -47,14 +48,14 @@ public class Professor_FragmentDialog extends DialogFragment {
         dialog.setArguments(data);
         return dialog;
     }
-
+    //Aqui recoges los argumentos del objeto y se los igualas al objeto del dialog fragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             item = getArguments().getParcelable(TEACHER);
         }
     }
-
+    //En estas lineas de codigo se crea el AlertDialog poniendo los datos del cardview y del objeto anteriormente escogido
     public Dialog onCreateDialog(Bundle savedInstaceState){
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
@@ -92,7 +93,7 @@ public class Professor_FragmentDialog extends DialogFragment {
         my_fab = view.findViewById(R.id.my_fab);
     return builder.create();
     }
-
+    //En este método se ponen los datos del item en los textview y en la imageview
     public void updateDialog(ProfessorObject item){
         if (item!=null) {
             professorName.setText(item.getNameprofessor());
