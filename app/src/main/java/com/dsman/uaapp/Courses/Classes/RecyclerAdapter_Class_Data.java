@@ -24,8 +24,8 @@ public class RecyclerAdapter_Class_Data extends RecyclerView.Adapter<RecyclerAda
 
         public MyViewHolder(View v) {
             super(v);
-            mTextView =  v.findViewById(R.id.course_Name);
-            mImagenView = v.findViewById(R.id.course_Photo);
+            mTextView =  v.findViewById(R.id.name_professor);
+            mImagenView = v.findViewById(R.id.profesor_Photo);
 
         }
     }
@@ -40,7 +40,7 @@ public class RecyclerAdapter_Class_Data extends RecyclerView.Adapter<RecyclerAda
     @Override
     public RecyclerAdapter_Class_Data.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
-        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_recycler_course_data, parent, false);
+        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_recycler_professor_data, parent, false);
         return new MyViewHolder(rootView);
     }
 

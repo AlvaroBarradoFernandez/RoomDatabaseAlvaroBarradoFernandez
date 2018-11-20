@@ -46,24 +46,6 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
         CardView_Comunity_Data valuation = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null), "Valuation");
         CardView_Comunity_Data[] elementos = {num_alumComunity,classroom,events,projects,valuation};
         builder.setView(view);
-        builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-
-            }
-        });
-        builder.setPositiveButton("Email", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("message/rfc822");
-                intent.putExtra(Intent.EXTRA_EMAIL, "prueba2@gmail.com");
-                intent.setData(Uri.parse("prueba@gmail.com"));
-                //intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-                startActivity(intent);
-            }
-        });
-
         title_comunity = view.findViewById(R.id.title_Comunity);
         name_comunity = view.findViewById(R.id.name_comunity);
         logo = view.findViewById(R.id.imgcomunity);
@@ -83,9 +65,11 @@ public class Comunity_FragmentDialog extends AppCompatDialogFragment {
 
     public void onclick(View view) {
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setData(Uri.parse("prueba@gmail.com"));
-        intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-        startActivity(intent.createChooser(intent, "Send email via..."));
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, "prueba@gmail.com");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"subject");
+        intent.putExtra(Intent.EXTRA_TEXT,"text");
+        startActivity(Intent.createChooser(intent,"Send Email via..."));
 
     }
 }

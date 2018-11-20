@@ -16,14 +16,14 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/subject_Photo"
+                android:id="@+id/profesor_Photo"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true" />
 
             <TextView
-                android:id="@+id/subject_Name"
+                android:id="@+id/professor_Name"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
