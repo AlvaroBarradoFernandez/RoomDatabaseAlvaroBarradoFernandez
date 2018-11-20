@@ -51,8 +51,9 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
         navigationView.setNavigationItemSelectedListener(this);
         ImageView mImageView = navigationView.findViewById(R.id.imageViewU);
-        TextView mName = navigationView.findViewById(R.id.textView1);
-        TextView mSurname = navigationView.findViewById(R.id.textView2);
+        TextView mName = navigationView.findViewById(R.id.tvtUserName);
+        TextView mSurname = navigationView.findViewById(R.id.tvtUserSurname);
+        TextView mEmail = navigationView.findViewById(R.id.tvtEmail);
         setTitle("Clases");
         Fragment fragment = new ClassFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -82,6 +83,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
 
             mName.setText(sUserName);
             mSurname.setText(sSurname);
+            mEmail.setText(sEmail);
 
         try {
 
