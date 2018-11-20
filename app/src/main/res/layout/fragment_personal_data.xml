@@ -170,7 +170,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!--TODO para Alvaro, plis haczme un circle button o dime como se hace XD-->
+
     <Button
         android:id="@+id/btnSave"
         android:layout_width="250dp"

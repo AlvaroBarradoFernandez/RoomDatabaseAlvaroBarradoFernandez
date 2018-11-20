@@ -40,7 +40,7 @@ public class FormDataFrag1 extends Fragment {
     @BindView(R.id.etCity) EditText mCity;
     @BindView(R.id.spPhoneType) Spinner mPhoneType;
     @BindView(R.id.etPhone) EditText mPhone;
-    @BindView(R.id.fABtnNext) FloatingActionButton btnSave;
+    @BindView(R.id.fABtnNext) FloatingActionButton fabtnNext;
     @BindView(R.id.tilName) TextInputLayout layoutName;
     @BindView(R.id.tilSurname) TextInputLayout layoutSurname;
     @BindView(R.id.tilSurname2) TextInputLayout layoutSurname2;
@@ -92,6 +92,8 @@ public class FormDataFrag1 extends Fragment {
 
         //Creación ButterKnife
         ButterKnife.bind(this, mView);
+        fabtnNext.setEnabled(false);
+
         user = new User();
         Intent intent_receive = getActivity().getIntent();
         if (intent_receive != null) {
@@ -124,18 +126,18 @@ public class FormDataFrag1 extends Fragment {
 
     public void textListener() {
 
-        mName.addTextChangedListener(enableButtonSave);
-        mSurname.addTextChangedListener(enableButtonSave);
-        mSurname2.addTextChangedListener(enableButtonSave);
-        mBirthday.addTextChangedListener(enableButtonSave);
-        mAddress.addTextChangedListener(enableButtonSave);
-        mPostalCode.addTextChangedListener(enableButtonSave);
-        mCity.addTextChangedListener(enableButtonSave);
-        mPhone.addTextChangedListener(enableButtonSave);
+        mName.addTextChangedListener(enableButtonNext);
+        mSurname.addTextChangedListener(enableButtonNext);
+        mSurname2.addTextChangedListener(enableButtonNext);
+        mBirthday.addTextChangedListener(enableButtonNext);
+        mAddress.addTextChangedListener(enableButtonNext);
+        mPostalCode.addTextChangedListener(enableButtonNext);
+        mCity.addTextChangedListener(enableButtonNext);
+        mPhone.addTextChangedListener(enableButtonNext);
 
     }
 
-    public TextWatcher enableButtonSave = new TextWatcher() {
+    public TextWatcher enableButtonNext = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
@@ -177,8 +179,8 @@ public class FormDataFrag1 extends Fragment {
             if (!phone.isEmpty()) {
                 layoutPhone.setHelperText(" ");
             }
-            
-            btnSave.setEnabled(enableButton());
+
+            fabtnNext.setEnabled(enableButton());
 
         }
 
@@ -221,7 +223,7 @@ public class FormDataFrag1 extends Fragment {
 
         if (surname.equals("")) {
             layoutSurname.setHelperTextEnabled(true);
-            layoutSurname.setError("You forgot to write your " + layoutSurname.getHint());
+            layoutSurname.setError("You forgot to write your \n" + layoutSurname.getHint());
         }
         if (surname2.equals("")) {
             layoutSurname2.setHelperTextEnabled(true);
@@ -260,7 +262,7 @@ public class FormDataFrag1 extends Fragment {
     }
 
     public void onClickedSave() {
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        fabtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

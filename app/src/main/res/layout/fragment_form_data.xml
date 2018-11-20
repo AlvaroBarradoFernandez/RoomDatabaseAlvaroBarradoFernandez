@@ -281,10 +281,6 @@
     </ScrollView>
 
 
-
-
-
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fABtnNext"
         android:layout_width="wrap_content"
@@ -296,9 +292,8 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/circle_button"
         android:backgroundTint="@color/button_text"
-        android:text="@string/save"
-        android:enabled="false"
         android:clickable="false"
+        android:enabled="false"
         android:src="@drawable/ic_trending_flat" />
 </RelativeLayout>
 
