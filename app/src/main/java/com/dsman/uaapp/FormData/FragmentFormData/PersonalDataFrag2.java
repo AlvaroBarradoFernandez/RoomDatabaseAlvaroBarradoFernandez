@@ -163,7 +163,7 @@ public class PersonalDataFrag2 extends Fragment {
                 }else {
                     layoutGender.setHelperText("");
                 }
-                if (!description.equals("") && !gender.equals("") && !hobbies.isEmpty()) {
+                if (!gender.equals("")) {
 
                     if (mListener != null) {
                         user.setUrl(sImageRef);
