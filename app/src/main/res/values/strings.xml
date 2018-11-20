@@ -1,8 +1,12 @@
 <resources>
     <!--App Name-->
     <string name="app_name">U-TAD APP</string>
-
-    <!--Content App for Form Data-->
+    <!--Login Section Start-->
+    <string name="email_hint">Email</string>
+    <string name="pass_hint">Password</string>
+    <string name="btn_login_text">Login</string>
+    <!--Login Section End-->
+    <!--Form Data Section Start-->
     <string name="name">Name</string>
     <string name="surname1">Surname</string>
     <string name="surname2">Surname 2</string>
@@ -16,8 +20,8 @@
         <item>Home</item>
         <item>Office</item>
     </string-array>
-
-    <!--Navigation Drawer Strings-->
+    <!--Form Data Section End-->
+    <!--Navigation Drawer Section Start-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="description">Description</string>
