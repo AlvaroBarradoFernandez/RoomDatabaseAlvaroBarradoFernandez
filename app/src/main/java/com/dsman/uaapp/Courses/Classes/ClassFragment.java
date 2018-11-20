@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.dsman.uaapp.R;
 
@@ -20,6 +21,9 @@ public class ClassFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private String image;
+    private String name;
+    private String surname;
 
     public ClassFragment() {
         // Required empty public constructor
@@ -48,9 +52,11 @@ public class ClassFragment extends Fragment {
         mAdapter = new ClassAdapter(createData(), new ClassAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ClassObject item) {
-                Log.d("Celda","Informacion: "+item.toString());
+                Toast.makeText(getActivity(),"Class " + item.getNameclass(),Toast.LENGTH_LONG).show();
+
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                CardView_Class_Data data = new CardView_Class_Data(item);
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
                     transaction.remove(prev);
@@ -58,6 +64,7 @@ public class ClassFragment extends Fragment {
                 transaction.addToBackStack(null);
 
                 Class_FragmentDialog cfd = new Class_FragmentDialog();
+                cfd.newInstance(data);
                 cfd.show(transaction, "dialog");
             }
         });
