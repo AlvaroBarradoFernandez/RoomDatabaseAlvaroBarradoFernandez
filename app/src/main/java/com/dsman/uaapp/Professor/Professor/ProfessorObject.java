@@ -9,6 +9,16 @@ public class ProfessorObject implements Parcelable {
     private String surnameprofessor;
     private String textDescProfessor;
 
+    public String getTextDescProfessor() {
+        return textDescProfessor;
+    }
+
+    public void setTextDescProfessor(String textDescProfessor) {
+        this.textDescProfessor = textDescProfessor;
+    }
+
+
+
     public String getSurnameprofessor() {
         return surnameprofessor;
     }

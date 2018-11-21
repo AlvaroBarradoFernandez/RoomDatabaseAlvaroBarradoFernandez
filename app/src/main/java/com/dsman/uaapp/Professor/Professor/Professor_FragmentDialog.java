@@ -104,6 +104,7 @@ public class Professor_FragmentDialog extends DialogFragment {
             professorName.setText(item.getNameprofessor());
             professorImg.setImageResource(item.getImgprofessor());
             professorSurname.setText(item.getSurnameprofessor());
+            professorDescriptionTwo.setText(item.getTextDescProfessor());
 }
     }
 

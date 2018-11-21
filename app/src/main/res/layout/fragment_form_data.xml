@@ -171,7 +171,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:hint="@string/address"
-                        android:inputType="textCapSentences|textMultiLine|textCapWords"
+                        android:inputType="textCapWords"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>

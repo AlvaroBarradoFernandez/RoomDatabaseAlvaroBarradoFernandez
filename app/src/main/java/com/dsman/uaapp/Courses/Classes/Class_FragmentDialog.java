@@ -97,15 +97,9 @@ public class Class_FragmentDialog extends DialogFragment {
             className.setText(item.getNameclass());
             classImg.setImageResource(item.getImgclass());
             classyear.setText(item.getCourse());
+            classDescriptionTwo.setText(item.getTextDescriptionClass());
         }
     }
 
-    public void onclick(View view) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setData(Uri.parse("prueba@gmail.com"));
-        intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-        startActivity(intent.createChooser(intent, "Send email via..."));
-
-    }
 
 }

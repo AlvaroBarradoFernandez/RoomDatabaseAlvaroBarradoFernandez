@@ -7,31 +7,31 @@ public class ClassObject implements Parcelable {
     private String nameclass;
     private int imgclass;
     private String course;
-    private String textDescriptionProfessor;
+    private String textDescriptionClass;
 
 
-    public String getTextDescriptionProfessor() {
-        return textDescriptionProfessor;
+    public String getTextDescriptionClass() {
+        return textDescriptionClass;
     }
 
-    public void setTextDescriptionProfessor(String textDescriptionProfessor) {
-        this.textDescriptionProfessor = textDescriptionProfessor;
+    public void setTextDescriptionClass(String textDescriptionClass) {
+        this.textDescriptionClass = textDescriptionClass;
     }
 
 
 
-    public ClassObject(String nameclass, int imgclass, String course, String textDescriptionProfessor) {
+    public ClassObject(String nameclass, int imgclass, String course, String textDescriptionClass) {
         this.nameclass = nameclass;
         this.imgclass = imgclass;
         this.course = course;
-        this.textDescriptionProfessor = textDescriptionProfessor;
+        this.textDescriptionClass = textDescriptionClass;
     }
 
     public ClassObject(Parcel in) {
         nameclass = in.readString();
         imgclass = in.readInt();
         course = in.readString();
-        textDescriptionProfessor = in.readString();
+        textDescriptionClass = in.readString();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ClassObject implements Parcelable {
         dest.writeString(nameclass);
         dest.writeInt(imgclass);
         dest.writeString(course);
-        dest.writeString(textDescriptionProfessor);
+        dest.writeString(textDescriptionClass);
     }
 
     @Override

@@ -69,9 +69,9 @@ public class ProfessorFragment extends Fragment {
         ProfessorObject pedro = new ProfessorObject("Pedro",R.drawable.pedro, "Camacho", "Computing expert");
         ProfessorObject jaime = new ProfessorObject("Jaime", R.drawable.jaime, "La Torre","Database expert");
         ProfessorObject laura = new ProfessorObject("Laura", R.drawable.laura, "Jaen", "OpenERP expert");
-        ProfessorObject meritxell = new ProfessorObject("Meritxell", R.drawable.meritxel,"Cata", "Company expert");
+        ProfessorObject meritxell = new ProfessorObject("Meritxell", R.drawable.meritxel,"Bretos", "Company expert");
         ProfessorObject david = new ProfessorObject("David", R.drawable.david, "Jardon", "Adroid expert");
-        ProfessorObject cristina = new ProfessorObject("Cristina",R.drawable.cristina, "Castaño", "English expert");
+        ProfessorObject cristina = new ProfessorObject("Cristina",R.drawable.cristina, "Espinosa", "English expert");
         ProfessorObject dani = new ProfessorObject("Daniel", R.drawable.daniel_lopez, "Lopez", "TFG expert");
         ProfessorObject carlos = new ProfessorObject("Carlos", R.drawable.carlos, "Jimenez", "IOS expert");
         List<ProfessorObject> data = new ArrayList<>();

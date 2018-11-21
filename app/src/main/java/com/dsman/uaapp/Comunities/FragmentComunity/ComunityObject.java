@@ -7,6 +7,9 @@ public class ComunityObject implements Parcelable {
     private String namecomunity;
     private int imgcomunity;
 
+    private String textDescriptionCommunity;
+    private String topicCommunity;
+
     public String getTopicCommunity() {
         return topicCommunity;
     }
@@ -15,7 +18,7 @@ public class ComunityObject implements Parcelable {
         this.topicCommunity = topicCommunity;
     }
 
-    private String topicCommunity;
+
 
     public String getTextDescriptionCommunity() {
         return textDescriptionCommunity;
@@ -25,7 +28,6 @@ public class ComunityObject implements Parcelable {
         this.textDescriptionCommunity = textDescriptionCommunity;
     }
 
-    private String textDescriptionCommunity;
 
     public ComunityObject(String namecomunity, int imgcomunity, String topicCommunity, String textDescriptionCommunity) {
         this.namecomunity = namecomunity;
