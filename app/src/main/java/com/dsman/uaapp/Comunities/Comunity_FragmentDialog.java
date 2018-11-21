@@ -107,6 +107,7 @@ public class Comunity_FragmentDialog extends DialogFragment {
             logo.setImageResource(item.getImgcomunity());
             text_description.setText(item.getTextDescriptionCommunity());
             topic_name.setText(item.getTopicCommunity());
+            title_comunity.setText(item.getCordinator());
         }
     }
 

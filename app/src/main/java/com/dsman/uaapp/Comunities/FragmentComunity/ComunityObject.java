@@ -10,6 +10,16 @@ public class ComunityObject implements Parcelable {
     private String textDescriptionCommunity;
     private String topicCommunity;
 
+    public String getCordinator() {
+        return cordinator;
+    }
+
+    public void setCordinator(String cordinator) {
+        this.cordinator = cordinator;
+    }
+
+    private String cordinator;
+
     public String getTopicCommunity() {
         return topicCommunity;
     }
@@ -29,11 +39,12 @@ public class ComunityObject implements Parcelable {
     }
 
 
-    public ComunityObject(String namecomunity, int imgcomunity, String topicCommunity, String textDescriptionCommunity) {
+    public ComunityObject(String namecomunity, int imgcomunity, String topicCommunity, String textDescriptionCommunity, String coordinator) {
         this.namecomunity = namecomunity;
         this.imgcomunity = imgcomunity;
         this.topicCommunity = topicCommunity;
         this.textDescriptionCommunity = textDescriptionCommunity;
+        this.cordinator = coordinator;
     }
 
     public ComunityObject(Parcel in) {
@@ -41,6 +52,7 @@ public class ComunityObject implements Parcelable {
         imgcomunity = in.readInt();
         topicCommunity = in.readString();
         textDescriptionCommunity = in.readString();
+        cordinator = in.readString();
     }
 
     @Override
@@ -49,6 +61,7 @@ public class ComunityObject implements Parcelable {
         dest.writeInt(imgcomunity);
         dest.writeString(topicCommunity);
         dest.writeString(textDescriptionCommunity);
+        dest.writeString(cordinator);
     }
 
     @Override
