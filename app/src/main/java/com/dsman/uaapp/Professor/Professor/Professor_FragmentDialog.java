@@ -68,12 +68,9 @@ public class Professor_FragmentDialog extends DialogFragment {
         builder.setView(view).setPositiveButton("Email", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("message/rfc822");
-                String mail = "prueba@gmail.com";
-                intent.putExtra(Intent.EXTRA_EMAIL, mail);
-                intent.putExtra(Intent.EXTRA_TEXT,"Greatings");
-                startActivity(Intent.createChooser(intent,"Send Email via..."));
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:teacher@u-tad.com"));
+                startActivity(Intent.createChooser(emailIntent,"Send Email via..."));
             }
         })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
