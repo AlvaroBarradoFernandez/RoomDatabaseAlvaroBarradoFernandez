@@ -49,7 +49,7 @@ public class ClassFragment extends Fragment {
         mAdapter = new ClassAdapter(createData(), new ClassAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ClassObject item) {
-                Toast.makeText(getActivity(),"Class " + item.getNameclass(),Toast.LENGTH_LONG).show();
+               //Toast.makeText(getActivity(),"Class " + item.getNameclass(),Toast.LENGTH_LONG).show();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
