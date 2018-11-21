@@ -3,27 +3,27 @@ package com.dsman.uaapp.Comunities;
 import android.graphics.drawable.Drawable;
 
 public class CardView_Comunity_Data {
-    private Drawable fotos_comunity ;
-    private String nombres_comunity;
+    private Drawable photos_course;
+    private String names_course;
 
-    public CardView_Comunity_Data(Drawable fotos, String nombres) {
-        this.fotos_comunity = fotos;
-        this.nombres_comunity = nombres;
+    public CardView_Comunity_Data(Drawable photos, String names) {
+        this.photos_course = photos;
+        this.names_course = names;
     }
 
-    public void setFotos_comunity(Drawable fotos) {
-        this.fotos_comunity = fotos;
+    public void setPhotos_comunity(Drawable photos) {
+        this.photos_course = photos;
     }
 
-    public void setNombres_comunity(String nombres) {
-        this.nombres_comunity = nombres;
+    public void setNames_comunity(String names) {
+        this.names_course = names;
     }
 
-    public Drawable getFotos_comunity() {
-        return fotos_comunity;
+    public Drawable getPhotos_comunity() {
+        return photos_course;
     }
 
-    public String getNombres_comunity() {
-        return nombres_comunity;
+    public String getNames_comunity() {
+        return names_course;
     }
 }

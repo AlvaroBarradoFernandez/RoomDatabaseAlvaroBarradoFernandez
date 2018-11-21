@@ -47,8 +47,8 @@ public class RecyclerAdapter_Comunity_Data extends RecyclerView.Adapter<Recycler
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         CardView_Comunity_Data item = mDataset [position];
-        holder.mTextView.setText(item.getNombres_comunity());
-        holder.mImagenView.setImageDrawable(item.getFotos_comunity());
+        holder.mTextView.setText(item.getNames_comunity());
+        holder.mImagenView.setImageDrawable(item.getPhotos_comunity());
 
     }
 

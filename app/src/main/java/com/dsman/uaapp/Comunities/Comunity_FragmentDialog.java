@@ -64,16 +64,13 @@ public class Comunity_FragmentDialog extends DialogFragment {
         CardView_Comunity_Data events = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Events");
         CardView_Comunity_Data projects = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null),"Projects");
         CardView_Comunity_Data valuation = new CardView_Comunity_Data(ResourcesCompat.getDrawable(getResources(), R.drawable.u_logo, null), "Valuation");
-        CardView_Comunity_Data[] elementos = {num_alumComunity,classroom,events,projects,valuation};
+        CardView_Comunity_Data[] elements = {num_alumComunity,classroom,events,projects,valuation};
         builder.setView(view).setPositiveButton("Email", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("message/rfc822");
-                String mail = "prueba@gmail.com";
-                intent.putExtra(Intent.EXTRA_EMAIL, mail);
-                intent.putExtra(Intent.EXTRA_TEXT,"Greatings");
-                startActivity(Intent.createChooser(intent,"Send Email via..."));
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:coordinator@u-tad.com"));
+                startActivity(Intent.createChooser(emailIntent,"Send Email via..."));
             }
         })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -94,7 +91,7 @@ public class Comunity_FragmentDialog extends DialogFragment {
         mLayoutManagerComunity = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recycle.setLayoutManager(mLayoutManagerComunity);
         updateDialog(item);
-        mAdapterComunity = new RecyclerAdapter_Comunity_Data(elementos);
+        mAdapterComunity = new RecyclerAdapter_Comunity_Data(elements);
         recycle.setAdapter(mAdapterComunity);
         my_fab = view.findViewById(R.id.my_fab);
 

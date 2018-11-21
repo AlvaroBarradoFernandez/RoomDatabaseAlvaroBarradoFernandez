@@ -54,7 +54,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         TextView mName = navigationView.findViewById(R.id.tvtUserName);
         TextView mSurname = navigationView.findViewById(R.id.tvtUserSurname);
         TextView mEmail = navigationView.findViewById(R.id.tvtEmail);
-        setTitle("Clases");
+        setTitle("Classes");
         Fragment fragment = new ClassFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_generalcourse, fragment);
