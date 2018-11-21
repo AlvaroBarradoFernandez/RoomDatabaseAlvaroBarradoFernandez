@@ -69,10 +69,10 @@ public class ComunityFragment extends Fragment {
     }
     //Lista de datos del fragment
     public List<ComunityObject> createData() {
-        ComunityObject cibersegurity = new ComunityObject("Cibersegurity",R.drawable.basedatos);
-        ComunityObject development = new ComunityObject("Development", R.drawable.android);
-        ComunityObject big_data = new ComunityObject("Big Data", R.drawable.fct);
-        ComunityObject videogames = new ComunityObject("Videogames", R.drawable.computing);
+        ComunityObject cibersegurity = new ComunityObject("Cibersegurity",R.drawable.basedatos, "CiberSegurity","CiberSegurity Community");
+        ComunityObject development = new ComunityObject("Development", R.drawable.android, "Development", "Development Community");
+        ComunityObject big_data = new ComunityObject("Big Data", R.drawable.fct, "Big Data", "Big Data Community");
+        ComunityObject videogames = new ComunityObject("Videogames", R.drawable.computing, "VideoGames", "VideoGames Community");
         List<ComunityObject> data = new ArrayList<>();
         data.add(cibersegurity);
         data.add(development);

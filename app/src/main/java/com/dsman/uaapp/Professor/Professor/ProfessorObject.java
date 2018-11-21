@@ -6,24 +6,40 @@ import android.os.Parcelable;
 public class ProfessorObject implements Parcelable {
     private String nameprofessor;
     private int imgprofessor;
+    private String surnameprofessor;
+    private String textDescProfessor;
+
+    public String getSurnameprofessor() {
+        return surnameprofessor;
+    }
+
+    public void setSurnameprofessor(String surnameprofessor) {
+        this.surnameprofessor = surnameprofessor;
+    }
 
     public ProfessorObject() {
     }
 
-    public ProfessorObject(String nameprofessor, int imgprofessor) {
+    public ProfessorObject(String nameprofessor, int imgprofessor, String surnameprofessor, String textDescProfessor) {
         this.nameprofessor = nameprofessor;
         this.imgprofessor = imgprofessor;
+        this.surnameprofessor = surnameprofessor;
+        this.textDescProfessor = textDescProfessor;
     }
 
     public ProfessorObject(Parcel in) {
         nameprofessor = in.readString();
         imgprofessor = in.readInt();
+        surnameprofessor = in.readString();
+        textDescProfessor = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(nameprofessor);
         dest.writeInt(imgprofessor);
+        dest.writeString(surnameprofessor);
+        dest.writeString(textDescProfessor);
     }
 
     @Override
