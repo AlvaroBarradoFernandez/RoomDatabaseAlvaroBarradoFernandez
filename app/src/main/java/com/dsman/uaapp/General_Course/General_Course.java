@@ -37,7 +37,7 @@ import butterknife.OnClick;
 public class General_Course extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String USER = "USER";
     private static User user;
-    private String mUri, sUserName, sSurname, sEmail; //TODO Mostrar Email en el Fragemt CardView
+    private String mUri, sUserName, sSurname, sEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,10 +119,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         }
 
         //TODO Salir al clicar atrás sin usar Intent
-        Intent navigate = new Intent(Intent.ACTION_MAIN);
-        navigate.setFlags(navigate.FLAG_ACTIVITY_NEW_TASK | navigate.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(navigate);
-        finish();
+        //NO Conseguido
     }
 
     @Override
@@ -185,7 +182,7 @@ public class General_Course extends AppCompatActivity implements NavigationView.
         }
     }
 
-    @OnClick()
+
     public void onclicklogout(MenuItem item) {
 
         Intent navigate = new Intent(General_Course.this, Login.class);

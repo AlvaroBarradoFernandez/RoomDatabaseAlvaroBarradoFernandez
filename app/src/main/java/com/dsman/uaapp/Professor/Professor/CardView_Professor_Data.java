@@ -3,25 +3,25 @@ package com.dsman.uaapp.Professor.Professor;
 import android.graphics.drawable.Drawable;
 
 public class CardView_Professor_Data {
-    private Drawable fotos_subject ;
-    private String nombres_subject;
+    private Drawable photos_course;
+    private String names_course;
 
-    public CardView_Professor_Data(Drawable fotos, String nombres) {
-        this.fotos_subject = fotos;
-        this.nombres_subject = nombres;
+    public CardView_Professor_Data(Drawable photos, String names) {
+        this.photos_course = photos;
+        this.names_course = names;
     }
 
-    public void setFotos_subject(Drawable fotos) {
-        this.fotos_subject = fotos;
+    public void setPhotos_subject(Drawable photos) {
+        this.photos_course = photos;
     }
 
-    public void setNombres_subject(String nombres) {
-        this.nombres_subject = nombres;
+    public void setNames_subject(String names) {
+        this.names_course = names;
     }
 
-    public Drawable getFotos_subject() {
-        return fotos_subject;
+    public Drawable getPhotos_subject() {
+        return photos_course;
     }
 
-    public String getNombres_subject() { return nombres_subject; }
+    public String getNames_subject() { return names_course; }
 }

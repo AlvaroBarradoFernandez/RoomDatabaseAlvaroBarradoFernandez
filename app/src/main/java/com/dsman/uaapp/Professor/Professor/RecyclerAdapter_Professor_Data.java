@@ -49,8 +49,8 @@ public class RecyclerAdapter_Professor_Data extends RecyclerView.Adapter<Recycle
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         CardView_Professor_Data  item = mDataset [position];
-        holder.mTextView.setText(item.getNombres_subject());
-        holder.mImagenView.setImageDrawable(item.getFotos_subject());
+        holder.mTextView.setText(item.getNames_subject());
+        holder.mImagenView.setImageDrawable(item.getPhotos_subject());
 
     }
 

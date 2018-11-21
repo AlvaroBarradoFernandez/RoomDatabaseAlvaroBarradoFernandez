@@ -3,27 +3,27 @@ package com.dsman.uaapp.Courses.Classes;
 import android.graphics.drawable.Drawable;
 
 public class CardView_Class_Data{
-    private Drawable fotos_course ;
-    private String nombres_course;
+    private Drawable photos_course;
+    private String names_course;
 
-    public CardView_Class_Data(Drawable fotos, String nombres) {
-        this.fotos_course = fotos;
-        this.nombres_course = nombres;
+    public CardView_Class_Data(Drawable photos, String names) {
+        this.photos_course = photos;
+        this.names_course = names;
     }
 
-    public void setFotos_subject(Drawable fotos) {
-        this.fotos_course = fotos;
+    public void setPhotos_subject(Drawable photos) {
+        this.photos_course = photos;
     }
 
-    public void setNombres_subject(String nombres) {
-        this.nombres_course = nombres;
+    public void setNames_subject(String names) {
+        this.names_course = names;
     }
 
-    public Drawable getFotos_subject() {
-        return fotos_course;
+    public Drawable getPhotos_subject() {
+        return photos_course;
     }
 
-    public String getNombres_subject() {
-        return nombres_course;
+    public String getNames_subject() {
+        return names_course;
     }
 }

@@ -68,7 +68,7 @@ public class PersonalDataFrag2 extends Fragment {
         ButterKnife.bind(this, mView);
         user = new User();
         onClickedImage();
-        onClickedSave();
+        onClickedOk();
 
 
         Intent a = getActivity().getIntent();
@@ -122,7 +122,7 @@ public class PersonalDataFrag2 extends Fragment {
         }
     }
 
-    public void onClickedSave() {
+    public void onClickedOk() {
         fabtnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

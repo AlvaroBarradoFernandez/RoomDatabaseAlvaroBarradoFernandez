@@ -20,12 +20,12 @@ public class RecyclerAdapter_Class_Data extends RecyclerView.Adapter<RecyclerAda
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView mTextView;
-        public ImageView mImagenView;
+        public ImageView mImageView;
 
         public MyViewHolder(View v) {
             super(v);
             mTextView =  v.findViewById(R.id.course_Name);
-            mImagenView = v.findViewById(R.id.course_Photo);
+            mImageView = v.findViewById(R.id.course_Photo);
 
         }
     }
@@ -50,8 +50,8 @@ public class RecyclerAdapter_Class_Data extends RecyclerView.Adapter<RecyclerAda
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         CardView_Class_Data item = mDataset [position];
-        holder.mTextView.setText(item.getNombres_subject());
-        holder.mImagenView.setImageDrawable(item.getFotos_subject());
+        holder.mTextView.setText(item.getNames_subject());
+        holder.mImageView.setImageDrawable(item.getPhotos_subject());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
