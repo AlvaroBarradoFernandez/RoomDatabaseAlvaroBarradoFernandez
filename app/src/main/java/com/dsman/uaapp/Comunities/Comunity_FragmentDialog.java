@@ -69,7 +69,7 @@ public class Comunity_FragmentDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse("mailto:coordinator@u-tad.com"));
+                emailIntent.setData(Uri.parse("mailto:community@u-tad.com"));
                 startActivity(Intent.createChooser(emailIntent,"Send Email via..."));
             }
         })
