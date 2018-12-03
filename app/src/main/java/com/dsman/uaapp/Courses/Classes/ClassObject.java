@@ -1,12 +1,25 @@
 package com.dsman.uaapp.Courses.Classes;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
+@Entity(tableName = "classData")
 public class ClassObject implements Parcelable {
+
+    @PrimaryKey
+    @NonNull
+    private int id;
+    @ColumnInfo(name = "nameclass")
     private String nameclass;
+    @ColumnInfo(name = "imgclass")
     private int imgclass;
+    @ColumnInfo(name = "course")
     private String course;
+    @ColumnInfo(name = "textDescriptionClass")
     private String textDescriptionClass;
 
 

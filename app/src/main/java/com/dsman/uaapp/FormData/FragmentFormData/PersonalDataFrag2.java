@@ -169,7 +169,6 @@ public class PersonalDataFrag2 extends Fragment {
                         user.setUrl(sImageRef);
                         user.setDescription(description);
                         user.setGender(gender);
-                        user.setHobbies(hobbies);
                         mListener.saveUserData(v, user);
 
                     }

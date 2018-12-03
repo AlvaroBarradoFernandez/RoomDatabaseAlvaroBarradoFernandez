@@ -1,13 +1,36 @@
 package com.dsman.uaapp.Professor.Professor;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
+@Entity(tableName = "ProfessorData")
 public class ProfessorObject implements Parcelable {
+
+    @PrimaryKey
+    @NonNull
+    private int id;
+
+    @ColumnInfo (name = "nameprofessor")
     private String nameprofessor;
+    @ColumnInfo (name = "imgprofessor")
     private int imgprofessor;
+    @ColumnInfo (name = "surnameprofessor")
     private String surnameprofessor;
+    @ColumnInfo (name = "textdescprofessor")
     private String textDescProfessor;
+
+    @NonNull
+    public int getId() {
+        return id;
+    }
+
+    public void setId(@NonNull int id) {
+        this.id = id;
+    }
 
     public String getTextDescProfessor() {
         return textDescProfessor;
@@ -16,8 +39,6 @@ public class ProfessorObject implements Parcelable {
     public void setTextDescProfessor(String textDescProfessor) {
         this.textDescProfessor = textDescProfessor;
     }
-
-
 
     public String getSurnameprofessor() {
         return surnameprofessor;

@@ -10,13 +10,19 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.dsman.uaapp.FormData.FormsActivity;
+import com.dsman.uaapp.General_Course.General_Course;
 import com.dsman.uaapp.R;
 import com.dsman.uaapp.User;
+import com.dsman.uaapp.UserDatabase.UserDAO;
+import com.dsman.uaapp.DatabaseGeneral;
 
 
 public class Login extends AppCompatActivity {
+
+    private DatabaseGeneral database;
 
     private EditText mEmail;
     private EditText mPassword;
@@ -28,7 +34,6 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         user = new User();
         mEmail = findViewById(R.id.etEmail);
@@ -38,6 +43,8 @@ public class Login extends AppCompatActivity {
         checkButon();
 
     }
+
+
 
 
     public void login() {

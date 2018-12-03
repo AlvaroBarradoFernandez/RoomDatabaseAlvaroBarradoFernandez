@@ -28,6 +28,7 @@ public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          mContext = getApplicationContext();
+         threadUser();
         setContentView(R.layout.activity_forms);
         if (findViewById(R.id.pager) != null) {
             if (savedInstanceState != null) {
@@ -37,6 +38,10 @@ public class FormsActivity extends FragmentActivity implements FormDataFrag1.OnF
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.pager, formDataFragment).commit();
         }
+
+    }
+
+    private void threadUser() {
 
     }
 

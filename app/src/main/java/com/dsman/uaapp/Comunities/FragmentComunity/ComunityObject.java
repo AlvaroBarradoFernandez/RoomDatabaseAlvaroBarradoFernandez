@@ -1,14 +1,34 @@
 package com.dsman.uaapp.Comunities.FragmentComunity;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
+@Entity(tableName = "ComunityData")
 public class ComunityObject implements Parcelable {
+    @PrimaryKey
+    @NonNull
+    private int id;
+    @ColumnInfo(name = "namecomunity")
     private String namecomunity;
+    @ColumnInfo(name = "imgcomunity")
     private int imgcomunity;
-
+    @ColumnInfo(name = "textDescriptionCommunity")
     private String textDescriptionCommunity;
+    @ColumnInfo(name = "topicCommunity")
     private String topicCommunity;
+
+    @NonNull
+    public int getId() {
+        return id;
+    }
+
+    public void setId(@NonNull int id) {
+        this.id = id;
+    }
 
     public String getCordinator() {
         return cordinator;
